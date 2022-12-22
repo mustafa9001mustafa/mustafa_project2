@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="user_name">إسم الاعب : </string>
+    <string name="email">الإيميل : </string>
+    <string name="birthday">تاريخ الميلاد : </string>
+    <string name="gender">الجنس : </string>
+    <string name="country">الدولة : </string>
+    <string name="profile_information">بيانات الاعب</string>
+    <string name="game_information">بيانات اللعب</string>
+    <string name="finished_level">عدد المراحل المنتهية</string>
+    <string name="number_of_played">عدد المباريات التي لعبتها</string>
+    <string name="win">عدد مراحل الفوز</string>
+    <string name="lose">عدد مراحل الخسارة</string>
+    <string name="enter_user_name">أدخل إسم المستخدم</string>
+    <string name="enter_email">أدخل البريد الإلكتروني</string>
+    <string name="enter_birthday">أدخل تاريخ الميلاد</string>
+    <string name="male">ذكر</string>
+    <string name="female">أنثى</string>
+    <string name="save_data">حفظ البيانات</string>
+    <string name="Entercontrey">إختر الدولة</string>
+
+    <string name="palestine">فلسطين</string>
+    <string name="Egypt">مصر</string>
+    <string name="Quoter">قطر</string>
+    <string name="SaudiArabia">السعودية</string>
+    <string name="Algeria">الجزائر</string>
+    <string name="Kuwait">الكويت</string>
+    <string name="Lebanon">لبنان</string>
+    <string name="Morocco">المغرب</string>
+    <string name="Sudan">السودان</string>
+    <string name="Sorya">سوريا</string>
+    <string name="Tunisia">تونس</string>
+    <string name="Iraq">العراق</string>
+    <string name="Yemen">اليمن</string>
+    <string name="Oman">عمان</string>
+    <string name="Jordan">الأردن</string>
+    <string name="UAS">الإمارت العربية المتحدة</string>
+    <string name="app_name">المشروع الثاني</string>
+    <string name="start">إبدأ</string>
+    <string name="Exit">خروج</string>
+    <string name="Setting">الإعدادات</string>
+    <string name="hello_blank_fragment">مرحبا</string>
+    <string name="isunge"> عمرك أقل من المطلوب</string>
+    <string name="close"> لا, إغلاق</string>
+    <string name="youknow">هل تريد الخروج من اللعبة</string>
+    <string name="doyoudelete">هل أنت تريد حذف جميع البيانات</string>
+    <string name="reset">إعادة ضبط</string>
+    <string name="notification">الإشعارات</string>
+    <string name="o">O</string>
+    <string name="i">|</string>
+    <string name="sounds">الأصوات</string>
+    <string name="profile">الملف الشخص</string>
+    <string name="additional_settings">إعدادات إضافية</string>
+    <string name="thedarkmode">الوضع الليلي</string>
+    <string name="languages">اللغة</string>
+    <string name="restart">إعادة التشغيل</string>
+    <string name="textout">أعد تشغيل التطبيق لتحويل الوضع الليلي</string>
+    <string name="save_lan">حفظ اللغة</string>
+    <string name="choosethelanguage">إختر اللغة</string>
+    <string name="Arabic">العربية</string>
+    <string name="English">الإنجليزية</string>
+    <string name="completdata">أكمل تعبئة البيانات</string>
+    <string name="player">الاعب رقم 1</string>
+    <string name="example">مثال@مثال.com</string>
+    <string name="birth">1/1/2000</string>
+    <string name="question_true_or_false">السؤال : صح او خطأ</string>
+    <string name="question_choose">السؤال : اختر</string>
+    <string name="question_file_text">السؤال : أجب</string>
+    <string name="set_text_answer">الإجابة</string>
+    <string name="skip">skip</string>
+
+
+</resources>

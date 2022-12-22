@@ -1,0 +1,425 @@
+[{
+		"level_no": 1,
+		"unlock_points": 0,
+		"questions": [{
+				"id": 1,
+				"title": "عدد أحرف اللغة الانجليزية 28 حرف",
+				"answer_1": "",
+				"answer_2": "",
+				"answer_3": "",
+				"answer_4": "",
+				"true_answer": "false",
+				"points": 3,
+				"duration": 3000,
+				"pattern": {
+					"pattern_id": 1,
+					"pattern_name": "True of False"
+				},
+				"hint": "عدد أحرف اللغة الانجليزية 26 حرف فقط"
+			},
+			{
+				"id": 2,
+				"title": "عاصمة أثيوبيا هي",
+				"answer_1": "أديس أبابا",
+				"answer_2": "جامايكا",
+				"answer_3": "كوالالمبور",
+				"answer_4": "دبلن",
+				"true_answer": "أديس أبابا",
+				"points": 2,
+				"duration": 3000,
+				"pattern": {
+					"pattern_id": 2,
+					"pattern_name": "Choose the correct answer"
+				},
+				"hint": "عاصمة أثيوبيا هي أديس أبابا"
+			}
+			,{
+				"id": 3,
+				"title": "الكوكب الأحمر هو كوكب",
+				"answer_1": "",
+				"answer_2": "",
+				"answer_3": "",
+				"answer_4": "",
+				"true_answer": "المريخ",
+				"points": 5,
+				"duration": 5000,
+				"pattern": {
+					"pattern_id": 3,
+					"pattern_name": "Fill the answer"
+				},
+				"hint": "الكوكب الأحمر هو كوكب المريخ"
+			},
+			{
+				"id": 4,
+				"title": "عدد كواكب المجموعة الشمسية",
+				"answer_1": "10 كواكب",
+				"answer_2": "3 كواكب",
+				"answer_3": "8 كواكب",
+				"answer_4": "12 كوكب",
+				"true_answer": "8 كواكب",
+				"points": 2,
+				"duration": 3000,
+				"pattern": {
+					"pattern_id": 4,
+					"pattern_name": "Choose the correct answer"
+				},
+				"hint": "عدد كواكب المجموعة الشمسية هو 8 كواكب فقط"
+			}
+		]
+	},
+	{
+		"level_no": 2,
+		"unlock_points": 6,
+		"questions": [{
+				"id": 1,
+				"title": "شكل مجرة درب التبانة هو حلزوني",
+				"answer_1": "",
+				"answer_2": "",
+				"answer_3": "",
+				"answer_4": "",
+				"true_answer": "true",
+				"points": 3,
+				"duration": 3000,
+				"pattern": {
+					"pattern_id": 1,
+					"pattern_name": "True of False"
+				},
+				"hint": "شكل مجرة درب التبانة هو حلزوني"
+			},
+			{
+				"id": 2,
+				"title": "يسمى صغير الضفدع",
+				"answer_1": "دنغل",
+				"answer_2": "شرغوف",
+				"answer_3": "يرقة",
+				"answer_4": "كوالا",
+				"true_answer": "شرغوف",
+				"points": 2,
+				"duration": 3000,
+				"pattern": {
+					"pattern_id": 2,
+					"pattern_name": "Choose the correct answer"
+				},
+				"hint": "صغير الضفدع هو الشرغوف"
+			}
+			,{
+				"id": 3,
+				"title": "تعتبر ال....... هي أسرع المخلوقات البحرية",
+				"answer_1": "",
+				"answer_2": "",
+				"answer_3": "",
+				"answer_4": "",
+				"true_answer": "التونة",
+				"points": 5,
+				"duration": 5000,
+				"pattern": {
+					"pattern_id": 3,
+					"pattern_name": "Fill the answer"
+				},
+				"hint": "التونة تعتبر اسرع المخلوقات البحرية، حيث يعتبر الحوت أكبرها"
+			}
+			,
+			{
+				"id": 4,
+				"title": "كم عضلة يستخدم الإنسان عندما يغضب",
+				"answer_1": "12 عضلة",
+				"answer_2": "5 عضلات",
+				"answer_3": "11 عضلة",
+				"answer_4": "13 عضلة",
+				"true_answer": "13 عضلة",
+				"points": 2,
+				"duration": 3000,
+				"pattern": {
+					"pattern_id": 2,
+					"pattern_name": "Choose the correct answer"
+				},
+				"hint": "عندما يغضب الإنسان يستخدم 13 عضلة"
+			}
+		]
+	},
+	{
+		"level_no": 3,
+		"unlock_points": 10,
+		"questions": [{
+				"id": 1,
+				"title": "ما هي الدولة التي لديها أقل نسبة سكان في العالم",
+				"answer_1": "صربيا",
+				"answer_2": "فرنسا",
+				"answer_3": "البرتغال",
+				"answer_4": "منغوليا",
+				"true_answer": "منغوليا",
+				"points": 2,
+				"duration": 3000,
+				"pattern": {
+					"pattern_id": 1,
+					"pattern_name": "Choose the correct answer"
+				},
+				"hint": "أقل دولة في نسبة عدد السكان هي منغوليا"
+			},
+			{
+				"id": 2,
+				"title": "من هي أول دولة عرفت لعبة الشطرنج",
+				"answer_1": "",
+				"answer_2": "",
+				"answer_3": "",
+				"answer_4": "",
+				"true_answer": "الهند",
+				"points": 5,
+				"duration": 5000,
+				"pattern": {
+					"pattern_id": 2,
+					"pattern_name": "Fill the answer"
+				},
+				"hint": "الهند"
+			}
+			,
+			{
+				"id": 3,
+				"title": "ما هي أشهر رياضة في إسبانيا",
+				"answer_1": "",
+				"answer_2": "",
+				"answer_3": "",
+				"answer_4": "",
+				"true_answer": "مصارع الثيؤان",
+				"points": 5,
+				"duration": 5000,
+				"pattern": {
+					"pattern_id": 3,
+					"pattern_name": "Fill the answer"
+				},
+				"hint": "مصارع الثيؤان"
+			}
+			,
+			
+			{
+				"id": 4,
+				"title": "ما هو اكثر انواع الدم إنتشارا",
+				"answer_1": "A فصيلة دم ",
+				"answer_2": "B فصيلة دم ",
+				"answer_3": "O فصيلة دم ",
+				"answer_4": "AB فصيلة دم ",
+				"true_answer": "O فصيلة دم ",
+				"points": 5,
+				"duration": 5000,
+				"pattern": {
+					"pattern_id": 4,
+					"pattern_name": "Fill the answer"
+				},
+				"hint": " تعتبر  أشهر فصيلة دم AB فصيلة دم"
+			}
+		]
+	}
+	,{
+		"level_no": 4,
+		"unlock_points": 15,
+		"questions": [{
+				"id": 1,
+				"title": "لغز : ما هو الشيئ الذي تحمله و يحملك",
+				"answer_1": "",
+				"answer_2": "",
+				"answer_3": "",
+				"answer_4": "",
+				"true_answer": "الحذاء",
+				"points": 5,
+				"duration": 5000,
+				"pattern": {
+					"pattern_id": 1,
+					"pattern_name": "Fill the answer"
+				},
+				"hint": " إنه الحذاء"
+			},
+			{
+				"id": 2,
+				"title": "لغز : ينبض يدون قلب",
+				"answer_1": "",
+				"answer_2": "",
+				"answer_3": "",
+				"answer_4": "",
+				"true_answer": "الساعة",
+				"points": 5,
+				"duration": 5000,
+				"pattern": {
+					"pattern_id": 2,
+					"pattern_name": "Fill the answer"
+				},
+				"hint": "الساعة"
+			}
+			,{
+				"id": 3,
+				"title": "لغز : كم عدد الأضلاع في 9 مربعات",
+				"answer_1": "",
+				"answer_2": "",
+				"answer_3": "",
+				"answer_4": "",
+				"true_answer": "36 ضلع",
+				"points": 5,
+				"duration": 5000,
+				"pattern": {
+					"pattern_id": 3,
+					"pattern_name": "Fill the answer"
+				},
+				"hint": "36 ضلع"
+			}
+		]
+	}
+	,{
+		"level_no": 5,
+		"unlock_points": 20,
+		"questions": [{
+				"id": 1,
+				"title": "لغز : ما هو الشيئ الذي كلما أخذنا منه زاد",
+				"answer_1": "",
+				"answer_2": "",
+				"answer_3": "",
+				"answer_4": "",
+				"true_answer": "الحفرة",
+				"points": 5,
+				"duration": 5000,
+				"pattern": {
+					"pattern_id": 1,
+					"pattern_name": "Fill the answer"
+				},
+				"hint": "إنها الحفرة"
+			},
+			{
+				"id": 2,
+				"title": "كم عدد الناجين من سنفية التايتنك",
+				"answer_1": "324",
+				"answer_2": "645",
+				"answer_3": "867",
+				"answer_4": "706",
+				"true_answer": "706",
+				"points": 2,
+				"duration": 3000,
+				"pattern": {
+					"pattern_id": 2,
+					"pattern_name": "Choose the correct answer"
+				},
+				"hint": "عدد الناجين 706"
+			}
+			,{
+				"id": 3,
+				"title": "لغز : ما هو الشيء الذي لا يبتل حتى لو دخل عليه الماء",
+				"answer_1": "",
+				"answer_2": "",
+				"answer_3": "",
+				"answer_4": "",
+				"true_answer": "الضوء",
+				"points": 5,
+				"duration": 5000,
+				"pattern": {
+					"pattern_id": 3,
+					"pattern_name": "Fill the answer"
+				},
+				"hint": "إنه الضوء"
+			}
+		]
+	}
+	,{
+		"level_no": 6,
+		"unlock_points": 25,
+		"questions": [{
+				"id": 1,
+				"title": "من هو أبطأ حيوان في العالم",
+				"answer_1": "السلحفاء",
+				"answer_2": "الكسلان",
+				"answer_3": "القنفذ",
+				"answer_4": "الحلزون",
+				"true_answer": "الكسلان",
+				"points": 2,
+				"duration": 3000,
+				"pattern": {
+					"pattern_id": 1,
+					"pattern_name": "Choose the correct answer"
+				},
+				"hint": " يعد حيوان الكسلان أبطأ حبوان في العالم"
+			},
+			{
+				"id": 2,
+				"title": "أين تقع الغدة الدرقية في جسم الإنسان",
+				"answer_1": "الرقبة",
+				"answer_2": "العمود الفقري",
+				"answer_3": "المخ",
+				"answer_4": "المعدة",
+				"true_answer": "الرقبة",
+				"points": 2,
+				"duration": 3000,
+				"pattern": {
+					"pattern_id": 2,
+					"pattern_name": "Choose the correct answer"
+				},
+				"hint": "تقع الغدة الدرقية في الرقبة"
+			}
+			,{
+				"id": 3,
+				"title": "من هو الحيوان الذي يتنفس بلسانه",
+				"answer_1": "",
+				"answer_2": "",
+				"answer_3": "",
+				"answer_4": "",
+				"true_answer": "الثعبان",
+				"points": 5,
+				"duration": 5000,
+				"pattern": {
+					"pattern_id": 3,
+					"pattern_name": "Fill the answer"
+				},
+				"hint": "إنه الثعبان"
+			}
+		]
+	}
+
+	,{
+		"level_no": 7,
+		"unlock_points": 30,
+		"questions": [{
+				"id": 1,
+				"title": "وحدة قياس المقاومة هي الآوم",
+				"answer_1": "",
+				"answer_2": "",
+				"answer_3": "",
+				"answer_4": "",
+				"true_answer": "true",
+				"points": 3,
+				"duration": 3000,
+				"pattern": {
+					"pattern_id": 1,
+					"pattern_name": "True of False"
+				},
+				"hint":" وحدة قياس المقاومة هي الآوم الغجابة صحيحة"
+			},
+			{
+				"id": 2,
+				"title": "اكبر دولة عربية هي السعودية",
+				"answer_1": "",
+				"answer_2": "",
+				"answer_3": "",
+				"answer_4": "",
+				"true_answer": "false",
+				"points": 3,
+				"duration": 3000,
+				"pattern": {
+					"pattern_id": 2,
+					"pattern_name": "True of False"
+				},
+				"hint": " تعتبر الجزائر أكبر دولة عربية من ناحية المساحة"
+			}
+			,{
+				"id": 3,
+				"title": "يعتبر القرش أذكى الحيوانات البحرية",
+				"answer_1": "",
+				"answer_2": "",
+				"answer_3": "",
+				"answer_4": "",
+				"true_answer": "false",
+				"points": 3,
+				"duration": 3000,
+				"pattern": {
+					"pattern_id": 3,
+					"pattern_name": "True of False"
+				},
+				"hint": "الدولفين أذكى الحيوانات البحرية"
+			}
+		]
+	}
+]

@@ -1,0 +1,74 @@
+<resources>
+    <string name="app_name">Project part2</string>
+    <string name="start">start</string>
+    <string name="Setting">Setting</string>
+    <string name="Exit">Exit</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="user_name">User Name : </string>
+    <string name="email">Email : </string>
+    <string name="birthday">The BirthDay : </string>
+    <string name="gender">Gender : </string>
+    <string name="country">Country : </string>
+    <string name="profile_information">Profile information</string>
+    <string name="game_information">Game information</string>
+    <string name="finished_level">Finished level</string>
+    <string name="number_of_played">number of played</string>
+    <string name="win">win</string>
+    <string name="lose">lose</string>
+    <string name="enter_user_name">enter user name</string>
+    <string name="enter_email">enter email</string>
+    <string name="enter_birthday">enter BirthDay</string>
+    <string name="male">male</string>
+    <string name="female">female</string>
+    <string name="save_data">save data</string>
+
+
+    <string name="Entercontrey">Enter Country</string>
+    <string name="palestine">palestine</string>
+    <string name="Egypt">Egypt</string>
+    <string name="Quoter">Quoter</string>
+    <string name="SaudiArabia">SaudiArabia</string>
+    <string name="Algeria">Algeria</string>
+    <string name="Kuwait">Kuwait</string>
+    <string name="Lebanon">Lebanon</string>
+    <string name="Morocco">Morocco</string>
+    <string name="Sudan">Sudan</string>
+    <string name="Tunisia">Tunisia</string>
+    <string name="Iraq">Iraq</string>
+    <string name="Sorya">Sorya</string>
+    <string name="Yemen">Yemen</string>
+    <string name="Oman">Oman</string>
+    <string name="Jordan">Jordan</string>
+    <string name="UAS">UAS</string>
+
+    <string name="isunge">\" is baby not gamer\"</string>
+    <string name="close">close</string>
+    <string name="youknow">Do you close game</string>
+    <string name="doyoudelete">Do  you went delete data</string>
+    <string name="reset">Reset</string>
+    <string name="profile">Profile</string>
+    <string name="additional_settings">additional settings</string>
+    <string name="notification">notification</string>
+    <string name="o">O</string>
+    <string name="i">|</string>
+    <string name="sounds">Sounds</string>
+    <string name="thedarkmode">The darkMode</string>
+    <string name="languages">Languages</string>
+    <string name="restart">restart</string>
+    <string name="textout">Restart the app to switch to night mode</string>
+    <string name="save_lan">Save Language</string>
+    <string name="choosethelanguage">choose the language</string>
+    <string name="Arabic">Arabic</string>
+    <string name="English">English</string>
+    <string name="completdata">Complete data</string>
+    <string name="player">player 1 </string>
+    <string name="example">example@example.com</string>
+    <string name="birth">1/1/2000</string>
+    <string name="question_true_or_false">question : True or false</string>
+    <string name="question_choose">question : Choose</string>
+    <string name="question_file_text">question : file in text</string>
+
+    <string name="set_text_answer">file text answer</string>
+    <string name="skip">skip</string>
+
+</resources>

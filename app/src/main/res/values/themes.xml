@@ -1,0 +1,71 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.ProjectPart2" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
+        <item name="android:windowActivityTransitions">true</item>
+
+
+    </style>
+
+    <style name="CustomSwitchCompat" parent="Widget.AppCompat.CompoundButton.Switch">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">@dimen/_10ssp</item>
+
+    </style>
+
+
+    <style name="TextShadowStyle">
+        <item name="android:shadowColor">@color/black</item>
+        <item name="android:shadowDx">2</item>
+        <item name="android:shadowDy">2</item>
+        <item name="android:shadowRadius">1</item>
+    </style>
+
+    <style name="SpinnerColor" parent="Widget.AppCompat.Light.DropDownItem.Spinner">
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:paddingEnd">0dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:backgroundTint">@color/red</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="backgroundcolor" parent="android:Theme.Holo.NoActionBar">
+        <item name="background">@color/white</item>
+        <item name="backgroundTint">@color/white</item>
+        <item name="backgroundColor">@color/white</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:colorBackground">@color/white</item>
+
+    </style>
+
+
+
+    <!--    style-->
+    <!--    CardView عشان نقدر نستخدمه لازك نروح على ال-->
+    <!--    ونضيف هذا السطر-->
+    <!--    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.CardView"-->
+
+    <style name="ShapeAppearanceOverlay.CardView" parent="">
+        <item name="cornerFamilyBottomLeft">rounded</item>
+        <item name="cornerFamilyBottomRight">rounded</item>
+        <item name="cornerSizeBottomLeft">30%</item>
+        <item name="cornerSizeBottomRight">30%</item>
+    </style>
+
+<!--    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">-->
+<!--        <item name="android:windowActivityTransitions">true</item>-->
+<!--    </style>-->
+</resources>
