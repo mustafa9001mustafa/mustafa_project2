@@ -21,6 +21,19 @@
             android:layout_height="match_parent">
 
 
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/hint_icon_true"
+                android:layout_width="@dimen/_45sdp"
+                android:layout_height="@dimen/_45sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_margin="@dimen/_5sdp"
+
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/popup" />
+
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_timer"
                 android:layout_width="@dimen/_95sdp"
@@ -44,7 +57,7 @@
                         android:id="@+id/it_text_timer"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/ds"
+                        style="@style/TextShadowStyle"
                         android:gravity="center"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_17ssp"
@@ -63,8 +76,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_13sdp"
-                android:fontFamily="@font/ds"
                 android:gravity="center"
+                style="@style/TextShadowStyle"
+
                 android:text="@string/question_true_or_false"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_14ssp"
@@ -97,7 +111,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:fontFamily="@font/ds"
+                        style="@style/TextShadowStyle"
                         android:gravity="center"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_21ssp"
@@ -115,7 +129,8 @@
                 android:id="@+id/true_icon"
                 android:layout_width="@dimen/_45sdp"
                 android:layout_height="@dimen/_45sdp"
-                android:layout_margin="@dimen/_22sdp"
+                android:layout_marginTop="@dimen/_60sdp"
+                android:layout_marginHorizontal="@dimen/_32sdp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/card_question"
                 app:lottie_autoPlay="true"
@@ -128,7 +143,8 @@
                 android:id="@+id/false_icon"
                 android:layout_width="@dimen/_45sdp"
                 android:layout_height="@dimen/_45sdp"
-                android:layout_margin="@dimen/_22sdp"
+                android:layout_marginTop="@dimen/_60sdp"
+                android:layout_marginHorizontal="@dimen/_32sdp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/card_question"
                 app:lottie_autoPlay="true"
@@ -137,15 +153,17 @@
 
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/card_skip"
+                android:id="@+id/card_skip_true"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_42sdp"
                 android:layout_marginHorizontal="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_50sdp"
                 app:cardBackgroundColor="@color/red"
                 app:cardCornerRadius="@dimen/_10sdp"
                 app:cardUseCompatPadding="true"
-                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginBottom="@dimen/_15sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/false_icon">
 
 
@@ -155,27 +173,28 @@
 
 
                     <TextView
-                        android:id="@+id/item_text_skip"
+                        android:id="@+id/item_text_skip_true"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/_15sdp"
                         android:text="@string/skip"
+                        style="@style/TextShadowStyle"
+
                         android:textColor="@color/white"
-                        android:layout_marginTop="@dimen/_40sdp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
 
                     <com.airbnb.lottie.LottieAnimationView
-                        android:id="@+id/skip_icon"
+                        android:id="@+id/skip_icon_true"
                         android:layout_width="@dimen/_25sdp"
                         android:layout_height="@dimen/_25sdp"
                         android:rotation="-90"
-                        app:layout_constraintEnd_toStartOf="@id/item_text_skip"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toRightOf="@id/item_text_skip_true"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
                         app:lottie_autoPlay="true"
                         app:lottie_loop="true"
                         app:lottie_rawRes="@raw/skip" />

@@ -67,7 +67,8 @@
     <string name="question_choose">السؤال : اختر</string>
     <string name="question_file_text">السؤال : أجب</string>
     <string name="set_text_answer">الإجابة</string>
-    <string name="skip">skip</string>
+    <string name="skip">تخطى</string>
+    <string name="slash">/</string>
 
 
 </resources>

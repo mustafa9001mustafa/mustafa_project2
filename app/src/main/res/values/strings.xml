@@ -70,5 +70,6 @@
 
     <string name="set_text_answer">file text answer</string>
     <string name="skip">skip</string>
+    <string name="slash">/</string>
 
 </resources>

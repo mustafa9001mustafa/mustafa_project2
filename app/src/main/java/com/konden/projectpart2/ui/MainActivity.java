@@ -124,7 +124,6 @@ public class MainActivity extends AppCompatActivity implements CallFragment {
                 level = new LevelEntity(level_no, unlock_points);
                 viewModel.InsertLevel(level);
 
-
                 jr = object.getJSONArray("questions");
 
                 for (int j = 0; j < jr.length(); j++) {

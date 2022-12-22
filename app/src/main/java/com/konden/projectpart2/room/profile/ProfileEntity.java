@@ -17,6 +17,10 @@ public class ProfileEntity {
     private String gender;
     private String country;
 
+    private int point;
+
+
+
     public ProfileEntity(String username, String email, String birthday, String gender, String country) {
         this.username = username;
         this.email = email;
@@ -71,5 +75,12 @@ public class ProfileEntity {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+    public int getPoint() {
+        return point;
+    }
+
+    public void setPoint(int point) {
+        this.point = point;
     }
 }

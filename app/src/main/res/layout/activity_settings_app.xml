@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#313F85"
-    android:foregroundTint="#FFFFFF"
+    android:background="@color/app_color"
     tools:context=".ui.SettingsApp"
     android:configChanges="uiMode">
 

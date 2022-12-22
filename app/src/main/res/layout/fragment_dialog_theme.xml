@@ -30,15 +30,16 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:lottie_autoPlay="true"
                 app:lottie_loop="true"
-                app:lottie_rawRes="@raw/exclamation" />
+                app:lottie_rawRes="@raw/light_and_dirk" />
 
             <TextView
                 android:id="@+id/it_text_out"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_4sdp"
                 android:fontFamily="@font/ds"
                 android:gravity="center"
+                android:layout_marginHorizontal="@dimen/_3sdp"
                 android:textColor="@color/red"
                 android:textSize="@dimen/_19ssp"
                 app:layout_constraintEnd_toEndOf="parent"
