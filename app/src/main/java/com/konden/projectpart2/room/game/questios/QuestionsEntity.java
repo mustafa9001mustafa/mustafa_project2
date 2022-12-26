@@ -1,11 +1,22 @@
-package com.konden.projectpart2.room.game;
+package com.konden.projectpart2.room.game.questios;
+
+import static androidx.room.ForeignKey.CASCADE;
 
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-@Entity
+import com.konden.projectpart2.room.game.level.LevelEntity;
+import com.konden.projectpart2.room.game.pattern.Pattern;
+
+@Entity(foreignKeys = {@ForeignKey(entity = LevelEntity.class, parentColumns = {"level_no"},
+        childColumns = {"levelNoChild"}, onDelete = CASCADE, onUpdate = CASCADE),
+        @ForeignKey(entity = Pattern.class, parentColumns = {"pattern_id"},
+                childColumns = {"pattern_idChild"}, onDelete = CASCADE, onUpdate = CASCADE)})
+
+
 public class QuestionsEntity {
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey()
     private int id_Question;
     private String title;
     private String answer_1;
@@ -16,6 +27,33 @@ public class QuestionsEntity {
     private int points;
     private int duration;
     private String hint;
+    private int levelNoChild;
+    private int pattern_idChild;
+
+    public QuestionsEntity() {
+    }
+
+    public QuestionsEntity(String title, String answer_1, String answer_2, String answer_3, String answer_4, String true_answer, int points, int duration, String hint, int levelNoChild, int pattern_idChild) {
+        this.title = title;
+        this.answer_1 = answer_1;
+        this.answer_2 = answer_2;
+        this.answer_3 = answer_3;
+        this.answer_4 = answer_4;
+        this.true_answer = true_answer;
+        this.points = points;
+        this.duration = duration;
+        this.hint = hint;
+        this.levelNoChild = levelNoChild;
+        this.pattern_idChild = pattern_idChild;
+    }
+
+    public int getPattern_idChild() {
+        return pattern_idChild;
+    }
+
+    public void setPattern_idChild(int pattern_idChild) {
+        this.pattern_idChild = pattern_idChild;
+    }
 
     public int getId_Question() {
         return id_Question;
@@ -97,17 +135,11 @@ public class QuestionsEntity {
         this.hint = hint;
     }
 
-    public QuestionsEntity(String title, String answer_1, String answer_2, String answer_3, String answer_4, String true_answer, int points, int duration, String hint) {
-        this.title = title;
-        this.answer_1 = answer_1;
-        this.answer_2 = answer_2;
-        this.answer_3 = answer_3;
-        this.answer_4 = answer_4;
-        this.true_answer = true_answer;
-        this.points = points;
-        this.duration = duration;
-        this.hint = hint;
+    public int getLevelNoChild() {
+        return levelNoChild;
+    }
 
-
+    public void setLevelNoChild(int levelNoChild) {
+        this.levelNoChild = levelNoChild;
     }
 }

@@ -1,17 +1,11 @@
 package com.konden.projectpart2.sherdpreferanses;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.content.res.Configuration;
-import android.content.res.Resources;
 
 import androidx.appcompat.app.AppCompatDelegate;
 
 import com.konden.projectpart2.appcontroller.AppControllers;
-
-
-import java.util.Locale;
 
 public class Sherdpreferanses {
     SharedPreferences sharedPreferences;
@@ -32,16 +26,18 @@ public class Sherdpreferanses {
         sharedPreferences = AppControllers.getInstance().getSharedPreferences("mode", Context.MODE_PRIVATE);
     }
 
-    public void Night(boolean b) {
+    public void Night() {
+        boolean b1 = AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES;
         editor = sharedPreferences.edit();
-        editor.putBoolean("light", b);
+        editor.putBoolean("light", b1);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         editor.apply();
     }
 
-    public void Light(boolean b) {
+    public void Light() {
+        boolean x =  AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_NO;
         editor = sharedPreferences.edit();
-        editor.putBoolean("night", b);
+        editor.putBoolean("night", x);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         editor.apply();
     }
@@ -54,18 +50,6 @@ public class Sherdpreferanses {
             editor.apply();
         }
         return !ranBefore;
-    }
-
-    public void setLocale(Activity activity, String languageCode) {
-        editor = sharedPreferences.edit();
-        Locale locale = new Locale(languageCode);
-        Locale.setDefault(locale);
-        Resources resources = activity.getResources();
-        Configuration config = resources.getConfiguration();
-        config.setLocale(locale);
-        resources.updateConfiguration(config, resources.getDisplayMetrics());
-        editor.putString(languageCode,"");
-        editor.apply();
     }
 
     public boolean isFirstTimeGame() {

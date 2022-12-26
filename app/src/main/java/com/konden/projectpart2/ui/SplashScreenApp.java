@@ -1,12 +1,15 @@
 package com.konden.projectpart2.ui;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.konden.projectpart2.R;
 import com.konden.projectpart2.animations.AnimationAll;
 import com.konden.projectpart2.databinding.ActivitySplachScreenBinding;
+import com.konden.projectpart2.sherdpreferanses.Sherdpreferanses;
 
 
 public class SplashScreenApp extends AppCompatActivity {

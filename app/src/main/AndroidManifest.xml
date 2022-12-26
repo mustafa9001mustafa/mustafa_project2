@@ -16,11 +16,7 @@
         <activity
             android:name=".ui.PuzzleViewPageActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
 
             <meta-data
@@ -51,6 +47,11 @@
         <activity
             android:name=".ui.SplashScreenApp"
             android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 <!--           ////////////////////////////////////-->
 
             <meta-data

@@ -1,4 +1,4 @@
-package com.konden.projectpart2.room.game;
+package com.konden.projectpart2.room.game.level;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
@@ -7,7 +7,7 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.konden.projectpart2.room.profile.ProfileEntity;
+import com.konden.projectpart2.room.game.level.LevelEntity;
 
 import java.util.List;
 

@@ -10,7 +10,8 @@
 				"answer_4": "",
 				"true_answer": "false",
 				"points": 3,
-				"duration": 3000,
+				"duration": 5000,
+
 				"pattern": {
 					"pattern_id": 1,
 					"pattern_name": "True of False"
@@ -27,7 +28,7 @@
 				"answer_4": "دبلن",
 				"true_answer": "أديس أبابا",
 				"points": 2,
-				"duration": 3000,
+				"duration": 5000,
 				"pattern": {
 					"pattern_id": 2,
 					"pattern_name": "Choose the correct answer"
@@ -43,7 +44,7 @@
 				"answer_4": "",
 				"true_answer": "المريخ",
 				"points": 5,
-				"duration": 5000,
+				"duration": 10000,
 				"pattern": {
 					"pattern_id": 3,
 					"pattern_name": "Fill the answer"
@@ -59,9 +60,9 @@
 				"answer_4": "12 كوكب",
 				"true_answer": "8 كواكب",
 				"points": 2,
-				"duration": 3000,
+				"duration": 5000,
 				"pattern": {
-					"pattern_id": 4,
+					"pattern_id": 2,
 					"pattern_name": "Choose the correct answer"
 				},
 				"hint": "عدد كواكب المجموعة الشمسية هو 8 كواكب فقط"
@@ -80,7 +81,7 @@
 				"answer_4": "",
 				"true_answer": "true",
 				"points": 3,
-				"duration": 3000,
+				"duration": 5000,
 				"pattern": {
 					"pattern_id": 1,
 					"pattern_name": "True of False"
@@ -96,7 +97,7 @@
 				"answer_4": "كوالا",
 				"true_answer": "شرغوف",
 				"points": 2,
-				"duration": 3000,
+				"duration": 5000,
 				"pattern": {
 					"pattern_id": 2,
 					"pattern_name": "Choose the correct answer"
@@ -112,7 +113,7 @@
 				"answer_4": "",
 				"true_answer": "التونة",
 				"points": 5,
-				"duration": 5000,
+				"duration": 10000,
 				"pattern": {
 					"pattern_id": 3,
 					"pattern_name": "Fill the answer"
@@ -129,7 +130,7 @@
 				"answer_4": "13 عضلة",
 				"true_answer": "13 عضلة",
 				"points": 2,
-				"duration": 3000,
+				"duration": 5000,
 				"pattern": {
 					"pattern_id": 2,
 					"pattern_name": "Choose the correct answer"
@@ -150,9 +151,9 @@
 				"answer_4": "منغوليا",
 				"true_answer": "منغوليا",
 				"points": 2,
-				"duration": 3000,
+				"duration": 5000,
 				"pattern": {
-					"pattern_id": 1,
+					"pattern_id": 2,
 					"pattern_name": "Choose the correct answer"
 				},
 				"hint": "أقل دولة في نسبة عدد السكان هي منغوليا"
@@ -166,9 +167,9 @@
 				"answer_4": "",
 				"true_answer": "الهند",
 				"points": 5,
-				"duration": 5000,
+				"duration": 10000,
 				"pattern": {
-					"pattern_id": 2,
+					"pattern_id": 3,
 					"pattern_name": "Fill the answer"
 				},
 				"hint": "الهند"
@@ -183,7 +184,7 @@
 				"answer_4": "",
 				"true_answer": "مصارع الثيؤان",
 				"points": 5,
-				"duration": 5000,
+				"duration": 10000,
 				"pattern": {
 					"pattern_id": 3,
 					"pattern_name": "Fill the answer"
@@ -201,9 +202,9 @@
 				"answer_4": "AB فصيلة دم ",
 				"true_answer": "O فصيلة دم ",
 				"points": 5,
-				"duration": 5000,
+				"duration": 10000,
 				"pattern": {
-					"pattern_id": 4,
+					"pattern_id": 3,
 					"pattern_name": "Fill the answer"
 				},
 				"hint": " تعتبر  أشهر فصيلة دم AB فصيلة دم"
@@ -222,9 +223,9 @@
 				"answer_4": "",
 				"true_answer": "الحذاء",
 				"points": 5,
-				"duration": 5000,
+				"duration": 10000,
 				"pattern": {
-					"pattern_id": 1,
+					"pattern_id": 3,
 					"pattern_name": "Fill the answer"
 				},
 				"hint": " إنه الحذاء"
@@ -238,9 +239,9 @@
 				"answer_4": "",
 				"true_answer": "الساعة",
 				"points": 5,
-				"duration": 5000,
+				"duration": 10000,
 				"pattern": {
-					"pattern_id": 2,
+					"pattern_id": 3,
 					"pattern_name": "Fill the answer"
 				},
 				"hint": "الساعة"
@@ -254,7 +255,7 @@
 				"answer_4": "",
 				"true_answer": "36 ضلع",
 				"points": 5,
-				"duration": 5000,
+				"duration": 10000,
 				"pattern": {
 					"pattern_id": 3,
 					"pattern_name": "Fill the answer"
@@ -275,9 +276,9 @@
 				"answer_4": "",
 				"true_answer": "الحفرة",
 				"points": 5,
-				"duration": 5000,
+				"duration": 10000,
 				"pattern": {
-					"pattern_id": 1,
+					"pattern_id": 3,
 					"pattern_name": "Fill the answer"
 				},
 				"hint": "إنها الحفرة"
@@ -291,7 +292,7 @@
 				"answer_4": "706",
 				"true_answer": "706",
 				"points": 2,
-				"duration": 3000,
+				"duration": 5000,
 				"pattern": {
 					"pattern_id": 2,
 					"pattern_name": "Choose the correct answer"
@@ -307,7 +308,7 @@
 				"answer_4": "",
 				"true_answer": "الضوء",
 				"points": 5,
-				"duration": 5000,
+				"duration": 10000,
 				"pattern": {
 					"pattern_id": 3,
 					"pattern_name": "Fill the answer"
@@ -328,9 +329,9 @@
 				"answer_4": "الحلزون",
 				"true_answer": "الكسلان",
 				"points": 2,
-				"duration": 3000,
+				"duration": 5000,
 				"pattern": {
-					"pattern_id": 1,
+					"pattern_id": 2,
 					"pattern_name": "Choose the correct answer"
 				},
 				"hint": " يعد حيوان الكسلان أبطأ حبوان في العالم"
@@ -344,7 +345,7 @@
 				"answer_4": "المعدة",
 				"true_answer": "الرقبة",
 				"points": 2,
-				"duration": 3000,
+				"duration": 5000,
 				"pattern": {
 					"pattern_id": 2,
 					"pattern_name": "Choose the correct answer"
@@ -360,7 +361,7 @@
 				"answer_4": "",
 				"true_answer": "الثعبان",
 				"points": 5,
-				"duration": 5000,
+				"duration": 10000,
 				"pattern": {
 					"pattern_id": 3,
 					"pattern_name": "Fill the answer"
@@ -382,7 +383,7 @@
 				"answer_4": "",
 				"true_answer": "true",
 				"points": 3,
-				"duration": 3000,
+				"duration": 5000,
 				"pattern": {
 					"pattern_id": 1,
 					"pattern_name": "True of False"
@@ -398,9 +399,9 @@
 				"answer_4": "",
 				"true_answer": "false",
 				"points": 3,
-				"duration": 3000,
+				"duration": 5000,
 				"pattern": {
-					"pattern_id": 2,
+					"pattern_id": 1,
 					"pattern_name": "True of False"
 				},
 				"hint": " تعتبر الجزائر أكبر دولة عربية من ناحية المساحة"
@@ -414,9 +415,9 @@
 				"answer_4": "",
 				"true_answer": "false",
 				"points": 3,
-				"duration": 3000,
+				"duration": 5000,
 				"pattern": {
-					"pattern_id": 3,
+					"pattern_id": 1,
 					"pattern_name": "True of False"
 				},
 				"hint": "الدولفين أذكى الحيوانات البحرية"

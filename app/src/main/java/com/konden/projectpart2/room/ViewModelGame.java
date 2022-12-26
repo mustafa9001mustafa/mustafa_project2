@@ -6,7 +6,9 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import com.konden.projectpart2.room.game.LevelEntity;
+import com.konden.projectpart2.room.game.level.LevelEntity;
+import com.konden.projectpart2.room.game.pattern.Pattern;
+import com.konden.projectpart2.room.game.questios.QuestionsEntity;
 import com.konden.projectpart2.room.profile.ProfileEntity;
 
 import java.util.List;
@@ -52,5 +54,16 @@ public class ViewModelGame extends AndroidViewModel {
 
     public LiveData<List<LevelEntity>> getAllLevel() {
         return repository.getAllLevel();
+    }
+
+
+
+    public void InsertQuestions(QuestionsEntity level) {
+
+        repository.InsertQuestions(level);
+    }
+
+    public LiveData<List<QuestionsEntity>> getAllQuestions(int id) {
+        return repository.getAllQuestions(id);
     }
 }

@@ -114,6 +114,8 @@ public class Profile extends AppCompatActivity implements CallProfileData {
     public void onBackPressed() {
         super.onBackPressed();
         startActivity(new Intent(Profile.this, SettingsApp.class));
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+
     }
 
 

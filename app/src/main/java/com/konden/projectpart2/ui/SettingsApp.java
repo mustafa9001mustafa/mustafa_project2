@@ -156,7 +156,6 @@ public class SettingsApp extends AppCompatActivity implements CallFragment, Call
         }
         overridePendingTransition(0, 0);
         startActivity(getIntent());
-        overridePendingTransition(0, 0);
         language.dismiss();
 
     }
@@ -170,18 +169,17 @@ public class SettingsApp extends AppCompatActivity implements CallFragment, Call
     @Override
     public void callboll(boolean b) {
         if (b == true) {
-            Sherdpreferanses.getInstance().Night(false);
-
+            Sherdpreferanses.getInstance().Night();
         } else {
-            Sherdpreferanses.getInstance().Light(true);
+            Sherdpreferanses.getInstance().Light();
         }
-    }
 
+    }
     @Override
     public void onBackPressed() {
         super.onBackPressed();
         startActivity(new Intent(SettingsApp.this, MainActivity.class));
-        overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
 

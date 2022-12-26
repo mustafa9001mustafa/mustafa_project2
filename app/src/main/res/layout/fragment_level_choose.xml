@@ -54,13 +54,13 @@
 
 
                     <TextView
-                        android:id="@+id/it_text_timer"
+                        android:id="@+id/it_text_timer_choose"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/ds"
                         android:gravity="center"
                         style="@style/TextShadowStyle"
-                        android:textColor="@color/black"
+                        android:textColor="@color/white"
                         android:textSize="@dimen/_17ssp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"

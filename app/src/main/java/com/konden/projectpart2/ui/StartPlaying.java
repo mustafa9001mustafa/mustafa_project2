@@ -1,7 +1,5 @@
 package com.konden.projectpart2.ui;
 
-import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -10,23 +8,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 
 import com.konden.projectpart2.R;
 import com.konden.projectpart2.adapters.AdapterLevel;
 import com.konden.projectpart2.databinding.ActivityStartPlayingBinding;
-import com.konden.projectpart2.model.User;
 import com.konden.projectpart2.room.ViewModelGame;
-import com.konden.projectpart2.room.game.LevelEntity;
-import com.konden.projectpart2.room.game.QuestionsEntity;
+import com.konden.projectpart2.room.game.level.LevelEntity;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -67,7 +55,16 @@ public class StartPlaying extends AppCompatActivity {
     }
 
     private void SET_ADAPTER() {
-        adapter = new AdapterLevel(list, StartPlaying.this);
+        adapter = new AdapterLevel(list, StartPlaying.this, new AdapterLevel.CallLevel() {
+            @Override
+            public void callLevel(int x) {
+                Intent intent = new Intent(StartPlaying.this, PuzzleViewPageActivity.class);
+                intent.putExtra("id_level", x);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+
+            }
+        });
         list = new ArrayList<>();
 
         adapter.setList(list);
@@ -80,13 +77,15 @@ public class StartPlaying extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
+        finish();
     }
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        startActivity(new Intent(StartPlaying.this,MainActivity.class));
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        startActivity(new Intent(StartPlaying.this, MainActivity.class));
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+
 
     }
 }

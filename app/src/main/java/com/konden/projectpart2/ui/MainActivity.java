@@ -8,15 +8,15 @@ import androidx.lifecycle.ViewModelProvider;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-
 import com.konden.projectpart2.animations.AnimationAll;
 import com.konden.projectpart2.R;
 import com.konden.projectpart2.databinding.ActivityMainBinding;
 import com.konden.projectpart2.fragments.fragment_setting.DialogFragmentBack;
 import com.konden.projectpart2.interfases.CallFragment;
 import com.konden.projectpart2.room.ViewModelGame;
-import com.konden.projectpart2.room.game.LevelEntity;
-import com.konden.projectpart2.room.game.QuestionsEntity;
+import com.konden.projectpart2.room.game.level.LevelEntity;
+import com.konden.projectpart2.room.game.pattern.Pattern;
+import com.konden.projectpart2.room.game.questios.QuestionsEntity;
 import com.konden.projectpart2.sherdpreferanses.Sherdpreferanses;
 
 import org.json.JSONArray;
@@ -29,12 +29,13 @@ import java.nio.charset.StandardCharsets;
 
 public class MainActivity extends AppCompatActivity implements CallFragment {
     private ActivityMainBinding binding;
-    DialogFragmentBack back;
+    private DialogFragmentBack back;
     private ViewModelGame viewModel;
-    LevelEntity level;
-    QuestionsEntity questions;
-    JSONObject object, object2;
-    JSONArray jr;
+    private LevelEntity level;
+    private QuestionsEntity questions;
+    private JSONObject object, object2;
+    private JSONArray jr;
+    private Pattern pattern;
 
 
     @Override
@@ -47,9 +48,7 @@ public class MainActivity extends AppCompatActivity implements CallFragment {
         if (Sherdpreferanses.getInstance().isFirstTimeGame()) {
             getAllData();
         }
-
     }
-
 
     @Override
     protected void onStart() {
@@ -138,20 +137,20 @@ public class MainActivity extends AppCompatActivity implements CallFragment {
                     int duration = object.getInt("duration");
                     String hint = object.getString("hint");
 
-                    questions = new QuestionsEntity(title, answer_1, answer_2, answer_3, answer_4, true_answer, points, duration, hint);
                     object2 = object.getJSONObject("pattern");
 
-                    String pattern_id = object2.getString("pattern_id");
+                    int pattern_id = object2.getInt("pattern_id");
                     String pattern_name = object2.getString("pattern_name");
+                    pattern = new Pattern(pattern_id, pattern_name);
+                    questions = new QuestionsEntity(title, answer_1, answer_2, answer_3, answer_4, true_answer, points, duration, hint, level_no, pattern_id);
+
                     Log.e(TAG, "getAllData: " + title);
 
                 }
-
-//                }
             }
         } catch (JSONException e) {
             e.printStackTrace();
-            Log.e(TAG, "getAllData: ssssssssssssssssssssssssss");
+            Log.e(TAG, "getAllData: error");
         }
     }
 
@@ -163,7 +162,8 @@ public class MainActivity extends AppCompatActivity implements CallFragment {
             int size = is.available(); //بتجبلك البايتات فيه كم حجمها
             byte[] buffer = new byte[size];
             //Stream :  assets  فتح قناه ما بين الكلاس الخاص فيا وما بين ملف ال
-            is.read(buffer);
+
+                is.read(buffer);
             is.close();
             json = new String(buffer, StandardCharsets.UTF_8); // convert byte to String
         } catch (IOException e) {

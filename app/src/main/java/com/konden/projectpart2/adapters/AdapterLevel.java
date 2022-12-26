@@ -9,21 +9,21 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.konden.projectpart2.databinding.ItemQBinding;
-import com.konden.projectpart2.model.User;
-import com.konden.projectpart2.room.game.LevelEntity;
+import com.konden.projectpart2.room.game.level.LevelEntity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class AdapterLevel extends RecyclerView.Adapter<AdapterLevel.LevelsHolder> {
 
 
-    List<LevelEntity> list ;
+    List<LevelEntity> list;
     Context context;
+    CallLevel callLevel;
 
-    public AdapterLevel(List<LevelEntity> list, Context context) {
+    public AdapterLevel(List<LevelEntity> list, Context context, CallLevel callLevel) {
         this.list = list;
         this.context = context;
+        this.callLevel = callLevel;
     }
 
     public List<LevelEntity> getList() {
@@ -51,7 +51,11 @@ public class AdapterLevel extends RecyclerView.Adapter<AdapterLevel.LevelsHolder
 
     @Override
     public void onBindViewHolder(@NonNull LevelsHolder holder, int position) {
+        int pos =position;
         holder.setData(list.get(position));
+        holder.item.getRoot().setOnClickListener(view -> {
+            callLevel.callLevel(list.get(pos).getLevel_no());
+        });
     }
 
     @Override
@@ -71,5 +75,9 @@ public class AdapterLevel extends RecyclerView.Adapter<AdapterLevel.LevelsHolder
             item.itemTextLevel.setText(String.valueOf(level.getLevel_no()));
             item.itemTextUnlock.setText(String.valueOf(level.getUnlock_points()));
         }
+    }
+
+    public static interface CallLevel {
+        void callLevel(int x);
     }
 }
