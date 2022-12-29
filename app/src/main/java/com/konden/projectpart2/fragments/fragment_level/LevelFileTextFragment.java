@@ -7,12 +7,17 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.konden.projectpart2.R;
 import com.konden.projectpart2.databinding.FragmentLevelFileTextBinding;
+import com.konden.projectpart2.interfases.ListenerCallAnswerFragmentFile;
+import com.konden.projectpart2.interfases.ListenerCallAnswerFragmentTrueOrFalse;
+import com.konden.projectpart2.interfases.ListenerCallOnFinchesTimer;
 
 import java.util.Locale;
 
@@ -35,6 +40,8 @@ public class LevelFileTextFragment extends Fragment {
     private int duration;
 
     CountDownTimer countDownTimer;
+    ListenerCallAnswerFragmentFile listenerCallAnswerFragmentFile;
+    private ListenerCallOnFinchesTimer listenerCallOnFinchesTimer;
 
 
     public LevelFileTextFragment() {
@@ -44,16 +51,18 @@ public class LevelFileTextFragment extends Fragment {
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
+        listenerCallAnswerFragmentFile = (ListenerCallAnswerFragmentFile) context;
+        listenerCallOnFinchesTimer = (ListenerCallOnFinchesTimer) context;
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
+        listenerCallAnswerFragmentFile = null;
     }
 
     public static LevelFileTextFragment newInstance(
-            int id, String title,String true_answer,String hint, int point , int duration
-    ) {
+            int id, String title, String true_answer, String hint, int point, int duration) {
         LevelFileTextFragment fragment = new LevelFileTextFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_ID, id);
@@ -84,9 +93,9 @@ public class LevelFileTextFragment extends Fragment {
                              Bundle savedInstanceState) {
         FragmentLevelFileTextBinding binding = FragmentLevelFileTextBinding.inflate(inflater, container, false);
 
-
         binding.itTextQuestionFile.setText(title);
         binding.itTextTimer.setText(String.valueOf(duration));
+
         binding.hintIconFile.setOnClickListener(view -> {
             Toast.makeText(getActivity(), hint, Toast.LENGTH_SHORT).show();
         });
@@ -103,10 +112,32 @@ public class LevelFileTextFragment extends Fragment {
 
             @Override
             public void onFinish() {
+                listenerCallOnFinchesTimer.OnFinchesTimer();
             }
         }.start();
 
+        binding.btnSaveDataNext.setOnClickListener(view -> {
+            String s = binding.editAnswer.getEditText().getText().toString();
+            if (!s.equals("")){
+                Log.d("TAG", "onCreateView:   111 ");
+                getTrueAnswer("s");
+                Log.d("TAG", "onCreateView:   2222 ");
+
+            }else {
+                Toast.makeText(getActivity(), R.string.file_edit_text_fragment, Toast.LENGTH_SHORT).show();
+            }
+        });
         return binding.getRoot();
     }
 
+    private void getTrueAnswer(String sab) {
+        countDownTimer.cancel();
+
+        if (true_answer.equals(sab))
+            listenerCallAnswerFragmentFile.CallFile(true, hint);
+        else
+            listenerCallAnswerFragmentFile.CallFile(false, hint);
+
+
+    }
 }

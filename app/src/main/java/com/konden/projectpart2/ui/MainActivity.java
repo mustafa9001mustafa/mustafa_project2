@@ -5,6 +5,8 @@ package com.konden.projectpart2.ui;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.konden.projectpart2.animations.AnimationAll;
 import com.konden.projectpart2.R;
 import com.konden.projectpart2.databinding.ActivityMainBinding;
@@ -15,7 +17,7 @@ import com.konden.projectpart2.jopservies.ServiceSoundOnApp;
 import com.konden.projectpart2.myapplication.MyApp;
 import com.konden.projectpart2.sherdpreferanses.Sherdpreferanses;
 
-public class MainActivity extends MyApp implements CallFragment {
+public class MainActivity extends AppCompatActivity implements CallFragment {
     private ActivityMainBinding binding;
     private DialogFragmentBack back;
     private Intent intent;

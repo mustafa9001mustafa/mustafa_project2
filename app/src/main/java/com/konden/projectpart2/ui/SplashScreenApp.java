@@ -2,6 +2,7 @@ package com.konden.projectpart2.ui;
 import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
 
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
@@ -26,15 +27,14 @@ import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 
 
-public class SplashScreenApp extends MyApp {
+public class SplashScreenApp extends AppCompatActivity {
     ActivitySplachScreenBinding binding;
-    private int progressStatus = 0;
+    private int progressStatus = 0 , sleep = 17 , i =1;
     private ViewModelGame viewModel;
     private LevelEntity level;
     private QuestionsEntity questions;
     private JSONObject object, object2;
     private JSONArray jr;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +62,8 @@ public class SplashScreenApp extends MyApp {
         if (Sherdpreferanses.getInstance().isFirstTimeGame()) {
             GetData_Level();
             GetData_Questions();
+            sleep = 95;
+            i = 3;
         }
     }
 
@@ -79,16 +81,16 @@ public class SplashScreenApp extends MyApp {
         new Thread(new Runnable() {
             public void run() {
 
-                while (progressStatus < 100) {
-                    progressStatus += 1;
+                while (progressStatus < 100 || progressStatus == 102) {
+                    progressStatus += i;
                     binding.progressBar.setProgress(progressStatus);
 
-                    if (progressStatus == 100)
+                    if (progressStatus == 100 || progressStatus == 99)
                         startActivity(new Intent(getApplicationContext(), MainActivity.class));
                     overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom);
 
                     try {
-                        Thread.sleep(30);
+                        Thread.sleep(sleep);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -186,6 +188,5 @@ public class SplashScreenApp extends MyApp {
 
     @Override
     public void onBackPressed() {
-
     }
 }

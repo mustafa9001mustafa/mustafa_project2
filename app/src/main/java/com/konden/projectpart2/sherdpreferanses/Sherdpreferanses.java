@@ -62,7 +62,6 @@ public class Sherdpreferanses {
         return b;
     }
 
-
     public boolean GetSound() {
         editor = sharedPreferences.edit();
         boolean SwitchCompat_on_off = sharedPreferences.getBoolean("Sound", false);
@@ -92,17 +91,17 @@ public class Sherdpreferanses {
         return !ranBeforeGame;
     }
 
-    public void SetLevel(int b, int number) {
-        editor = sharedPreferences.edit();
-        editor.putInt("level_" + b, number);
-        editor.apply();
-    }
-
-    public void GetLevel() {
-        editor = sharedPreferences.edit();
-        boolean SwitchCompat_on_off = sharedPreferences.getBoolean("level_", false);
-        editor.apply();
-    }
+//    public void SetLevel(int b, int number) {
+//        editor = sharedPreferences.edit();
+//        editor.putInt("level_" + b, number);
+//        editor.apply();
+//    }
+//
+//    public void GetLevel() {
+//        editor = sharedPreferences.edit();
+//        boolean SwitchCompat_on_off = sharedPreferences.getBoolean("level_", false);
+//        editor.apply();
+//    }
 
     public int SetScore(int x) {
         editor = sharedPreferences.edit();

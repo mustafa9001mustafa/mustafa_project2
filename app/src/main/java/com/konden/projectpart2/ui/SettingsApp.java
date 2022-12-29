@@ -1,5 +1,6 @@
 package com.konden.projectpart2.ui;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import android.app.job.JobInfo;
 import android.app.job.JobScheduler;
@@ -22,7 +23,7 @@ import com.konden.projectpart2.sherdpreferanses.Sherdpreferanses;
 import com.yariksoffice.lingver.Lingver;
 import java.util.Locale;
 
-public class SettingsApp extends MyApp implements CallFragment {
+public class SettingsApp extends AppCompatActivity implements CallFragment {
     private ActivitySettingsAppBinding binding;
     private DialogFragmentBack back;
     private DialogFragmentLanguage language;

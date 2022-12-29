@@ -1,5 +1,6 @@
 package com.konden.projectpart2.ui;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -14,7 +15,7 @@ import com.konden.projectpart2.room.game.level.LevelEntity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StartPlaying extends MyApp {
+public class StartPlaying extends AppCompatActivity {
     private ActivityStartPlayingBinding binding;
     AdapterLevel adapter;
     private ArrayList<LevelEntity> list;

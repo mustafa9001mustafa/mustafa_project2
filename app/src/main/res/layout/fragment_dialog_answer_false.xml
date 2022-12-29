@@ -14,7 +14,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:cardCornerRadius="10dp"
-        app:cardBackgroundColor="@color/color_card_true"
+        app:cardBackgroundColor="@color/color_card_false"
         app:cardUseCompatPadding="true"
         >
 
@@ -26,21 +26,22 @@
 
             <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/close_icon"
-                android:layout_width="@dimen/_70sdp"
-                android:layout_height="@dimen/_70sdp"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
                 android:layout_margin="@dimen/_8sdp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:lottie_autoPlay="true"
                 app:lottie_loop="true"
-                app:lottie_rawRes="@raw/happy" />
+                app:lottie_rawRes="@raw/beard" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_5sdp"
                 app:cardCornerRadius="10dp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginHorizontal="@dimen/_5sdp"
                 app:cardBackgroundColor="@color/white"
                 app:cardUseCompatPadding="true"
                 app:layout_constraintTop_toBottomOf="@id/close_icon"
@@ -60,6 +61,7 @@
                         android:layout_marginTop="5dp"
                         android:textColor="@color/whiteshape"
                         android:textSize="@dimen/_16ssp"
+
                         android:gravity="center"
                         android:layout_marginHorizontal="@dimen/_3sdp"
                         android:fontFamily="@font/ds"
@@ -71,6 +73,8 @@
                         />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
+
+
 
 
             <info.hoang8f.widget.FButton

@@ -10,7 +10,6 @@
             <size android:width="@dimen/_25sdp"
                 android:height="@dimen/_25sdp"
                 />
-
         </shape>
     </item>
 

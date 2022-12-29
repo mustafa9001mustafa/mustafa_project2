@@ -1,4 +1,5 @@
 package com.konden.projectpart2.fragments.fragment_level;
+
 import android.content.Context;
 import android.os.Bundle;
 
@@ -11,13 +12,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.konden.projectpart2.databinding.FragmentLevelChooseBinding;
+import com.konden.projectpart2.interfases.ListenerCallAnswerFragmentChoose;
+import com.konden.projectpart2.interfases.ListenerCallOnFinchesTimer;
 import com.konden.projectpart2.interfases.TimerListener;
 
 import java.util.Locale;
 
 
 public class LevelChooseFragment extends Fragment {
-
 
     private static final String ARG_ID = "id1";
     private static final String ARG_TITLE = "title";
@@ -30,8 +32,9 @@ public class LevelChooseFragment extends Fragment {
     private static final String ARG_DURATION = "duration";
     private static final String ARG_HINT = "hint";
     private CountDownTimer countDownTimer;
-
     private TimerListener timerListener;
+    private ListenerCallAnswerFragmentChoose listenerCallAnswerFragmentChoose;
+    private ListenerCallOnFinchesTimer listenerCallOnFinchesTimer;
 
     private int id;
     private String title;
@@ -45,7 +48,7 @@ public class LevelChooseFragment extends Fragment {
     private int duration;
 
     public LevelChooseFragment() {
-        // Required empty public constructor
+
     }
 
 
@@ -53,16 +56,19 @@ public class LevelChooseFragment extends Fragment {
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         timerListener = (TimerListener) context;
+        listenerCallAnswerFragmentChoose = (ListenerCallAnswerFragmentChoose) context;
+        listenerCallOnFinchesTimer = (ListenerCallOnFinchesTimer) context;
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
+        listenerCallAnswerFragmentChoose = null;
     }
 
     public static LevelChooseFragment newInstance(
-            int id, String title , String answer_1 ,String answer_2 , String answer_3 , String answer_4
-            ,String true_answer,String hint, int point , int duration
+            int id, String title, String answer_1, String answer_2, String answer_3, String answer_4
+            , String true_answer, String hint, int point, int duration
     ) {
         LevelChooseFragment fragment = new LevelChooseFragment();
         Bundle args = new Bundle();
@@ -102,6 +108,25 @@ public class LevelChooseFragment extends Fragment {
                              Bundle savedInstanceState) {
         FragmentLevelChooseBinding binding = FragmentLevelChooseBinding.inflate(inflater, container, false);
 
+        binding.itChoose1.setOnClickListener(view -> {
+            String s = binding.itChoose1.getText().toString();
+            getTrueAnswer(s);
+        });
+
+        binding.itChoose2.setOnClickListener(view -> {
+            String s = binding.itChoose2.getText().toString();
+            getTrueAnswer(s);
+        });
+
+        binding.itChoose3.setOnClickListener(view -> {
+            String s = binding.itChoose3.getText().toString();
+            getTrueAnswer(s);
+        });
+
+        binding.itChoose4.setOnClickListener(view -> {
+            String s = binding.itChoose4.getText().toString();
+            getTrueAnswer(s);
+        });
 
         binding.itTextQuestionChoose.setText(title);
         binding.itChoose1.setText(answer_1);
@@ -121,11 +146,19 @@ public class LevelChooseFragment extends Fragment {
 
             @Override
             public void onFinish() {
-//                timerListener.onTimeOut();
-                //test Todo countDownTimer.cancel();
+                listenerCallOnFinchesTimer.OnFinchesTimer();
             }
         }.start();
 
         return binding.getRoot();
+    }
+
+    private void getTrueAnswer(String sab) {
+        countDownTimer.cancel();
+        if (true_answer.equals(sab))
+            listenerCallAnswerFragmentChoose.CallChoose(true, hint);
+        else {
+            listenerCallAnswerFragmentChoose.CallChoose(false, hint);
+        }
     }
 }

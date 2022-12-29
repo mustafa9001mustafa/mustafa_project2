@@ -1,5 +1,6 @@
 package com.konden.projectpart2.ui;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -19,7 +20,7 @@ import com.konden.projectpart2.sherdpreferanses.Sherdpreferanses;
 import java.util.List;
 import java.util.Locale;
 
-public class Profile extends MyApp implements CallProfileData {
+public class Profile extends AppCompatActivity implements CallProfileData {
     ActivityProfileBinding binding;
     private ViewModelGame model;
     ProfileEntity profile;

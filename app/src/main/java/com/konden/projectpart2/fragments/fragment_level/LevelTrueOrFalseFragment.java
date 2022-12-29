@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.konden.projectpart2.databinding.FragmentLevelTrueOrFalseBinding;
+import com.konden.projectpart2.interfases.ListenerCallAnswerFragmentTrueOrFalse;
+import com.konden.projectpart2.interfases.ListenerCallOnFinchesTimer;
 
 import java.util.Locale;
 
@@ -35,6 +37,9 @@ public class LevelTrueOrFalseFragment extends Fragment {
     private int duration;
 
     CountDownTimer countDownTimer;
+    ListenerCallAnswerFragmentTrueOrFalse listenerCallAnswerFragmentTrueOrFalse;
+    private ListenerCallOnFinchesTimer listenerCallOnFinchesTimer;
+
 
 
     public LevelTrueOrFalseFragment() {
@@ -44,12 +49,14 @@ public class LevelTrueOrFalseFragment extends Fragment {
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-//        callSkip = (CallPuzzleTask) context;
+        listenerCallAnswerFragmentTrueOrFalse = (ListenerCallAnswerFragmentTrueOrFalse) context;
+        listenerCallOnFinchesTimer = (ListenerCallOnFinchesTimer) context;
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
+        listenerCallAnswerFragmentTrueOrFalse = null;
     }
 
     public static LevelTrueOrFalseFragment newInstance(
@@ -90,13 +97,12 @@ public class LevelTrueOrFalseFragment extends Fragment {
         binding.itTextTimerTrue.setText(String.valueOf(duration));
 
         binding.trueIcon.setOnClickListener(view -> {
-            if (true_answer.equals("true"))
-                Toast.makeText(getActivity(), "true", Toast.LENGTH_SHORT).show();
+            getTrueAnswer("true");
         });
 
         binding.falseIcon.setOnClickListener(view -> {
-            if (true_answer.equals("false"))
-                Toast.makeText(getActivity(), "false", Toast.LENGTH_SHORT).show();
+            getTrueAnswer("false");
+
         });
 
 
@@ -117,13 +123,20 @@ public class LevelTrueOrFalseFragment extends Fragment {
 
             @Override
             public void onFinish() {
-
+                listenerCallOnFinchesTimer.OnFinchesTimer();
             }
         }.start();
 
         return binding.getRoot();
     }
+
+    private void getTrueAnswer(String sab) {
+        countDownTimer.cancel();
+
+        if (true_answer.equals(sab))
+            listenerCallAnswerFragmentTrueOrFalse.CallTrueOrFalse(true, hint);
+        else {
+            listenerCallAnswerFragmentTrueOrFalse.CallTrueOrFalse(false, hint);
+        }
+    }
 }
-////////
-// Todo : on a null object reference حل مشكلة إنه قيمة التايمير لما تنتقل من واجهة  لواجهة بيرجع قيمة
-///////

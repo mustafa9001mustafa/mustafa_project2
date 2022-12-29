@@ -73,5 +73,7 @@
     <string name="slash">/</string>
     <string name="level">Level </string>
     <string name="big_text_notify">Let is get back to playing now</string>
+    <string name="next">next</string>
+    <string name="file_edit_text_fragment">Enter text answer in edit text!</string>
 
 </resources>

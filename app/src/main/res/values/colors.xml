@@ -16,6 +16,7 @@
     <color name="blue">#09E3FF</color>
     <color name="whiteshape">#F1F1F1</color>
     <color name="redandwight">#FF2818</color>
+    <color name="color_card_false">#FF2818</color>
     <color name="colorblue">#111111</color>
     <color name="greencros">#00E627</color>
 
@@ -25,5 +26,6 @@
     <color name="app_color">#313F85</color>
     <color name="item_color_open">#11E419</color>
     <color name="item_color_close">#F31100</color>
+    <color name="color_card_true">#00FF90</color>
 
 </resources>

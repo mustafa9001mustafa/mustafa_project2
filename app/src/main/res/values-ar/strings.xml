@@ -71,6 +71,8 @@
     <string name="slash">/</string>
     <string name="level">المرحلة </string>
     <string name="big_text_notify">لنعد إلى اللعب الآن</string>
+    <string name="next">التالي</string>
+    <string name="file_edit_text_fragment">قم بإدخال الجواب بداخل المكان المحدد!</string>
 
 
 </resources>
