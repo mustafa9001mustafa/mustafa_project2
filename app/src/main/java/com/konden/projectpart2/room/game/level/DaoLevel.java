@@ -6,9 +6,6 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
-
-import com.konden.projectpart2.room.game.level.LevelEntity;
-
 import java.util.List;
 
 @Dao

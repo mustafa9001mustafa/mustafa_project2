@@ -7,7 +7,6 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
 import com.konden.projectpart2.room.game.level.LevelEntity;
-import com.konden.projectpart2.room.game.pattern.Pattern;
 import com.konden.projectpart2.room.game.questios.QuestionsEntity;
 import com.konden.projectpart2.room.profile.ProfileEntity;
 

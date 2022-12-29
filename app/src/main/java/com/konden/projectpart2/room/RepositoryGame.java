@@ -30,7 +30,7 @@ public class RepositoryGame {
             @Override
             public void run() {
                 daoProfile.insertProfile
-                                (entity);
+                        (entity);
             }
         });
     }
@@ -60,7 +60,6 @@ public class RepositoryGame {
     }
 
 
-
     void InsertLevel(LevelEntity level) {
         RoomDataBase.databaseWriteExecutor.execute(new Runnable() {
             @Override
@@ -88,8 +87,4 @@ public class RepositoryGame {
     LiveData<List<QuestionsEntity>> getAllQuestions(int id) {
         return daoQuestions.GetAllQuestions(id);
     }
-
-
-
-
 }

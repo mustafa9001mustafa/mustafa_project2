@@ -29,7 +29,6 @@ public class DialogFragmentBack extends DialogFragment {
     private String mParam3;
 
     public DialogFragmentBack() {
-        // Required empty public constructor
     }
 
     @Override

@@ -1,47 +1,88 @@
 package com.konden.projectpart2.ui;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
-
-import android.app.Activity;
-import android.content.Context;
+import android.app.job.JobInfo;
+import android.app.job.JobScheduler;
+import android.content.ComponentName;
 import android.content.Intent;
-import android.content.res.Configuration;
-import android.content.res.Resources;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
 import android.widget.CompoundButton;
-
+import android.widget.Toast;
 import com.konden.projectpart2.animations.AnimationAll;
 import com.konden.projectpart2.R;
-import com.konden.projectpart2.appcontroller.AppControllers;
+import com.konden.projectpart2.constant.FinalContract;
 import com.konden.projectpart2.databinding.ActivitySettingsAppBinding;
 import com.konden.projectpart2.fragments.fragment_setting.DialogFragmentBack;
 import com.konden.projectpart2.fragments.fragment_setting.DialogFragmentLanguage;
-import com.konden.projectpart2.fragments.fragment_setting.DialogFragmentTheme;
-import com.konden.projectpart2.interfases.CallBoolTheme;
 import com.konden.projectpart2.interfases.CallFragment;
+import com.konden.projectpart2.jopservies.MyServices;
+import com.konden.projectpart2.jopservies.ServiceSoundOnApp;
+import com.konden.projectpart2.myapplication.MyApp;
 import com.konden.projectpart2.sherdpreferanses.Sherdpreferanses;
 import com.yariksoffice.lingver.Lingver;
-
 import java.util.Locale;
 
-public class SettingsApp extends AppCompatActivity implements CallFragment, CallBoolTheme {
+public class SettingsApp extends MyApp implements CallFragment {
     private ActivitySettingsAppBinding binding;
     private DialogFragmentBack back;
     private DialogFragmentLanguage language;
+    private JobInfo info;
+    private JobScheduler scheduler;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         binding = ActivitySettingsAppBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         CheckMode();
+        binding.switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+
+                if (b == true){
+                    Sherdpreferanses.getInstance().SetSound(b);
+                    startService(new Intent(getApplicationContext(), ServiceSoundOnApp.class));
+                }else {
+                    stopService(new Intent(getApplicationContext(), ServiceSoundOnApp.class));
+                    Sherdpreferanses.getInstance().SetSound(b);
+
+                }
+            }
+        });
+
+        if (Sherdpreferanses.getInstance().GetSound() == true){
+            binding.switch1.setChecked(true);
+        }else {
+            binding.switch1.setChecked(false);
+        }
+
+        if (Sherdpreferanses.getInstance().GetNotify() == true){
+            binding.switch2.setChecked(true);
+        }else {
+            binding.switch2.setChecked(false);
+        }
+
+
+
         if (Locale.getDefault().getLanguage().equals("en"))
             binding.backIconS.setRotation(90);
+
+
+        binding.switch3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    Sherdpreferanses.getInstance().SetTheme(isChecked);
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                    restartActivity();
+                } else {
+                    Sherdpreferanses.getInstance().SetTheme(isChecked);
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                    restartActivity();
+                }
+            }
+        });
 
     }
 
@@ -49,8 +90,10 @@ public class SettingsApp extends AppCompatActivity implements CallFragment, Call
 
         if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
             binding.switch3.setChecked(true);
+            Sherdpreferanses.getInstance().SetTheme(true);
         } else if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_NO) {
             binding.switch3.setChecked(false);
+            Sherdpreferanses.getInstance().SetTheme(false);
         }
     }
 
@@ -67,8 +110,32 @@ public class SettingsApp extends AppCompatActivity implements CallFragment, Call
         ON_BACK_CLICK();
         F_BUTTON();
         BUTTON_RESET();
-        SWITCH3();
         LANGUAGES();
+        JobServes();
+    }
+
+
+    private void JobServes() {
+        binding.switch2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b == true) {
+                    Sherdpreferanses.getInstance().SetNotify(b);
+                    ComponentName name = new ComponentName(getBaseContext(), MyServices.class);
+                    info = new JobInfo.Builder(FinalContract.Job_id, name)
+                            .setPeriodic((24*60*60*1000),
+                                    JobInfo.getMinFlexMillis())
+                            .build();
+                    scheduler = (JobScheduler) getSystemService(JOB_SCHEDULER_SERVICE);
+                    scheduler.schedule(info);
+                    Toast.makeText(SettingsApp.this, "تم تشغيل الإشعارات", Toast.LENGTH_SHORT).show();
+                } else {
+                    Sherdpreferanses.getInstance().SetNotify(b);
+                    scheduler.cancel(FinalContract.Job_id);
+                    Toast.makeText(SettingsApp.this, "تم إيقاف الإشعارات", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
 
@@ -94,23 +161,11 @@ public class SettingsApp extends AppCompatActivity implements CallFragment, Call
 
     }
 
-    private void SWITCH3() {
-        binding.switch3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                DialogFragmentTheme theme = DialogFragmentTheme.newInstance(getString(R.string.textout), getString(R.string.restart), b);
-                theme.show(getSupportFragmentManager(), "theme");
-            }
-        });
-    }
-
     private void ON_BACK_CLICK() {
         binding.backIconS.setOnClickListener(view -> {
             startActivity(new Intent(SettingsApp.this, MainActivity.class));
 //            overridePendingTransition(R.anim.fadein, R.anim.shake);
             overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
-
-
         });
     }
 
@@ -157,7 +212,6 @@ public class SettingsApp extends AppCompatActivity implements CallFragment, Call
         overridePendingTransition(0, 0);
         startActivity(getIntent());
         language.dismiss();
-
     }
 
     @Override
@@ -166,15 +220,7 @@ public class SettingsApp extends AppCompatActivity implements CallFragment, Call
             language.dismiss();
     }
 
-    @Override
-    public void callboll(boolean b) {
-        if (b == true) {
-            Sherdpreferanses.getInstance().Night();
-        } else {
-            Sherdpreferanses.getInstance().Light();
-        }
 
-    }
     @Override
     public void onBackPressed() {
         super.onBackPressed();
@@ -187,5 +233,11 @@ public class SettingsApp extends AppCompatActivity implements CallFragment, Call
     protected void onStop() {
         super.onStop();
         finish();
+    }
+
+    private void restartActivity() {
+
+        Intent intent = new Intent(getApplicationContext(), SettingsApp.class);
+        startActivity(intent);
     }
 }

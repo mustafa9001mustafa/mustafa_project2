@@ -1,28 +1,25 @@
 package com.konden.projectpart2.ui;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-
 import android.content.Intent;
 import android.os.Bundle;
-
+import com.konden.projectpart2.myapplication.MyApp;
 import com.konden.projectpart2.R;
 import com.konden.projectpart2.adapters.AdapterLevel;
 import com.konden.projectpart2.databinding.ActivityStartPlayingBinding;
 import com.konden.projectpart2.room.ViewModelGame;
 import com.konden.projectpart2.room.game.level.LevelEntity;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class StartPlaying extends AppCompatActivity {
+public class StartPlaying extends MyApp {
     private ActivityStartPlayingBinding binding;
     AdapterLevel adapter;
     private ArrayList<LevelEntity> list;
     private ViewModelGame model;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +31,9 @@ public class StartPlaying extends AppCompatActivity {
         model.getAllLevel().observe(this, new Observer<List<LevelEntity>>() {
             @Override
             public void onChanged(List<LevelEntity> levelEntities) {
+
+
+                list = new ArrayList<>();
                 adapter.setList(levelEntities);
                 binding.recyclerView.setAdapter(adapter);
                 binding.recyclerView.setHasFixedSize(true);
@@ -57,20 +57,15 @@ public class StartPlaying extends AppCompatActivity {
     private void SET_ADAPTER() {
         adapter = new AdapterLevel(list, StartPlaying.this, new AdapterLevel.CallLevel() {
             @Override
-            public void callLevel(int x) {
-                Intent intent = new Intent(StartPlaying.this, PuzzleViewPageActivity.class);
-                intent.putExtra("id_level", x);
-                startActivity(intent);
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-
+            public void callLevel(int x, boolean level_status) {
+                if (level_status == true){
+                    Intent intent = new Intent(StartPlaying.this, PuzzleViewPageActivity.class);
+                    intent.putExtra("id_level", x);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                }
             }
         });
-        list = new ArrayList<>();
-
-        adapter.setList(list);
-        binding.recyclerView.setAdapter(adapter);
-        binding.recyclerView.setHasFixedSize(true);
-        binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
 

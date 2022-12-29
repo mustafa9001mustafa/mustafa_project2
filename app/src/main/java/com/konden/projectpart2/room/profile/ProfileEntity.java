@@ -1,7 +1,6 @@
 package com.konden.projectpart2.room.profile;
 
 import androidx.room.Entity;
-import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity

@@ -10,7 +10,6 @@ public class AppControllers extends Application {
     private static AppControllers instance;
 
     @Override
-
     public void onCreate() {
         super.onCreate();
         instance = this;

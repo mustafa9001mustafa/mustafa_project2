@@ -7,16 +7,16 @@ import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
 import com.konden.projectpart2.room.game.level.LevelEntity;
-import com.konden.projectpart2.room.game.pattern.Pattern;
 
-@Entity(foreignKeys = {@ForeignKey(entity = LevelEntity.class, parentColumns = {"level_no"},
-        childColumns = {"levelNoChild"}, onDelete = CASCADE, onUpdate = CASCADE),
-        @ForeignKey(entity = Pattern.class, parentColumns = {"pattern_id"},
-                childColumns = {"pattern_idChild"}, onDelete = CASCADE, onUpdate = CASCADE)})
+@Entity(foreignKeys = {
+        @ForeignKey(entity = LevelEntity.class, parentColumns = {"level_no"},
+        childColumns = {"levelNoChild"}, onDelete = CASCADE, onUpdate = CASCADE)})
 
 
 public class QuestionsEntity {
-    @PrimaryKey()
+    @PrimaryKey(autoGenerate = true)
+    private int id_forDatabase;
+
     private int id_Question;
     private String title;
     private String answer_1;
@@ -33,8 +33,12 @@ public class QuestionsEntity {
     public QuestionsEntity() {
     }
 
-    public QuestionsEntity(String title, String answer_1, String answer_2, String answer_3, String answer_4, String true_answer, int points, int duration, String hint, int levelNoChild, int pattern_idChild) {
+    public QuestionsEntity(int id_Question,String title, String answer_1, String answer_2, String answer_3, String answer_4, String true_answer, int points, int duration, String hint, int levelNoChild
+            , int pattern_idChild) {
+
+        this.id_Question = id_Question;
         this.title = title;
+
         this.answer_1 = answer_1;
         this.answer_2 = answer_2;
         this.answer_3 = answer_3;
@@ -141,5 +145,13 @@ public class QuestionsEntity {
 
     public void setLevelNoChild(int levelNoChild) {
         this.levelNoChild = levelNoChild;
+    }
+
+    public int getId_forDatabase() {
+        return id_forDatabase;
+    }
+
+    public void setId_forDatabase(int id_forDatabase) {
+        this.id_forDatabase = id_forDatabase;
     }
 }

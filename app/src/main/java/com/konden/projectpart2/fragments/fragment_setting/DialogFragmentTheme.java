@@ -26,7 +26,6 @@ public class DialogFragmentTheme extends DialogFragment {
     private boolean mParam3;
 
     public DialogFragmentTheme() {
-        // Required empty public constructor
     }
 
     @Override

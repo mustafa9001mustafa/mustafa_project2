@@ -8,7 +8,7 @@ import androidx.room.RoomDatabase;
 
 import com.konden.projectpart2.room.game.level.DaoLevel;
 import com.konden.projectpart2.room.game.level.LevelEntity;
-import com.konden.projectpart2.room.game.pattern.Pattern;
+
 import com.konden.projectpart2.room.game.questios.DaoQuestions;
 import com.konden.projectpart2.room.game.questios.QuestionsEntity;
 import com.konden.projectpart2.room.profile.DaoProfile;
@@ -17,14 +17,13 @@ import com.konden.projectpart2.room.profile.ProfileEntity;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {ProfileEntity.class, LevelEntity.class, QuestionsEntity.class, Pattern.class}, version = 2, exportSchema = false)
+@Database(entities = {ProfileEntity.class, LevelEntity.class, QuestionsEntity.class}, version = 2, exportSchema = false)
 public abstract class RoomDataBase extends RoomDatabase {
 
     public abstract DaoProfile doa();
-
     public abstract DaoLevel level();
-
     public abstract DaoQuestions questions();
+
 
 
     private static volatile RoomDataBase INSTANCE;

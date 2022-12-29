@@ -11,6 +11,7 @@
     <color name="yellow">#FDD835</color>
     <color name="red">#D50000</color>
     <color name="card_background_color">#FFFFFF</color>
+    <color name="card_background_color_item">#FFFFFF</color>
     <color name="card_background_color2">#FFFFFF</color>
     <color name="blue">#09E3FF</color>
     <color name="whiteshape">#F1F1F1</color>
@@ -19,6 +20,10 @@
     <color name="greencros">#00E627</color>
 
     <color name="red_and_night">#F31100</color>
+    <color name="white_and_red">#F31100</color>
+
     <color name="app_color">#313F85</color>
+    <color name="item_color_open">#11E419</color>
+    <color name="item_color_close">#F31100</color>
 
 </resources>

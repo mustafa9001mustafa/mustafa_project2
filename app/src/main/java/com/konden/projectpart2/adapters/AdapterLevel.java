@@ -1,6 +1,7 @@
 package com.konden.projectpart2.adapters;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,8 +9,10 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.konden.projectpart2.R;
 import com.konden.projectpart2.databinding.ItemQBinding;
 import com.konden.projectpart2.room.game.level.LevelEntity;
+import com.konden.projectpart2.sherdpreferanses.Sherdpreferanses;
 
 import java.util.List;
 
@@ -51,11 +54,17 @@ public class AdapterLevel extends RecyclerView.Adapter<AdapterLevel.LevelsHolder
 
     @Override
     public void onBindViewHolder(@NonNull LevelsHolder holder, int position) {
+        LevelEntity level = list.get(position);
         int pos =position;
         holder.setData(list.get(position));
-        holder.item.getRoot().setOnClickListener(view -> {
-            callLevel.callLevel(list.get(pos).getLevel_no());
-        });
+        if (level.getUnlock_points() < Sherdpreferanses.getInstance().getScore()){
+            holder.item.cardView.setCardBackgroundColor(Color.GREEN);
+            holder.item.itemLock.setImageResource(R.drawable.ic_baseline_lock_open_24);
+            holder.item.itemTextUnlock.setText("");
+            holder.item.getRoot().setOnClickListener(view -> {
+                callLevel.callLevel(level.getLevel_no(),true);
+            });
+        }
     }
 
     @Override
@@ -78,6 +87,6 @@ public class AdapterLevel extends RecyclerView.Adapter<AdapterLevel.LevelsHolder
     }
 
     public static interface CallLevel {
-        void callLevel(int x);
+        void callLevel(int x,boolean level_status);
     }
 }

@@ -1,6 +1,5 @@
 package com.konden.projectpart2.ui;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -12,6 +11,7 @@ import com.konden.projectpart2.animations.AnimationAll;
 import com.konden.projectpart2.databinding.ActivityProfileBinding;
 import com.konden.projectpart2.fragments.fragment_setting.DialogFragmentBlank;
 import com.konden.projectpart2.interfases.CallProfileData;
+import com.konden.projectpart2.myapplication.MyApp;
 import com.konden.projectpart2.room.profile.ProfileEntity;
 import com.konden.projectpart2.room.ViewModelGame;
 import com.konden.projectpart2.sherdpreferanses.Sherdpreferanses;
@@ -19,7 +19,7 @@ import com.konden.projectpart2.sherdpreferanses.Sherdpreferanses;
 import java.util.List;
 import java.util.Locale;
 
-public class Profile extends AppCompatActivity implements CallProfileData {
+public class Profile extends MyApp implements CallProfileData {
     ActivityProfileBinding binding;
     private ViewModelGame model;
     ProfileEntity profile;
@@ -126,7 +126,6 @@ public class Profile extends AppCompatActivity implements CallProfileData {
             profile.setId(id);
             model.UpdateMobile(profile);
             dialogFragment.dismiss();
-
         }
     }
 }

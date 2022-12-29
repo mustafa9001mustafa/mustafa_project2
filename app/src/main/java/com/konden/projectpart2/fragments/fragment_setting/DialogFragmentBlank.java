@@ -46,7 +46,6 @@ public class DialogFragmentBlank extends DialogFragment {
     private FragmentDialogeBinding binding;
     public static final String TAG = "tag";
     String birthday, gender, suser, semail, Country;
-    private static final String ARG_ID = "id";
     CallProfileData callData;
 
     private String mParam1;

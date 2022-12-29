@@ -5,13 +5,22 @@ import androidx.room.PrimaryKey;
 
 @Entity
 public class LevelEntity {
-    @PrimaryKey()
+    @PrimaryKey
     private int level_no;
     private int unlock_points;
+    private boolean level_status = false;
 
     public LevelEntity(int level_no, int unlock_points) {
         this.level_no = level_no;
         this.unlock_points = unlock_points;
+    }
+
+    public boolean isLevel_status() {
+        return level_status;
+    }
+
+    public void setLevel_status(boolean level_status) {
+        this.level_status = level_status;
     }
 
     public int getLevel_no() {

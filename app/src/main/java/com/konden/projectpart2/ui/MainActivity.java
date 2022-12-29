@@ -1,41 +1,24 @@
 package com.konden.projectpart2.ui;
 
-import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+
 import com.konden.projectpart2.animations.AnimationAll;
 import com.konden.projectpart2.R;
 import com.konden.projectpart2.databinding.ActivityMainBinding;
 import com.konden.projectpart2.fragments.fragment_setting.DialogFragmentBack;
 import com.konden.projectpart2.interfases.CallFragment;
-import com.konden.projectpart2.room.ViewModelGame;
-import com.konden.projectpart2.room.game.level.LevelEntity;
-import com.konden.projectpart2.room.game.pattern.Pattern;
-import com.konden.projectpart2.room.game.questios.QuestionsEntity;
+
+import com.konden.projectpart2.jopservies.ServiceSoundOnApp;
+import com.konden.projectpart2.myapplication.MyApp;
 import com.konden.projectpart2.sherdpreferanses.Sherdpreferanses;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
-
-public class MainActivity extends AppCompatActivity implements CallFragment {
+public class MainActivity extends MyApp implements CallFragment {
     private ActivityMainBinding binding;
     private DialogFragmentBack back;
-    private ViewModelGame viewModel;
-    private LevelEntity level;
-    private QuestionsEntity questions;
-    private JSONObject object, object2;
-    private JSONArray jr;
-    private Pattern pattern;
+    private Intent intent;
 
 
     @Override
@@ -43,11 +26,14 @@ public class MainActivity extends AppCompatActivity implements CallFragment {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        viewModel = new ViewModelProvider(this).get(ViewModelGame.class);
+        intent = new Intent(getApplicationContext(), ServiceSoundOnApp.class);
 
-        if (Sherdpreferanses.getInstance().isFirstTimeGame()) {
-            getAllData();
-        }
+        if (Sherdpreferanses.getInstance().isFirstScoreGame())
+            Sherdpreferanses.getInstance().SetScore(2);
+
+        if (Sherdpreferanses.getInstance().GetSound() == true)
+            startService(intent);
+
     }
 
     @Override
@@ -102,81 +88,12 @@ public class MainActivity extends AppCompatActivity implements CallFragment {
         binding.start.setAnimation(all.a1_FromTheTop(MainActivity.this));
         binding.exit.setAnimation(all.a1_FromTheTop(MainActivity.this));
         binding.logoMain.setAnimation(all.a9_Small_to_big(MainActivity.this));
-
-    }
-
-
-    //    Json  وارساله كملف Json  الوصول الى ملف ال
-    //encoding : convert Json To String
-
-    private void getAllData() {
-
-        try {
-            JSONArray jsonArray = new JSONArray(loadJSONFromAsset());
-            for (int i = 0; i < jsonArray.length(); i++) {
-                object = jsonArray.getJSONObject(i);
-                int level_no = object.getInt("level_no");
-                Log.e(TAG, "getAllData: level_no " + level_no);
-                int unlock_points = object.getInt("unlock_points");
-                Log.e(TAG, "getAllData: unlock_points " + unlock_points);
-
-                level = new LevelEntity(level_no, unlock_points);
-                viewModel.InsertLevel(level);
-
-                jr = object.getJSONArray("questions");
-
-                for (int j = 0; j < jr.length(); j++) {
-                    object = jr.getJSONObject(j);
-                    String title = object.getString("title");
-                    String answer_1 = object.getString("answer_1");
-                    String answer_2 = object.getString("answer_2");
-                    String answer_3 = object.getString("answer_3");
-                    String answer_4 = object.getString("answer_4");
-                    String true_answer = object.getString("true_answer");
-                    int points = object.getInt("points");
-                    int duration = object.getInt("duration");
-                    String hint = object.getString("hint");
-
-                    object2 = object.getJSONObject("pattern");
-
-                    int pattern_id = object2.getInt("pattern_id");
-                    String pattern_name = object2.getString("pattern_name");
-                    pattern = new Pattern(pattern_id, pattern_name);
-                    questions = new QuestionsEntity(title, answer_1, answer_2, answer_3, answer_4, true_answer, points, duration, hint, level_no, pattern_id);
-
-                    Log.e(TAG, "getAllData: " + title);
-
-                }
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-            Log.e(TAG, "getAllData: error");
-        }
-    }
-
-    public String loadJSONFromAsset() {
-        String json;
-
-        try {
-            InputStream is = getBaseContext().getAssets().open("puzzleGameData.json"); //تقوم بجلب ملف الجيسن
-            int size = is.available(); //بتجبلك البايتات فيه كم حجمها
-            byte[] buffer = new byte[size];
-            //Stream :  assets  فتح قناه ما بين الكلاس الخاص فيا وما بين ملف ال
-
-                is.read(buffer);
-            is.close();
-            json = new String(buffer, StandardCharsets.UTF_8); // convert byte to String
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        }
-        return json;
-
     }
 
     @Override
     protected void onStop() {
         super.onStop();
+        stopService(intent);
         finish();
     }
 
@@ -193,6 +110,7 @@ public class MainActivity extends AppCompatActivity implements CallFragment {
     @Override
     public void call(boolean x) {
         if (x == true) {
+            stopService(intent);
             finish();
         } else if (x == false) {
             back.dismiss();
@@ -201,11 +119,9 @@ public class MainActivity extends AppCompatActivity implements CallFragment {
 
     @Override
     public void callLanguage(boolean b) {
-
     }
 
     @Override
     public void callLanguageClose(boolean b) {
-
     }
 }

@@ -72,5 +72,6 @@
     <string name="skip">skip</string>
     <string name="slash">/</string>
     <string name="level">Level </string>
+    <string name="big_text_notify">Let is get back to playing now</string>
 
 </resources>
