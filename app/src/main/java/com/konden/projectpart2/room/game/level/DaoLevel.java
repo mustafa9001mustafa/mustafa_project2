@@ -22,4 +22,7 @@ public interface DaoLevel {
     @Query("select * from LevelEntity order by level_no asc")
     LiveData<List<LevelEntity>> GetAllLevel();
 
+//    @Query("select level_no from levelentity  ")
+//    LiveData<List<LevelEntity>> GetLevel();
+
 }

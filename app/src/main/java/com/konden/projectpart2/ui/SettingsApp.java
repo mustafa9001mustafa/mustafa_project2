@@ -2,33 +2,31 @@ package com.konden.projectpart2.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
-import android.app.job.JobInfo;
-import android.app.job.JobScheduler;
-import android.content.ComponentName;
+
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.CompoundButton;
-import android.widget.Toast;
+
 import com.konden.projectpart2.animations.AnimationAll;
 import com.konden.projectpart2.R;
-import com.konden.projectpart2.constant.FinalContract;
 import com.konden.projectpart2.databinding.ActivitySettingsAppBinding;
+import com.konden.projectpart2.fragments.dialog_sound.DialogFragmentSound;
+import com.konden.projectpart2.fragments.fragment_end.DialogFragmentEnd;
 import com.konden.projectpart2.fragments.fragment_setting.DialogFragmentBack;
 import com.konden.projectpart2.fragments.fragment_setting.DialogFragmentLanguage;
 import com.konden.projectpart2.interfases.CallFragment;
-import com.konden.projectpart2.jopservies.MyServices;
+import com.konden.projectpart2.interfases.ListenerCallSounds;
 import com.konden.projectpart2.jopservies.ServiceSoundOnApp;
-import com.konden.projectpart2.myapplication.MyApp;
 import com.konden.projectpart2.sherdpreferanses.Sherdpreferanses;
 import com.yariksoffice.lingver.Lingver;
+
 import java.util.Locale;
 
-public class SettingsApp extends AppCompatActivity implements CallFragment {
+public class SettingsApp extends AppCompatActivity implements CallFragment, ListenerCallSounds {
     private ActivitySettingsAppBinding binding;
     private DialogFragmentBack back;
     private DialogFragmentLanguage language;
-    private JobInfo info;
-    private JobScheduler scheduler;
 
 
     @Override
@@ -36,34 +34,14 @@ public class SettingsApp extends AppCompatActivity implements CallFragment {
         super.onCreate(savedInstanceState);
         binding = ActivitySettingsAppBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+
         CheckMode();
-        binding.switch1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
 
-                if (b == true){
-                    Sherdpreferanses.getInstance().SetSound(b);
-                    startService(new Intent(getApplicationContext(), ServiceSoundOnApp.class));
-                }else {
-                    stopService(new Intent(getApplicationContext(), ServiceSoundOnApp.class));
-                    Sherdpreferanses.getInstance().SetSound(b);
-
-                }
-            }
+        binding.card1.setOnClickListener(view -> {
+            DialogFragmentSound dialogFragmentSound = DialogFragmentSound.newInstance(getResources().getString(R.string.sounds));
+            dialogFragmentSound.show(getSupportFragmentManager(), "s5");
         });
-
-        if (Sherdpreferanses.getInstance().GetSound() == true){
-            binding.switch1.setChecked(true);
-        }else {
-            binding.switch1.setChecked(false);
-        }
-
-        if (Sherdpreferanses.getInstance().GetNotify() == true){
-            binding.switch2.setChecked(true);
-        }else {
-            binding.switch2.setChecked(false);
-        }
-
 
 
         if (Locale.getDefault().getLanguage().equals("en"))
@@ -84,7 +62,6 @@ public class SettingsApp extends AppCompatActivity implements CallFragment {
                 }
             }
         });
-
     }
 
     private void CheckMode() {
@@ -102,7 +79,6 @@ public class SettingsApp extends AppCompatActivity implements CallFragment {
     protected void onStart() {
         super.onStart();
         ALL_METHOD();
-
     }
 
     private void ALL_METHOD() {
@@ -113,27 +89,27 @@ public class SettingsApp extends AppCompatActivity implements CallFragment {
         BUTTON_RESET();
         LANGUAGES();
         JobServes();
+
     }
 
 
     private void JobServes() {
+
+        if (Sherdpreferanses.getInstance().GetNotify() == true) {
+            binding.switch2.setChecked(true);
+        } else {
+            binding.switch2.setChecked(false);
+        }
+
         binding.switch2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (b == true) {
-                    Sherdpreferanses.getInstance().SetNotify(b);
-                    ComponentName name = new ComponentName(getBaseContext(), MyServices.class);
-                    info = new JobInfo.Builder(FinalContract.Job_id, name)
-                            .setPeriodic((24*60*60*1000),
-                                    JobInfo.getMinFlexMillis())
-                            .build();
-                    scheduler = (JobScheduler) getSystemService(JOB_SCHEDULER_SERVICE);
-                    scheduler.schedule(info);
-                    Toast.makeText(SettingsApp.this, "تم تشغيل الإشعارات", Toast.LENGTH_SHORT).show();
+                if (b) {
+                    binding.switch2.setChecked(true);
+                    Sherdpreferanses.getInstance().SetNotify(true);
                 } else {
-                    Sherdpreferanses.getInstance().SetNotify(b);
-                    scheduler.cancel(FinalContract.Job_id);
-                    Toast.makeText(SettingsApp.this, "تم إيقاف الإشعارات", Toast.LENGTH_SHORT).show();
+                    binding.switch2.setChecked(false);
+                    Sherdpreferanses.getInstance().SetNotify(false);
                 }
             }
         });
@@ -197,7 +173,8 @@ public class SettingsApp extends AppCompatActivity implements CallFragment {
     @Override
     public void call(boolean x) {
         if (x == true) {
-            // todo
+            Sherdpreferanses.getInstance().clear();
+            startActivity(new Intent(SettingsApp.this, SplashScreenApp.class));
         } else if (x == false) {
             back.dismiss();
         }
@@ -229,7 +206,6 @@ public class SettingsApp extends AppCompatActivity implements CallFragment {
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
-
     @Override
     protected void onStop() {
         super.onStop();
@@ -237,8 +213,27 @@ public class SettingsApp extends AppCompatActivity implements CallFragment {
     }
 
     private void restartActivity() {
-
         Intent intent = new Intent(getApplicationContext(), SettingsApp.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void sound1(boolean b) {
+        if (b == true) {
+            Sherdpreferanses.getInstance().SetSoundBackGrand(true);
+            startService(new Intent(getApplicationContext(), ServiceSoundOnApp.class));
+        } else {
+            Sherdpreferanses.getInstance().SetSoundBackGrand(false);
+            stopService(new Intent(getApplicationContext(), ServiceSoundOnApp.class));
+        }
+    }
+
+    @Override
+    public void sound2(boolean b) {
+        if (b == true) {
+            Sherdpreferanses.getInstance().SetSoundOther(true);
+        } else {
+            Sherdpreferanses.getInstance().SetSoundOther(false);
+        }
     }
 }

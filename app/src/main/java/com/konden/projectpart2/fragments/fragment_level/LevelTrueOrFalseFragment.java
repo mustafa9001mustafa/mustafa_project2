@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +15,10 @@ import android.widget.Toast;
 
 import com.konden.projectpart2.databinding.FragmentLevelTrueOrFalseBinding;
 import com.konden.projectpart2.interfases.ListenerCallAnswerFragmentTrueOrFalse;
+import com.konden.projectpart2.interfases.ListenerCallId;
 import com.konden.projectpart2.interfases.ListenerCallOnFinchesTimer;
+import com.konden.projectpart2.interfases.ListenerCallSkip;
+import com.konden.projectpart2.sherdpreferanses.Sherdpreferanses;
 
 import java.util.Locale;
 
@@ -36,10 +40,11 @@ public class LevelTrueOrFalseFragment extends Fragment {
     private int point;
     private int duration;
 
-    CountDownTimer countDownTimer;
-    ListenerCallAnswerFragmentTrueOrFalse listenerCallAnswerFragmentTrueOrFalse;
+    private CountDownTimer countDownTimer;
+    private ListenerCallAnswerFragmentTrueOrFalse listenerCallAnswerFragmentTrueOrFalse;
     private ListenerCallOnFinchesTimer listenerCallOnFinchesTimer;
-
+    private ListenerCallSkip callSkip;
+    private ListenerCallId listenerCallId;
 
 
     public LevelTrueOrFalseFragment() {
@@ -51,12 +56,17 @@ public class LevelTrueOrFalseFragment extends Fragment {
         super.onAttach(context);
         listenerCallAnswerFragmentTrueOrFalse = (ListenerCallAnswerFragmentTrueOrFalse) context;
         listenerCallOnFinchesTimer = (ListenerCallOnFinchesTimer) context;
+        callSkip = (ListenerCallSkip) context;
+        listenerCallId = (ListenerCallId) context;
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
         listenerCallAnswerFragmentTrueOrFalse = null;
+        listenerCallOnFinchesTimer = null;
+        callSkip = null;
+        listenerCallId = null;
     }
 
     public static LevelTrueOrFalseFragment newInstance(
@@ -90,9 +100,16 @@ public class LevelTrueOrFalseFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         FragmentLevelTrueOrFalseBinding binding = FragmentLevelTrueOrFalseBinding.inflate(inflater, container, false);
 
+        Log.e("TAG", "onCreateView: "+id );
+        listenerCallId.id(id);
+
+        binding.cardSkipFile.setOnClickListener(view -> {
+            callSkip.TrieOrFalseSkip();
+            if (Sherdpreferanses.getInstance().getScore() > 2)
+                countDownTimer.cancel();
+        });
         binding.itTextQuestionTrueOrFalse.setText(title);
         binding.itTextTimerTrue.setText(String.valueOf(duration));
 
@@ -123,7 +140,8 @@ public class LevelTrueOrFalseFragment extends Fragment {
 
             @Override
             public void onFinish() {
-                listenerCallOnFinchesTimer.OnFinchesTimer();
+                if (listenerCallAnswerFragmentTrueOrFalse != null)
+                    listenerCallOnFinchesTimer.OnFinchesTimer();
             }
         }.start();
 

@@ -1,7 +1,6 @@
 package com.konden.projectpart2.ui;
 
 
-
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -14,14 +13,12 @@ import com.konden.projectpart2.fragments.fragment_setting.DialogFragmentBack;
 import com.konden.projectpart2.interfases.CallFragment;
 
 import com.konden.projectpart2.jopservies.ServiceSoundOnApp;
-import com.konden.projectpart2.myapplication.MyApp;
 import com.konden.projectpart2.sherdpreferanses.Sherdpreferanses;
 
 public class MainActivity extends AppCompatActivity implements CallFragment {
     private ActivityMainBinding binding;
     private DialogFragmentBack back;
-    private Intent intent;
-
+    private Intent intent ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,12 +26,6 @@ public class MainActivity extends AppCompatActivity implements CallFragment {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         intent = new Intent(getApplicationContext(), ServiceSoundOnApp.class);
-
-        if (Sherdpreferanses.getInstance().isFirstScoreGame())
-            Sherdpreferanses.getInstance().SetScore(2);
-
-        if (Sherdpreferanses.getInstance().GetSound() == true)
-            startService(intent);
 
     }
 
@@ -50,6 +41,17 @@ public class MainActivity extends AppCompatActivity implements CallFragment {
         EXIT_BUTTON();
         ANIMATIONS();
         F_BUTTON();
+        CHECKSERVES();
+    }
+
+    private void CHECKSERVES() {
+        if (Sherdpreferanses.getInstance().isNotFirstMainGame())
+            stopService(intent);
+
+
+        if (Sherdpreferanses.getInstance().GetSoundBackGrand() == true) {
+            startService(intent);
+        }
     }
 
 
@@ -95,7 +97,6 @@ public class MainActivity extends AppCompatActivity implements CallFragment {
     @Override
     protected void onStop() {
         super.onStop();
-        stopService(intent);
         finish();
     }
 

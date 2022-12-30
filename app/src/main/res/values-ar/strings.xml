@@ -73,6 +73,10 @@
     <string name="big_text_notify">لنعد إلى اللعب الآن</string>
     <string name="next">التالي</string>
     <string name="file_edit_text_fragment">قم بإدخال الجواب بداخل المكان المحدد!</string>
+    <string name="wrong_answer">الإجابة خاطئة</string>
+    <string name="end_level">إنتهت المرحلة</string>
+    <string name="point">النقاط</string>
+    <string name="win_at_loser">عدد الفوز بالنسبة للخسارة</string>
 
 
 </resources>

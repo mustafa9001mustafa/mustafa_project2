@@ -1,10 +1,11 @@
-package com.konden.projectpart2.fragments.fragment_answer;
+package com.konden.projectpart2.fragments.fragment_end;
 
 import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,41 +13,38 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 
 import com.konden.projectpart2.R;
-import com.konden.projectpart2.databinding.FragmentDialogAnswerFalseBinding;
-import com.konden.projectpart2.databinding.FragmentDialogeAnswerBinding;
-import com.konden.projectpart2.interfases.ListenerCallDialogOk;
+import com.konden.projectpart2.databinding.FragmentDialogEndBinding;
+import com.konden.projectpart2.interfases.ListenerCallEnd;
 
 import java.util.Objects;
 
 
-public class DialogFragmentAnswerTrue extends DialogFragment {
-
+public class DialogFragmentEnd extends DialogFragment {
 
     private static final String ARG_PARAM1 = "param1";
-    private String Hit;
-    private ListenerCallDialogOk callDialogOk;
+    private String mParam1;
+    private ListenerCallEnd callEnd;
 
-
-    public DialogFragmentAnswerTrue() {
+    public DialogFragmentEnd() {
 
     }
 
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        callDialogOk = (ListenerCallDialogOk) context;
+        callEnd = (ListenerCallEnd) context;
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
-        callDialogOk = null;
+        callEnd = null;
     }
 
-    public static DialogFragmentAnswerTrue newInstance(String Hint) {
-        DialogFragmentAnswerTrue fragment = new DialogFragmentAnswerTrue();
+    public static DialogFragmentEnd newInstance(String param1) {
+        DialogFragmentEnd fragment = new DialogFragmentEnd();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, Hint);
+        args.putString(ARG_PARAM1, param1);
         fragment.setArguments(args);
         return fragment;
     }
@@ -55,20 +53,21 @@ public class DialogFragmentAnswerTrue extends DialogFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            Hit = getArguments().getString(ARG_PARAM1);
+            mParam1 = getArguments().getString(ARG_PARAM1);
         }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        FragmentDialogeAnswerBinding binding = FragmentDialogeAnswerBinding.inflate(inflater,container,false);
-        binding.itText.setText(Hit);
-        binding.ok.setOnClickListener(view -> {
-            callDialogOk.onFragment(true);
+        FragmentDialogEndBinding binding = FragmentDialogEndBinding.inflate(inflater,container,false);
+        binding.itEndText.setText(mParam1);
+        binding.next.setOnClickListener(view -> {
+            callEnd.call();
         });
-      return binding.getRoot();
+        return binding.getRoot();
     }
+
     @Override
     public void onResume() {
         super.onResume();
@@ -76,6 +75,5 @@ public class DialogFragmentAnswerTrue extends DialogFragment {
         params.width = ViewGroup.LayoutParams.MATCH_PARENT;
         params.height = ViewGroup.LayoutParams.WRAP_CONTENT;
         getDialog().getWindow().setAttributes(params);
-
     }
 }

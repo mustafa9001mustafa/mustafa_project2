@@ -56,14 +56,16 @@
                     android:layout_height="match_parent">
 
 
-                    <ImageView
+                    <com.airbnb.lottie.LottieAnimationView
                         android:id="@+id/item_lock"
                         android:layout_width="@dimen/_16sdp"
                         android:layout_height="@dimen/_16sdp"
-                        android:src="@drawable/ic_outline_lock_24"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:lottie_autoPlay="true"
+                        app:lottie_loop="true"
+                        app:lottie_rawRes="@raw/lock" />
 
                     <TextView
                         android:id="@+id/item_text_Unlock"

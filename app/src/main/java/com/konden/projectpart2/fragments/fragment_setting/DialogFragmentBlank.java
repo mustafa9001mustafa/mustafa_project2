@@ -142,7 +142,6 @@ public class DialogFragmentBlank extends DialogFragment {
                 Toast.makeText(getActivity(), "تم التعديل", Toast.LENGTH_SHORT).show();
             }
         } catch (Exception e) {
-            Log.e("error", "Validation: Something Error");
             Toast.makeText(getActivity(), R.string.completdata, Toast.LENGTH_SHORT).show();
 
         }
@@ -153,7 +152,6 @@ public class DialogFragmentBlank extends DialogFragment {
         String email = binding.editEmail.getEditText().getText().toString();
         if (!email.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             semail = binding.editEmail.getEditText().getText().toString();
-            Log.e(TAG, "EMAIL: " + semail);
         }
     }
 
@@ -230,14 +228,10 @@ public class DialogFragmentBlank extends DialogFragment {
                                 } catch (ParseException e) {
                                     e.printStackTrace();
                                 }
-
                             }
-
                         }
-
                     }, mYear, mMonth, mDay);
             datePickerDialog.show();
-
         });
 
     }
@@ -248,8 +242,6 @@ public class DialogFragmentBlank extends DialogFragment {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 gender = (R.id.male == i) ? "male" : "female";
-                Log.e(TAG, "onCheckedChanged: " + gender);
-
             }
         });
     }
@@ -280,7 +272,6 @@ public class DialogFragmentBlank extends DialogFragment {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         binding.spinnerCountry.setAdapter(adapter);
 
-
         binding.spinnerCountry.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -290,9 +281,7 @@ public class DialogFragmentBlank extends DialogFragment {
                 if (!(i == 0)) {
                     Country = String.valueOf(adapterView.getItemAtPosition(i));
                 }
-                Log.e(TAG, "GENDER: " + Country);
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
             }

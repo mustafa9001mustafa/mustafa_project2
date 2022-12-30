@@ -7,14 +7,19 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.konden.projectpart2.databinding.FragmentLevelChooseBinding;
 import com.konden.projectpart2.interfases.ListenerCallAnswerFragmentChoose;
+import com.konden.projectpart2.interfases.ListenerCallId;
 import com.konden.projectpart2.interfases.ListenerCallOnFinchesTimer;
+import com.konden.projectpart2.interfases.ListenerCallSkip;
 import com.konden.projectpart2.interfases.TimerListener;
+import com.konden.projectpart2.sherdpreferanses.Sherdpreferanses;
 
 import java.util.Locale;
 
@@ -35,6 +40,8 @@ public class LevelChooseFragment extends Fragment {
     private TimerListener timerListener;
     private ListenerCallAnswerFragmentChoose listenerCallAnswerFragmentChoose;
     private ListenerCallOnFinchesTimer listenerCallOnFinchesTimer;
+    private ListenerCallSkip callSkip;
+    private ListenerCallId listenerCallId;
 
     private int id;
     private String title;
@@ -58,12 +65,19 @@ public class LevelChooseFragment extends Fragment {
         timerListener = (TimerListener) context;
         listenerCallAnswerFragmentChoose = (ListenerCallAnswerFragmentChoose) context;
         listenerCallOnFinchesTimer = (ListenerCallOnFinchesTimer) context;
+        callSkip = (ListenerCallSkip) context;
+        listenerCallId = (ListenerCallId) context;
+
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
         listenerCallAnswerFragmentChoose = null;
+        timerListener = null;
+        listenerCallOnFinchesTimer = null;
+        callSkip = null;
+        listenerCallId = null;
     }
 
     public static LevelChooseFragment newInstance(
@@ -108,6 +122,18 @@ public class LevelChooseFragment extends Fragment {
                              Bundle savedInstanceState) {
         FragmentLevelChooseBinding binding = FragmentLevelChooseBinding.inflate(inflater, container, false);
 
+        Log.e("TAG", "onCreateView: "+id );
+
+        listenerCallId.id(id);
+        binding.cardSkip.setOnClickListener(view -> {
+            callSkip.ChooseSkip();
+            if (Sherdpreferanses.getInstance().getScore() > 2)
+                countDownTimer.cancel();
+        });
+
+        binding.hintIconChoose.setOnClickListener(view -> {
+            Toast.makeText(getActivity(), hint, Toast.LENGTH_SHORT).show();
+        });
         binding.itChoose1.setOnClickListener(view -> {
             String s = binding.itChoose1.getText().toString();
             getTrueAnswer(s);
@@ -146,6 +172,7 @@ public class LevelChooseFragment extends Fragment {
 
             @Override
             public void onFinish() {
+                if (listenerCallAnswerFragmentChoose != null)
                 listenerCallOnFinchesTimer.OnFinchesTimer();
             }
         }.start();

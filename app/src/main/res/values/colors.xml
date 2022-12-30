@@ -27,5 +27,6 @@
     <color name="item_color_open">#11E419</color>
     <color name="item_color_close">#F31100</color>
     <color name="color_card_true">#00FF90</color>
+    <color name="black_just">#000000</color>
 
 </resources>

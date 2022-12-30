@@ -23,7 +23,7 @@ public class DialogFragmentBack extends DialogFragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private static final String ARG_PARAM3 = "param3";
-    CallFragment call;
+    private CallFragment call;
     private String mParam1;
     private String mParam2;
     private String mParam3;
@@ -66,6 +66,7 @@ public class DialogFragmentBack extends DialogFragment {
         binding.itText.setText(mParam1);
         binding.close.setText(mParam2);
         binding.non.setText(mParam3);
+
         binding.close.setOnClickListener(view -> {
             call.call(true);
         });
@@ -76,6 +77,7 @@ public class DialogFragmentBack extends DialogFragment {
         binding.closeIcon.setOnClickListener(view -> {
             call.call(false);
         });
+
         return binding.getRoot();
     }
 
@@ -86,8 +88,6 @@ public class DialogFragmentBack extends DialogFragment {
         params.width = ViewGroup.LayoutParams.MATCH_PARENT;
         params.height = ViewGroup.LayoutParams.WRAP_CONTENT;
         getDialog().getWindow().setAttributes(params);
-
-
     }
 
 }

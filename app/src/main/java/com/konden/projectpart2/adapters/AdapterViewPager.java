@@ -30,9 +30,7 @@ public class AdapterViewPager extends FragmentStateAdapter {
         String answer_2 = questionsEntity.getAnswer_2();
         String answer_3 = questionsEntity.getAnswer_3();
         String answer_4 = questionsEntity.getAnswer_4();
-
         String true_answer= questionsEntity.getTrue_answer();
-
         int points = questionsEntity.getPoints();
         int duration = questionsEntity.getDuration();
         String hint = questionsEntity.getHint() ;

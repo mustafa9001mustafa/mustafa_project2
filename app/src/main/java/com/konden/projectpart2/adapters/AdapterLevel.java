@@ -5,6 +5,9 @@ import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.ScaleAnimation;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -55,14 +58,16 @@ public class AdapterLevel extends RecyclerView.Adapter<AdapterLevel.LevelsHolder
     @Override
     public void onBindViewHolder(@NonNull LevelsHolder holder, int position) {
         LevelEntity level = list.get(position);
-        int pos =position;
+        int pos = position;
         holder.setData(list.get(position));
-        if (level.getUnlock_points() < Sherdpreferanses.getInstance().getScore()){
+        setFadeAnimation(holder.item.itemTextUnlock);
+        setScaleAnimation(holder.item.getRoot());
+        if (level.getUnlock_points() <= Sherdpreferanses.getInstance().getScore()) {
             holder.item.cardView.setCardBackgroundColor(Color.GREEN);
-            holder.item.itemLock.setImageResource(R.drawable.ic_baseline_lock_open_24);
+            holder.item.itemLock.setAnimation(R.raw.unlocked);
             holder.item.itemTextUnlock.setText("");
             holder.item.getRoot().setOnClickListener(view -> {
-                callLevel.callLevel(level.getLevel_no(),true);
+                callLevel.callLevel(level.getLevel_no(), true);
             });
         }
     }
@@ -84,9 +89,22 @@ public class AdapterLevel extends RecyclerView.Adapter<AdapterLevel.LevelsHolder
             item.itemTextLevel.setText(String.valueOf(level.getLevel_no()));
             item.itemTextUnlock.setText(String.valueOf(level.getUnlock_points()));
         }
+
     }
 
     public static interface CallLevel {
-        void callLevel(int x,boolean level_status);
+        void callLevel(int x, boolean level_status);
+    }
+
+    private void setFadeAnimation(View view) {
+        AlphaAnimation anim = new AlphaAnimation(0.0f, 1.0f);
+        anim.setDuration(1000);
+        view.startAnimation(anim);
+    }
+
+    private void setScaleAnimation(View view) {
+        ScaleAnimation anim = new ScaleAnimation(0.0f, 1.0f, 0.0f, 1.0f, Animation.RELATIVE_TO_SELF, 0.2f, Animation.RELATIVE_TO_SELF, 0.2f);
+        anim.setDuration(350);
+        view.startAnimation(anim);
     }
 }

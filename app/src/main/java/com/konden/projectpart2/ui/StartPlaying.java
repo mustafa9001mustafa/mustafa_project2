@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import android.content.Intent;
 import android.os.Bundle;
-import com.konden.projectpart2.myapplication.MyApp;
 import com.konden.projectpart2.R;
 import com.konden.projectpart2.adapters.AdapterLevel;
 import com.konden.projectpart2.databinding.ActivityStartPlayingBinding;
@@ -81,7 +80,5 @@ public class StartPlaying extends AppCompatActivity {
         super.onBackPressed();
         startActivity(new Intent(StartPlaying.this, MainActivity.class));
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
-
-
     }
 }

@@ -29,7 +29,6 @@ public class DialogFragmentLanguage extends DialogFragment {
     private static final String ARG_PARAM3 = "param3";
 
 
-
     private String mParam1;
     private String mParam2;
     private String mParam3;
@@ -79,26 +78,22 @@ public class DialogFragmentLanguage extends DialogFragment {
             binding.lan1.setBackgroundResource(R.drawable.shapnotonclick);
             a = false;
             e = true;
-
         });
 
         binding.itTextLan.setText(mParam1);
         binding.lan1.setText(mParam2);
         binding.lan2.setText(mParam3);
         binding.btnSaveData.setOnClickListener(view -> {
-            if (a == true) {
+            if (a == true)
                 language.callLanguage(true);
-
-            } else if (e == true) {
+            else
                 language.callLanguage(false);
 
-            }
         });
 
         binding.cloIcon.setOnClickListener(view -> {
             language.callLanguageClose(true);
         });
-
         return binding.getRoot();
     }
 

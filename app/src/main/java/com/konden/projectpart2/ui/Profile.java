@@ -12,7 +12,6 @@ import com.konden.projectpart2.animations.AnimationAll;
 import com.konden.projectpart2.databinding.ActivityProfileBinding;
 import com.konden.projectpart2.fragments.fragment_setting.DialogFragmentBlank;
 import com.konden.projectpart2.interfases.CallProfileData;
-import com.konden.projectpart2.myapplication.MyApp;
 import com.konden.projectpart2.room.profile.ProfileEntity;
 import com.konden.projectpart2.room.ViewModelGame;
 import com.konden.projectpart2.sherdpreferanses.Sherdpreferanses;
@@ -34,7 +33,6 @@ public class Profile extends AppCompatActivity implements CallProfileData {
         setContentView(binding.getRoot());
         model = new ViewModelProvider(this).get(ViewModelGame.class);
         INSERT_USER();
-        // check the language
         if (Locale.getDefault().getLanguage().equals("en"))
             binding.backIcon.setRotation(90);
 
@@ -51,13 +49,39 @@ public class Profile extends AppCompatActivity implements CallProfileData {
         EDIT_BUTTON();
         ON_BACK_UI();
         GET_USER();
+        GET_POINT();
+        GET_WIN();
+        GET_LOSER();
+        GET_LEVEL_FINISHED();
+        GET_KD();
+    }
+
+
+    private void GET_POINT() {
+        binding.point.setText(String.valueOf(Sherdpreferanses.getInstance().getScore()));
+    }
+
+    private void GET_WIN() {
+        binding.levelWin.setText(String.valueOf(Sherdpreferanses.getInstance().getWin()));
+    }
+
+    private void GET_LOSER() {
+        binding.levelLoser.setText(String.valueOf(Sherdpreferanses.getInstance().getLoser()));
+    }
+
+    private void GET_LEVEL_FINISHED() {
+        binding.finishedLevel.setText(String.valueOf(Sherdpreferanses.getInstance().getFinished()));
+    }
+
+    private void GET_KD() {
+         float x = Sherdpreferanses.getInstance().SetKD(Sherdpreferanses.getInstance().getWin(), Sherdpreferanses.getInstance().getLoser());
+        binding.kd.setText(String.valueOf(x));
     }
 
     private void ON_BACK_UI() {
         binding.backIcon.setOnClickListener(view -> {
             startActivity(new Intent(Profile.this, SettingsApp.class));
             overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
-
         });
     }
 
@@ -87,7 +111,7 @@ public class Profile extends AppCompatActivity implements CallProfileData {
 
     private void EDIT_BUTTON() {
         binding.editIcon.setOnClickListener(view -> {
-            dialogFragment = DialogFragmentBlank.newInstance(profile.getUsername(),profile.getEmail(),profile.getBirthday(),profile.getGender(),profile.getCountry());
+            dialogFragment = DialogFragmentBlank.newInstance(profile.getUsername(), profile.getEmail(), profile.getBirthday(), profile.getGender(), profile.getCountry());
             dialogFragment.show(getSupportFragmentManager(), "d");
 
 
