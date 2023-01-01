@@ -79,7 +79,6 @@
                 android:gravity="center"
                 android:text="@string/question_file_text"
                 style="@style/TextShadowStyle"
-
                 android:textColor="@color/black"
                 android:textSize="@dimen/_14ssp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -130,7 +129,9 @@
                 android:id="@+id/edit_answer"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_15sdp"
+                android:layout_marginVertical="@dimen/_15sdp"
+                android:layout_marginHorizontal="@dimen/_8sdp"
+                android:background="@drawable/shap_input"
                 android:hint="@string/set_text_answer"
                 app:endIconMode="clear_text"
                 app:helperTextEnabled="true"
@@ -141,6 +142,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/input_answer"
                     android:layout_width="match_parent"
+                    android:textColor="@color/black"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/ds" />
 

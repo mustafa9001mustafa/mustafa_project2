@@ -4,24 +4,21 @@ import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
 
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.app.job.JobInfo;
 import android.app.job.JobScheduler;
 import android.content.ComponentName;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.konden.projectpart2.R;
 import com.konden.projectpart2.animations.AnimationAll;
 import com.konden.projectpart2.constant.FinalContract;
 import com.konden.projectpart2.databinding.ActivitySplachScreenBinding;
 import com.konden.projectpart2.jopservies.MyServices;
+import com.konden.projectpart2.jopservies.ServiceSoundOnApp;
 import com.konden.projectpart2.room.ViewModelGame;
 import com.konden.projectpart2.room.game.level.LevelEntity;
 import com.konden.projectpart2.room.game.questios.QuestionsEntity;
@@ -37,25 +34,13 @@ import java.nio.charset.StandardCharsets;
 
 
 public class SplashScreenApp extends AppCompatActivity {
-    ActivitySplachScreenBinding binding;
-    private int progressStatus = 0, sleep = 17, i = 1;
+    private ActivitySplachScreenBinding binding;
+    private int progressStatus = 0, sleep = 16;
     private ViewModelGame viewModel;
-    private LevelEntity level;
-    private QuestionsEntity questions;
-    private JSONObject object, object2;
-    private JSONArray jr;
-    private JobInfo info;
-    private JobScheduler scheduler;
+    private JSONObject object;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        if (Sherdpreferanses.getInstance().GetTheme() == true) {
-            setTheme(R.style.Theme_ProjectPart2_dark);
-            Log.e(TAG, "onCreate: 12412421412");
-        } else {
-            setTheme(R.style.Theme_ProjectPart2);
-            Log.e(TAG, "onCreate: segsegseg");
-        }
         super.onCreate(savedInstanceState);
         binding = ActivitySplachScreenBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -76,23 +61,21 @@ public class SplashScreenApp extends AppCompatActivity {
     }
 
     private void NOTIFICATION_SWISHIEST() {
+
+        ComponentName name = new ComponentName(getBaseContext(), MyServices.class);
+        JobInfo info = new JobInfo.Builder(FinalContract.Job_id, name)
+                .setPeriodic((24 * 60 * 60 * 1000),
+                        JobInfo.getMinFlexMillis())
+                .build();
+        JobScheduler scheduler = (JobScheduler) getSystemService(JOB_SCHEDULER_SERVICE);
+
         if (Sherdpreferanses.getInstance().GetNotify() == true) {
-            ComponentName name = new ComponentName(getBaseContext(), MyServices.class);
-            info = new JobInfo.Builder(FinalContract.Job_id, name)
-                    .setPeriodic((24 * 60 * 60 * 1000),
-                            JobInfo.getMinFlexMillis())
-                    .build();
-            scheduler = (JobScheduler) getSystemService(JOB_SCHEDULER_SERVICE);
-            scheduler.schedule(info);
-            Toast.makeText(SplashScreenApp.this, "تم تشغيل الإشعارات", Toast.LENGTH_SHORT).show();
-            Log.e(TAG, "NOTIFICATION_SWISHIEST: ok");
-        } else {
             if (Sherdpreferanses.getInstance().isNotFirstMainGame2()) {
                 scheduler.cancel(FinalContract.Job_id);
-                Toast.makeText(SplashScreenApp.this, "تم إيقاف الإشعارات", Toast.LENGTH_SHORT).show();
             }
-            Log.e(TAG, "NOTIFICATION_SWISHIEST: no");
-
+            scheduler.schedule(info);
+        } else {
+            scheduler.cancel(FinalContract.Job_id);
 
         }
 
@@ -103,22 +86,23 @@ public class SplashScreenApp extends AppCompatActivity {
         if (Sherdpreferanses.getInstance().isFirstTimeGame()) {
             GetData_Level();
             GetData_Questions();
-
         }
 
         if (Sherdpreferanses.getInstance().isFirstTimeOther()) {
             sleep = 41;
+            Sherdpreferanses.getInstance().SetUnlockNow(2);
             Sherdpreferanses.getInstance().SetFinished(0);
             Sherdpreferanses.getInstance().SetWin(0);
             Sherdpreferanses.getInstance().SetLoser(0);
             Sherdpreferanses.getInstance().SetScore(2);
             Sherdpreferanses.getInstance().SetSoundOther(true);
             Sherdpreferanses.getInstance().SetSoundBackGrand(true);
+            Sherdpreferanses.getInstance().SetCheckBox(true);
+
         }
     }
 
     private void ANIMATIONS() {
-        // Todo
         AnimationAll all = new AnimationAll();
         binding.sp.setAnimation(all.a9_Small_to_big(SplashScreenApp.this));
         binding.nameApp.setAnimation(all.a4_FromTheBottom(SplashScreenApp.this));
@@ -130,14 +114,15 @@ public class SplashScreenApp extends AppCompatActivity {
 
         new Thread(new Runnable() {
             public void run() {
-
                 while (progressStatus < 100) {
-                    progressStatus += i;
+                    progressStatus += FinalContract.PLUS_PROGRESS;
                     binding.progressBar.setProgress(progressStatus);
 
-                    if (progressStatus == 100)
-                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                    overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom);
+                    if (progressStatus == 100) {
+                        Intent intent = new Intent(new Intent(getApplicationContext(), MainActivity.class));
+                        startActivity(intent);
+                        CHECKSERVES();
+                    }
 
                     try {
                         Thread.sleep(sleep);
@@ -147,6 +132,16 @@ public class SplashScreenApp extends AppCompatActivity {
                 }
             }
         }).start();
+    }
+
+    private void CHECKSERVES() {
+        Intent intent1 = new Intent(getApplicationContext(), ServiceSoundOnApp.class);
+        if (Sherdpreferanses.getInstance().GetSoundBackGrand() == false)
+            stopService(new Intent(getApplicationContext(), MainActivity.class));
+        else
+            startService(intent1);
+
+        overridePendingTransition(R.anim.slide_out_bottom, R.anim.slide_in_bottom);
     }
 
 
@@ -162,7 +157,7 @@ public class SplashScreenApp extends AppCompatActivity {
                 int level_no = object.getInt("level_no");
                 Log.e(TAG, "getAllData: level_no " + level_no);
                 int unlock_points = object.getInt("unlock_points");
-                level = new LevelEntity(level_no, unlock_points);
+                LevelEntity level = new LevelEntity(level_no, unlock_points);
                 viewModel.InsertLevel(level);
             }
         } catch (JSONException e) {
@@ -178,7 +173,7 @@ public class SplashScreenApp extends AppCompatActivity {
             for (int i = 0; i < jsonArray.length(); i++) {
                 object = jsonArray.getJSONObject(i);
                 int level_no = object.getInt("level_no");
-                jr = object.getJSONArray("questions");
+                JSONArray jr = object.getJSONArray("questions");
 
                 for (int j = 0; j < jr.length(); j++) {
                     object = jr.getJSONObject(j);
@@ -193,10 +188,10 @@ public class SplashScreenApp extends AppCompatActivity {
                     int duration = object.getInt("duration");
                     String hint = object.getString("hint");
 
-                    object2 = object.getJSONObject("pattern");
+                    JSONObject object2 = object.getJSONObject("pattern");
 
                     int pattern_id = object2.getInt("pattern_id");
-                    questions = new QuestionsEntity(id, title, answer_1, answer_2, answer_3, answer_4, true_answer, points, duration, hint, level_no
+                    QuestionsEntity questions = new QuestionsEntity(id, title, answer_1, answer_2, answer_3, answer_4, true_answer, points, duration, hint, level_no
                             , pattern_id
                     );
                     viewModel.InsertQuestions(questions);
@@ -205,7 +200,6 @@ public class SplashScreenApp extends AppCompatActivity {
             }
         } catch (JSONException e) {
             e.printStackTrace();
-            Log.e(TAG, "getAllData: error");
         }
     }
 
@@ -226,7 +220,6 @@ public class SplashScreenApp extends AppCompatActivity {
             return null;
         }
         return json;
-
     }
 
 

@@ -87,18 +87,6 @@ public class Sherdpreferanses {
         return !ranBeforeGame;
     }
 
-//    public void SetLevel(int b, int number) {
-//        editor = sharedPreferences.edit();
-//        editor.putInt("level_" + b, number);
-//        editor.apply();
-//    }
-//
-//    public void GetLevel() {
-//        editor = sharedPreferences.edit();
-//        boolean SwitchCompat_on_off = sharedPreferences.getBoolean("level_", false);
-//        editor.apply();
-//    }
-
     public int SetScore(int x) {
         editor = sharedPreferences.edit();
         editor.putInt("Score", x);
@@ -111,17 +99,6 @@ public class Sherdpreferanses {
         int getScore = sharedPreferences.getInt("Score", 0);
         editor.apply();
         return getScore;
-    }
-
-    public boolean isNotFirstMainGame() {
-        boolean ranBeforeGame = sharedPreferences.getBoolean("isFirstMainGame", false);
-        if (!ranBeforeGame) {
-            editor = sharedPreferences.edit();
-            editor.putBoolean("isFirstMainGame", true);
-            editor.apply();
-        }
-
-        return ranBeforeGame;
     }
 
     public boolean isNotFirstMainGame2() {
@@ -165,12 +142,17 @@ public class Sherdpreferanses {
 
     public void SetFinished(int x) {
         editor = sharedPreferences.edit();
+
+        for (int i = 0; i <x; i++) {
+            editor.putInt("finished"+x, x);
+        }
         editor.putInt("finished", x);
         editor.apply();
     }
 
     public int getFinished() {
         editor = sharedPreferences.edit();
+
         int getFinished = sharedPreferences.getInt("finished", 0);
         editor.apply();
         return getFinished;
@@ -183,7 +165,7 @@ public class Sherdpreferanses {
         editor.apply();
     }
 
-    public int get_Id_Questions() {
+    public int get_Id_Questions(int x) {
         editor = sharedPreferences.edit();
         int getFinished = sharedPreferences.getInt("id_questions", 0);
         editor.apply();
@@ -231,16 +213,36 @@ public class Sherdpreferanses {
         return s;
     }
 
-    public float GetKD() {
+    public int SetUnlockNow(int x) {
         editor = sharedPreferences.edit();
-        float getWin = sharedPreferences.getFloat("KD", 2.1f);
+        editor.putInt("LevelNow", x);
         editor.apply();
-        return getWin;
+        return x;
+    }
+
+    public int getUnlockNow() {
+        editor = sharedPreferences.edit();
+        int getScore = sharedPreferences.getInt("LevelNow", 0);
+        editor.apply();
+        return getScore;
+    }
+
+    public void SetCheckBox(boolean b) {
+        editor = sharedPreferences.edit();
+        editor.putBoolean("CheckBox", b);
+        editor.apply();
+    }
+
+    public boolean GetCheckBox() {
+        editor = sharedPreferences.edit();
+        boolean SwitchCompat_on_off_s = sharedPreferences.getBoolean("CheckBox", false);
+        editor.apply();
+        return SwitchCompat_on_off_s;
     }
 
     public void clear() {
         editor = sharedPreferences.edit();
-        editor.remove("KD");
+        editor.remove("KD ");
         editor.remove("Notify");
         editor.remove("Score");
         editor.remove("win");
@@ -249,6 +251,9 @@ public class Sherdpreferanses {
         editor.remove("id_level");
         editor.remove("finished");
         editor.remove("RanBeforeOther");
+        editor.remove("RanBefore");
+        editor.remove("CheckBox");
         editor.apply();
     }
+
 }

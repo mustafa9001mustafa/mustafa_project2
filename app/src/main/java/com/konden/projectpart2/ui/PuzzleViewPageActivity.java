@@ -11,11 +11,12 @@ import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.konden.projectpart2.R;
-import com.konden.projectpart2.adapters.AdapterViewPager;
+import com.konden.projectpart2.adapters.levelandquestion.AdapterViewPager;
 import com.konden.projectpart2.databinding.ActivityPuzzleViewPageActivtyBinding;
 import com.konden.projectpart2.fragments.fragment_answer.DialogFragmentAnswerFalse;
 import com.konden.projectpart2.fragments.fragment_answer.DialogFragmentAnswerTrue;
-import com.konden.projectpart2.fragments.fragment_end.DialogFragmentEnd;
+import com.konden.projectpart2.fragments.fragment_end_time_out.DialogFragmentEnd;
+import com.konden.projectpart2.fragments.fragment_end_time_out.DialogFragmentTimeOut;
 import com.konden.projectpart2.interfases.ListenerCallAnswerFragmentChoose;
 import com.konden.projectpart2.interfases.ListenerCallAnswerFragmentFile;
 import com.konden.projectpart2.interfases.ListenerCallAnswerFragmentTrueOrFalse;
@@ -24,6 +25,7 @@ import com.konden.projectpart2.interfases.ListenerCallEnd;
 import com.konden.projectpart2.interfases.ListenerCallId;
 import com.konden.projectpart2.interfases.ListenerCallOnFinchesTimer;
 import com.konden.projectpart2.interfases.ListenerCallSkip;
+import com.konden.projectpart2.interfases.ListenerTimeOut;
 import com.konden.projectpart2.interfases.TimerListener;
 import com.konden.projectpart2.room.ViewModelGame;
 import com.konden.projectpart2.room.game.questios.QuestionsEntity;
@@ -35,7 +37,7 @@ import java.util.List;
 
 public class PuzzleViewPageActivity extends AppCompatActivity implements TimerListener, ListenerCallAnswerFragmentFile
         , ListenerCallAnswerFragmentTrueOrFalse, ListenerCallAnswerFragmentChoose, ListenerCallDialogOk
-        , ListenerCallOnFinchesTimer, ListenerCallSkip, ListenerCallEnd, ListenerCallId {
+        , ListenerCallOnFinchesTimer, ListenerCallSkip, ListenerCallEnd, ListenerCallId , ListenerTimeOut {
     ActivityPuzzleViewPageActivtyBinding binding;
     ArrayList<QuestionsEntity> questionsEntityArrayList = new ArrayList<>();
     ViewModelGame viewModel;
@@ -43,6 +45,7 @@ public class PuzzleViewPageActivity extends AppCompatActivity implements TimerLi
     AdapterViewPager adapterViewPager;
     DialogFragmentAnswerFalse answerFalse;
     DialogFragmentAnswerTrue answerTrue;
+    DialogFragmentTimeOut fragmentTimeOut;
     DialogFragmentEnd fragmentEnd;
     Sound sound = new Sound();
 
@@ -54,13 +57,14 @@ public class PuzzleViewPageActivity extends AppCompatActivity implements TimerLi
 
         viewModel = new ViewModelProvider(this).get(ViewModelGame.class);
         binding.viewPoint.setText(String.valueOf(Sherdpreferanses.getInstance().getScore()));
-
-
         Intent intent = getIntent();
         id = intent.getIntExtra("id_level", 0);
         binding.viewLevelNow.setText(binding.viewLevelNow.getText().toString() + " " + String.valueOf(id));
-        Log.d("sizeTest", "onCreate: " + id);
+        GetAllQuestion();
 
+    }
+
+    private void GetAllQuestion(){
         viewModel.getAllQuestions(id).observe(this, new Observer<List<QuestionsEntity>>() {
             @Override
             public void onChanged(List<QuestionsEntity> questionsEntities) {
@@ -68,23 +72,10 @@ public class PuzzleViewPageActivity extends AppCompatActivity implements TimerLi
                 adapterViewPager = new AdapterViewPager(PuzzleViewPageActivity.this, questionsEntityArrayList);
                 binding.viewpagerFragment.setAdapter(adapterViewPager);
                 //
-                Log.e("TAG", "onChanged: "+binding.viewpagerFragment.getCurrentItem() );
-                if (binding.viewpagerFragment.getCurrentItem() == id_Questions -1
-//                        &&
-//                        id == Sherdpreferanses.getInstance().get_Id_Level()
-                )
-                    Log.e("TAG", "onChanged: 1111111111111111111111111111111");
-
-
                 binding.viewQuestionAll.setText(String.valueOf(questionsEntities.size()));
             }
         });
         binding.viewpagerFragment.setUserInputEnabled(false);
-    }
-
-
-    private int getItem(int i) {
-        return binding.viewpagerFragment.getCurrentItem() + i;
     }
 
     @Override
@@ -147,7 +138,6 @@ public class PuzzleViewPageActivity extends AppCompatActivity implements TimerLi
         }
     }
 
-
     @Override
     public void onTimeOut() {
         moveViewPager();
@@ -170,12 +160,12 @@ public class PuzzleViewPageActivity extends AppCompatActivity implements TimerLi
 
     private void SkipFragment() {
         int x = Sherdpreferanses.getInstance().getScore();
-        if (x < 2) {
+        if (x <= 4) {
             Snackbar.make(binding.getRoot(), "لا يوجد لديك عدد نقاط كافية للتخطي", Snackbar.LENGTH_SHORT).show();
             if (Sherdpreferanses.getInstance().GetSoundOther() == true)
                 sound.S1();
 
-        }else {
+        } else {
             moveViewPager();
             Score(-3);
             binding.viewPoint.setText(String.valueOf(Sherdpreferanses.getInstance().getScore()));
@@ -192,18 +182,22 @@ public class PuzzleViewPageActivity extends AppCompatActivity implements TimerLi
             fragmentEnd.setCancelable(false);
             int finished = Sherdpreferanses.getInstance().getFinished();
             Sherdpreferanses.getInstance().SetFinished(finished + 1);
+
         } else {
             binding.viewpagerFragment.setCurrentItem(currentItem + 1, false);
         }
     }
 
     @Override
-    public void OnFinchesTimer() {
-        moveViewPager();
+    public void OnFinchesTimer() { //
+        fragmentTimeOut = DialogFragmentTimeOut.newInstance(getResources().getString(R.string.next));
+        fragmentTimeOut.show(getSupportFragmentManager(), "s6");
+        fragmentTimeOut.setCancelable(false);
+
     }
 
     @Override
-    public void call() {
+    public void callEnd() {
         startActivity(new Intent(PuzzleViewPageActivity.this, StartPlaying.class));
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
@@ -248,14 +242,15 @@ public class PuzzleViewPageActivity extends AppCompatActivity implements TimerLi
         finish();
     }
 
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
-//        Sherdpreferanses.getInstance().Set_Id_Questions(Sherdpreferanses.getInstance().get_Id_Questions(), id);
-        if (Sherdpreferanses.getInstance().get_Id_Questions() == adapterViewPager.getItemCount() - 1) {
-            Sherdpreferanses.getInstance().Set_Id_Questions(id_Questions, id);
-        } else {
-            Sherdpreferanses.getInstance().Set_Id_Questions(id_Questions, id);
-        }
+    }
+
+    @Override
+    public void time_out() {
+        fragmentTimeOut.dismiss();
+        moveViewPager();
     }
 }

@@ -140,7 +140,6 @@ public class LevelTrueOrFalseFragment extends Fragment {
 
             @Override
             public void onFinish() {
-                if (listenerCallAnswerFragmentTrueOrFalse != null)
                     listenerCallOnFinchesTimer.OnFinchesTimer();
             }
         }.start();

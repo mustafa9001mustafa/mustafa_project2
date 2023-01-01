@@ -1,6 +1,7 @@
 package com.konden.projectpart2.fragments.dialog_sound;
 
 import android.content.Context;
+import android.media.AudioManager;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,10 +12,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.CompoundButton;
+import android.widget.SeekBar;
 
 import com.konden.projectpart2.databinding.FragmentBlankBinding;
 import com.konden.projectpart2.interfases.ListenerCallSounds;
 import com.konden.projectpart2.sherdpreferanses.Sherdpreferanses;
+import com.konden.projectpart2.sound.Sound;
 
 import java.util.Objects;
 
@@ -72,24 +75,26 @@ public class DialogFragmentSound extends DialogFragment {
             binding.switch1Sound.setChecked(false);
 
 
-
         binding.switch1Sound.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (b == true){
+                if (b == true) {
                     callSounds.sound1(true);
-                }else {
+                } else {
                     callSounds.sound1(false);
                 }
             }
         });
 
+
+
+
         binding.switch2Sound.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (b == true){
+                if (b == true) {
                     callSounds.sound2(true);
-                }else {
+                } else {
                     callSounds.sound2(false);
                 }
             }

@@ -1,5 +1,6 @@
 package com.konden.projectpart2.jopservies;
 
+import android.annotation.SuppressLint;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -17,21 +18,25 @@ import com.konden.projectpart2.R;
 import com.konden.projectpart2.constant.FinalContract;
 import com.konden.projectpart2.ui.SplashScreenApp;
 
+@SuppressLint("SpecifyJobSchedulerIdRange")
 public class MyServices extends JobService {
 
     @Override
     public boolean onStartJob(JobParameters jobParameters) {
         addNotification();
-        return false;
+        if (addNotification()) {
+            jobFinished(jobParameters, true);
+        }
+        return true;
     }
 
     @Override
     public boolean onStopJob(JobParameters jobParameters) {
         Log.i("TAG", "onStopJob: ");
-        return false;
+        return true;
     }
 
-    private void addNotification() {
+    private boolean addNotification() {
         NotificationChannel channel = null;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             channel = new NotificationChannel(FinalContract.Notification_id, FinalContract.MyNotification, NotificationManager.IMPORTANCE_HIGH);
@@ -53,6 +58,6 @@ public class MyServices extends JobService {
                 .setPriority(NotificationCompat.PRIORITY_HIGH);
         NotificationManagerCompat compat = NotificationManagerCompat.from(getBaseContext());
         compat.notify(1, builder.build());
-
+        return true;
     }
 }

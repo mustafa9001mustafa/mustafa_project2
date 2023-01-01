@@ -1,4 +1,4 @@
-package com.konden.projectpart2.fragments.fragment_answer;
+package com.konden.projectpart2.fragments.fragment_end_time_out;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -13,62 +13,63 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 
 import com.konden.projectpart2.R;
-import com.konden.projectpart2.databinding.FragmentDialogAnswerFalseBinding;
-import com.konden.projectpart2.databinding.FragmentDialogeAnswerBinding;
-import com.konden.projectpart2.interfases.ListenerCallDialogOk;
+import com.konden.projectpart2.databinding.FragmentDialogTimeOutBinding;
+import com.konden.projectpart2.interfases.ListenerTimeOut;
 
 import java.util.Objects;
 
 
-public class DialogFragmentAnswerFalse extends DialogFragment {
+public class DialogFragmentTimeOut extends DialogFragment {
 
 
     private static final String ARG_PARAM1 = "param1";
-    private String Hint;
+    private String mParam1;
+    private ListenerTimeOut listenerTimeOut;
 
-    private ListenerCallDialogOk callDialogOk;
+    public DialogFragmentTimeOut() {
 
-    public DialogFragmentAnswerFalse() {
-    }
-
-
-    public static DialogFragmentAnswerFalse newInstance(String Hint) {
-        DialogFragmentAnswerFalse fragment = new DialogFragmentAnswerFalse();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, Hint);
-        fragment.setArguments(args);
-        return fragment;
     }
 
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        callDialogOk = (ListenerCallDialogOk) context;
+        listenerTimeOut = (ListenerTimeOut) context;
+
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
-        callDialogOk = null;
+        listenerTimeOut = null;
+    }
+
+    public static DialogFragmentTimeOut newInstance(String param1) {
+        DialogFragmentTimeOut fragment = new DialogFragmentTimeOut();
+        Bundle args = new Bundle();
+        args.putString(ARG_PARAM1, param1);
+        fragment.setArguments(args);
+        return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            Hint = getArguments().getString(ARG_PARAM1);
+            mParam1 = getArguments().getString(ARG_PARAM1);
         }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        FragmentDialogAnswerFalseBinding binding = FragmentDialogAnswerFalseBinding.inflate(inflater,container,false);
-        binding.itText.setText(Hint);
-        binding.ok.setOnClickListener(view -> {
-            callDialogOk.onFragment(false);
+        FragmentDialogTimeOutBinding binding = FragmentDialogTimeOutBinding.inflate(inflater, container, false);
+        binding.itTimeOutText.setText(mParam1);
+
+        binding.next.setOnClickListener(view -> {
+            listenerTimeOut.time_out();
         });
-        return  binding.getRoot();
+
+        return binding.getRoot();
     }
     @Override
     public void onResume() {
@@ -77,6 +78,5 @@ public class DialogFragmentAnswerFalse extends DialogFragment {
         params.width = ViewGroup.LayoutParams.MATCH_PARENT;
         params.height = ViewGroup.LayoutParams.WRAP_CONTENT;
         getDialog().getWindow().setAttributes(params);
-
     }
 }

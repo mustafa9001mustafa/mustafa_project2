@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
@@ -7,24 +8,21 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FFFFFF</color>
     <color name="white">#FFFFFF</color>
+    <color name="white_to_black">#222222</color>
     <color name="card_background_color">#000000</color>
     <color name="card_background_color_item">#333</color>
-
     <color name="card_background_color2">#191919</color>
     <color name="green">#00BD07</color>
     <color name="whiteshape">#191919</color>
     <color name="redandwight">#FFFFFF</color>
     <color name="color_card_false">#FF2818</color>
-
     <color name="colorblue">#FFFFFF</color>
     <color name="greencros">#00E627</color>
-
     <color name="red_and_night">#FF3525</color>
     <color name="white_and_red">#FFFFFF</color>
     <color name="item_color_open">#11E419</color>
     <color name="item_color_close">#F31100</color>
     <color name="color_card_true">#00FF90</color>
     <color name="black_just">#000000</color>
-
 
 </resources>

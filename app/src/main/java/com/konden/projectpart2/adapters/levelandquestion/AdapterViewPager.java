@@ -1,4 +1,4 @@
-package com.konden.projectpart2.adapters;
+package com.konden.projectpart2.adapters.levelandquestion;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;

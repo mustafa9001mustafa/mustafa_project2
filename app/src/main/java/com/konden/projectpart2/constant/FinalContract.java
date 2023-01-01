@@ -9,8 +9,6 @@ public class FinalContract {
     public static final int pattern_True_Or_False = 1;
     public static final int pattern_Choose = 2;
     public static final int pattern_File_Text = 3;
-    public static final int duration_flx_mile = 3;
-    public static final int Point_Down = 2;
-    public static boolean IS_OPEN;
+    public static final int PLUS_PROGRESS = 1;
 
 }

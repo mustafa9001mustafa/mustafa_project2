@@ -130,7 +130,6 @@ public class LevelFileTextFragment extends Fragment {
 
             @Override
             public void onFinish() {
-                if (listenerCallAnswerFragmentFile != null)
                     listenerCallOnFinchesTimer.OnFinchesTimer();
             }
         }.start();
@@ -139,7 +138,7 @@ public class LevelFileTextFragment extends Fragment {
             String s = binding.editAnswer.getEditText().getText().toString();
             if (!s.equals("")) {
                 Log.d("TAG", "onCreateView:   111 ");
-                getTrueAnswer(true_answer);
+                getTrueAnswer(s);
                 Log.d("TAG", "onCreateView:   2222 ");
             } else {
                 Toast.makeText(getActivity(), R.string.file_edit_text_fragment, Toast.LENGTH_SHORT).show();

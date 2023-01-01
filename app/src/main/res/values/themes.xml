@@ -66,6 +66,10 @@
         <item name="cornerSizeBottomLeft">30%</item>
         <item name="cornerSizeBottomRight">30%</item>
     </style>
+    <style name="ThemeOverlay.ProjectPart2.FullscreenContainer" parent="">
+        <item name="fullscreenBackgroundColor">@color/light_blue_600</item>
+        <item name="fullscreenTextColor">@color/light_blue_A200</item>
+    </style>
 
 <!--    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">-->
 <!--        <item name="android:windowActivityTransitions">true</item>-->

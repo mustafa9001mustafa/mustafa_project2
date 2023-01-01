@@ -17,7 +17,7 @@ import com.konden.projectpart2.interfases.CallFragment;
 
 import java.util.Objects;
 
-public class DialogFragmentBack extends DialogFragment {
+public class DialogFragmentProfile extends DialogFragment {
 
 
     private static final String ARG_PARAM1 = "param1";
@@ -28,7 +28,7 @@ public class DialogFragmentBack extends DialogFragment {
     private String mParam2;
     private String mParam3;
 
-    public DialogFragmentBack() {
+    public DialogFragmentProfile() {
     }
 
     @Override
@@ -37,8 +37,8 @@ public class DialogFragmentBack extends DialogFragment {
         call = (CallFragment) context;
     }
 
-    public static DialogFragmentBack newInstance(String param1 , String param2,String param3) {
-        DialogFragmentBack fragment = new DialogFragmentBack();
+    public static DialogFragmentProfile newInstance(String param1 , String param2, String param3) {
+        DialogFragmentProfile fragment = new DialogFragmentProfile();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);

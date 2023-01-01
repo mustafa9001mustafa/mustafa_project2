@@ -8,7 +8,7 @@ public class LevelEntity {
     @PrimaryKey
     private int level_no;
     private int unlock_points;
-    private boolean level_status = false;
+    private boolean level_status;
 
     public LevelEntity(int level_no, int unlock_points) {
         this.level_no = level_no;

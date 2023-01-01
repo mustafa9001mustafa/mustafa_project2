@@ -17,8 +17,7 @@ public interface DaoProfile {
 
     @Update
     void UpdateProfile(ProfileEntity entity);
-
-
+    //todo
     @Delete
     void DeleteProfile(ProfileEntity entity);
 

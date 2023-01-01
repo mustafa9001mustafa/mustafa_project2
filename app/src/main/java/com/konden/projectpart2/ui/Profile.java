@@ -10,7 +10,7 @@ import android.os.Bundle;
 import com.konden.projectpart2.R;
 import com.konden.projectpart2.animations.AnimationAll;
 import com.konden.projectpart2.databinding.ActivityProfileBinding;
-import com.konden.projectpart2.fragments.fragment_setting.DialogFragmentBlank;
+import com.konden.projectpart2.fragments.fragment_profile.DialogFragmentProfile;
 import com.konden.projectpart2.interfases.CallProfileData;
 import com.konden.projectpart2.room.profile.ProfileEntity;
 import com.konden.projectpart2.room.ViewModelGame;
@@ -20,11 +20,11 @@ import java.util.List;
 import java.util.Locale;
 
 public class Profile extends AppCompatActivity implements CallProfileData {
-    ActivityProfileBinding binding;
+    private ActivityProfileBinding binding;
     private ViewModelGame model;
-    ProfileEntity profile;
+    private ProfileEntity profile;
     int id;
-    DialogFragmentBlank dialogFragment;
+    private DialogFragmentProfile dialogFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +32,9 @@ public class Profile extends AppCompatActivity implements CallProfileData {
         binding = ActivityProfileBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         model = new ViewModelProvider(this).get(ViewModelGame.class);
+
         INSERT_USER();
-        if (Locale.getDefault().getLanguage().equals("en"))
-            binding.backIcon.setRotation(90);
+
 
     }
 
@@ -54,6 +54,12 @@ public class Profile extends AppCompatActivity implements CallProfileData {
         GET_LOSER();
         GET_LEVEL_FINISHED();
         GET_KD();
+        GETROTECION();
+    }
+
+    private void GETROTECION() {
+        if (Locale.getDefault().getLanguage().equals("en"))
+            binding.backIcon.setRotation(90);
     }
 
 
@@ -88,8 +94,7 @@ public class Profile extends AppCompatActivity implements CallProfileData {
     private void INSERT_USER() {
         if (Sherdpreferanses.getInstance().isFirstTime()) {
             profile = new ProfileEntity(getString(R.string.player), getString(R.string.example), getString(R.string.birth), getString(R.string.male), getString(R.string.palestine));
-            id = profile.getId();
-            model.insertMobile(profile);
+            model.insertProfile(profile);
         }
     }
 
@@ -97,7 +102,6 @@ public class Profile extends AppCompatActivity implements CallProfileData {
         model.getAllPlayer().observe(this, new Observer<List<ProfileEntity>>() {
             @Override
             public void onChanged(List<ProfileEntity> profileEntities) {
-
                 profile = profileEntities.get(0);
                 id = profile.getId();
                 binding.usernameText.setText(profile.getUsername());
@@ -111,7 +115,7 @@ public class Profile extends AppCompatActivity implements CallProfileData {
 
     private void EDIT_BUTTON() {
         binding.editIcon.setOnClickListener(view -> {
-            dialogFragment = DialogFragmentBlank.newInstance(profile.getUsername(), profile.getEmail(), profile.getBirthday(), profile.getGender(), profile.getCountry());
+            dialogFragment = DialogFragmentProfile.newInstance(profile.getUsername(), profile.getEmail(), profile.getBirthday(), profile.getGender(), profile.getCountry());
             dialogFragment.show(getSupportFragmentManager(), "d");
 
 
@@ -140,7 +144,6 @@ public class Profile extends AppCompatActivity implements CallProfileData {
         super.onBackPressed();
         startActivity(new Intent(Profile.this, SettingsApp.class));
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
-
     }
 
 
@@ -149,7 +152,7 @@ public class Profile extends AppCompatActivity implements CallProfileData {
         if (x == 9) {
             profile = new ProfileEntity(user, email, birth, gender, contre);
             profile.setId(id);
-            model.UpdateMobile(profile);
+            model.UpdateProfile(profile);
             dialogFragment.dismiss();
         }
     }

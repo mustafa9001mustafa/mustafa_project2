@@ -21,22 +21,19 @@ public class ViewModelGame extends AndroidViewModel {
         repository = new RepositoryGame(application);
     }
 
-
-
-
-    public void insertMobile(ProfileEntity profile) {
+    public void insertProfile(ProfileEntity profile) {
 
         repository.InsertProfiler(profile);
     }
 
 
-    public void UpdateMobile(ProfileEntity profile) {
+    public void UpdateProfile(ProfileEntity profile) {
 
         repository.UpdateProfile(profile);
     }
 
 
-    public void DeleteMobile(ProfileEntity profile) {
+    public void DeleteProfile(ProfileEntity profile) {
 
         repository.DeleteProfile(profile);
     }

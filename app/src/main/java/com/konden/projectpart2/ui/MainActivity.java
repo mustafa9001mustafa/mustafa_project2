@@ -2,6 +2,7 @@ package com.konden.projectpart2.ui;
 
 
 import android.content.Intent;
+import android.media.AudioManager;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.konden.projectpart2.animations.AnimationAll;
 import com.konden.projectpart2.R;
 import com.konden.projectpart2.databinding.ActivityMainBinding;
-import com.konden.projectpart2.fragments.fragment_setting.DialogFragmentBack;
+import com.konden.projectpart2.fragments.fragment_setting.DialogFragmentProfile;
 import com.konden.projectpart2.interfases.CallFragment;
 
 import com.konden.projectpart2.jopservies.ServiceSoundOnApp;
@@ -17,15 +18,15 @@ import com.konden.projectpart2.sherdpreferanses.Sherdpreferanses;
 
 public class MainActivity extends AppCompatActivity implements CallFragment {
     private ActivityMainBinding binding;
-    private DialogFragmentBack back;
-    private Intent intent ;
+    private DialogFragmentProfile back;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        intent = new Intent(getApplicationContext(), ServiceSoundOnApp.class);
 
     }
 
@@ -41,22 +42,10 @@ public class MainActivity extends AppCompatActivity implements CallFragment {
         EXIT_BUTTON();
         ANIMATIONS();
         F_BUTTON();
-        CHECKSERVES();
-    }
-
-    private void CHECKSERVES() {
-        if (Sherdpreferanses.getInstance().isNotFirstMainGame())
-            stopService(intent);
-
-
-        if (Sherdpreferanses.getInstance().GetSoundBackGrand() == true) {
-            startService(intent);
-        }
     }
 
 
     private void F_BUTTON() {
-
         binding.start.setButtonColor(getColor(R.color.green));
         binding.setting.setButtonColor(getColor(R.color.blue));
         binding.exit.setButtonColor(getColor(R.color.red));
@@ -101,7 +90,7 @@ public class MainActivity extends AppCompatActivity implements CallFragment {
     }
 
     private void ONS_HOW_DIALOG() {
-        back = DialogFragmentBack.newInstance(getString(R.string.youknow), getString(R.string.Exit), getString(R.string.close));
+        back = DialogFragmentProfile.newInstance(getString(R.string.youknow), getString(R.string.Exit), getString(R.string.close));
         back.show(getSupportFragmentManager(), "you");
     }
 
@@ -112,6 +101,7 @@ public class MainActivity extends AppCompatActivity implements CallFragment {
 
     @Override
     public void call(boolean x) {
+        Intent intent = new Intent(getApplicationContext(), ServiceSoundOnApp.class);
         if (x == true) {
             stopService(intent);
             finish();

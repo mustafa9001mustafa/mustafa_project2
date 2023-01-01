@@ -77,6 +77,8 @@
     <string name="end_level">إنتهت المرحلة</string>
     <string name="point">النقاط</string>
     <string name="win_at_loser">عدد الفوز بالنسبة للخسارة</string>
+    <string name="ok">فهمت</string>
+    <string name="dountshow">عدم الظهور في المرة القادمة</string>
 
 
 </resources>

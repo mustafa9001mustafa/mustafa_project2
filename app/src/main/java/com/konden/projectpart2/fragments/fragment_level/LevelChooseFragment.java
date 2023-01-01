@@ -37,7 +37,7 @@ public class LevelChooseFragment extends Fragment {
     private static final String ARG_DURATION = "duration";
     private static final String ARG_HINT = "hint";
     private CountDownTimer countDownTimer;
-    private TimerListener timerListener;
+//    private TimerListener timerListener;
     private ListenerCallAnswerFragmentChoose listenerCallAnswerFragmentChoose;
     private ListenerCallOnFinchesTimer listenerCallOnFinchesTimer;
     private ListenerCallSkip callSkip;
@@ -62,7 +62,7 @@ public class LevelChooseFragment extends Fragment {
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        timerListener = (TimerListener) context;
+//        timerListener = (TimerListener) context;
         listenerCallAnswerFragmentChoose = (ListenerCallAnswerFragmentChoose) context;
         listenerCallOnFinchesTimer = (ListenerCallOnFinchesTimer) context;
         callSkip = (ListenerCallSkip) context;
@@ -74,7 +74,7 @@ public class LevelChooseFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         listenerCallAnswerFragmentChoose = null;
-        timerListener = null;
+//        timerListener = null;
         listenerCallOnFinchesTimer = null;
         callSkip = null;
         listenerCallId = null;
@@ -136,21 +136,28 @@ public class LevelChooseFragment extends Fragment {
         });
         binding.itChoose1.setOnClickListener(view -> {
             String s = binding.itChoose1.getText().toString();
+            Log.e("TAG", "onCreateView: "+s );
             getTrueAnswer(s);
         });
 
         binding.itChoose2.setOnClickListener(view -> {
             String s = binding.itChoose2.getText().toString();
+            Log.e("TAG", "onCreateView: "+s );
+
             getTrueAnswer(s);
         });
 
         binding.itChoose3.setOnClickListener(view -> {
             String s = binding.itChoose3.getText().toString();
+            Log.e("TAG", "onCreateView: "+s );
+
             getTrueAnswer(s);
         });
 
         binding.itChoose4.setOnClickListener(view -> {
             String s = binding.itChoose4.getText().toString();
+            Log.e("TAG", "onCreateView: "+s );
+
             getTrueAnswer(s);
         });
 
@@ -172,7 +179,7 @@ public class LevelChooseFragment extends Fragment {
 
             @Override
             public void onFinish() {
-                if (listenerCallAnswerFragmentChoose != null)
+                // TODO: 1/1/2023  
                 listenerCallOnFinchesTimer.OnFinchesTimer();
             }
         }.start();

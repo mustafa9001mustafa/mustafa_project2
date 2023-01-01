@@ -78,6 +78,8 @@
     <string name="wrong_answer">wrong answer</string>
     <string name="end_level">Finished Level</string>
     <string name="point">Point</string>
-    <string name="win_at_loser">عدد الفوز بالنسبة للخسارة</string>
+    <string name="win_at_loser">K / D</string>
+    <string name="ok">ok</string>
+    <string name="dountshow">don,t show never</string>
 
 </resources>

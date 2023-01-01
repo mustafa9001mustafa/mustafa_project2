@@ -1,4 +1,4 @@
-package com.konden.projectpart2.adapters;
+package com.konden.projectpart2.adapters.levelandquestion;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -62,13 +62,29 @@ public class AdapterLevel extends RecyclerView.Adapter<AdapterLevel.LevelsHolder
         holder.setData(list.get(position));
         setFadeAnimation(holder.item.itemTextUnlock);
         setScaleAnimation(holder.item.getRoot());
-        if (level.getUnlock_points() <= Sherdpreferanses.getInstance().getScore()) {
+
+        holder.item.getRoot().setOnClickListener(view -> {
+            if (level.isLevel_status()) {
+                callLevel.callLevel(level.getLevel_no(), level.isLevel_status());
+            }
+        });
+
+        if (level.getUnlock_points() <= Sherdpreferanses.getInstance().getUnlockNow()) {
+
             holder.item.cardView.setCardBackgroundColor(Color.GREEN);
             holder.item.itemLock.setAnimation(R.raw.unlocked);
             holder.item.itemTextUnlock.setText("");
-            holder.item.getRoot().setOnClickListener(view -> {
-                callLevel.callLevel(level.getLevel_no(), true);
-            });
+
+            if (Sherdpreferanses.getInstance().getScore() >= Sherdpreferanses.getInstance().getUnlockNow())
+                Sherdpreferanses.getInstance().SetUnlockNow(Sherdpreferanses.getInstance().getScore());
+
+//            if (level.getUnlock_points() <= Sherdpreferanses.getInstance().getScore()) {
+//                holder.item.cardView.setCardBackgroundColor(Color.GREEN);
+//                holder.item.itemLock.setAnimation(R.raw.unlocked);
+//                holder.item.itemTextUnlock.setText("");
+//                holder.item.getRoot().setOnClickListener(view -> {
+//                    //
+//                });
         }
     }
 

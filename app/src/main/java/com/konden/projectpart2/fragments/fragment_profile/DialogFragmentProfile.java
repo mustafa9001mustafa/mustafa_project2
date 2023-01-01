@@ -1,4 +1,4 @@
-package com.konden.projectpart2.fragments.fragment_setting;
+package com.konden.projectpart2.fragments.fragment_profile;
 
 import android.app.DatePickerDialog;
 import android.content.Context;
@@ -37,7 +37,7 @@ import java.util.Date;
 import java.util.Objects;
 
 
-public class DialogFragmentBlank extends DialogFragment {
+public class DialogFragmentProfile extends DialogFragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private static final String ARG_PARAM3 = "param3";
@@ -57,7 +57,7 @@ public class DialogFragmentBlank extends DialogFragment {
 
 
 
-    public DialogFragmentBlank() {
+    public DialogFragmentProfile() {
 
     }
 
@@ -74,10 +74,10 @@ public class DialogFragmentBlank extends DialogFragment {
     }
 
 
-    public static DialogFragmentBlank newInstance(
+    public static DialogFragmentProfile newInstance(
             String param1, String param2, String param3, String param4, String param5
     ) {
-        DialogFragmentBlank fragment = new DialogFragmentBlank();
+        DialogFragmentProfile fragment = new DialogFragmentProfile();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
