@@ -77,7 +77,7 @@
         <service
             android:name=".jopservies.ServiceSoundOnApp"
             android:enabled="true"
-            android:exported="true"/>
+            android:exported="true" />
     </application>
 
 </manifest>

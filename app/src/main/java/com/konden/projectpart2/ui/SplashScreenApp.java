@@ -4,8 +4,8 @@ import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
 
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.lifecycle.ViewModelProvider;
-
 import android.app.job.JobInfo;
 import android.app.job.JobScheduler;
 import android.content.ComponentName;
@@ -22,6 +22,7 @@ import com.konden.projectpart2.jopservies.ServiceSoundOnApp;
 import com.konden.projectpart2.room.ViewModelGame;
 import com.konden.projectpart2.room.game.level.LevelEntity;
 import com.konden.projectpart2.room.game.questios.QuestionsEntity;
+import com.konden.projectpart2.room.profile.ProfileEntity;
 import com.konden.projectpart2.sherdpreferanses.Sherdpreferanses;
 
 import org.json.JSONArray;
@@ -38,12 +39,16 @@ public class SplashScreenApp extends AppCompatActivity {
     private int progressStatus = 0, sleep = 16;
     private ViewModelGame viewModel;
     private JSONObject object;
+    private ProfileEntity profile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivitySplachScreenBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        viewModel = new ViewModelProvider(this).get(ViewModelGame.class);
+
+
 
     }
 
@@ -58,6 +63,11 @@ public class SplashScreenApp extends AppCompatActivity {
         ANIMATIONS();
         CheckDataInsert();
         NOTIFICATION_SWISHIEST();
+        DARK_MODE();
+    }
+
+    private void DARK_MODE() {
+
     }
 
     private void NOTIFICATION_SWISHIEST() {
@@ -86,6 +96,10 @@ public class SplashScreenApp extends AppCompatActivity {
         if (Sherdpreferanses.getInstance().isFirstTimeGame()) {
             GetData_Level();
             GetData_Questions();
+
+            profile = new ProfileEntity(getString(R.string.player), getString(R.string.example), getString(R.string.birth), getString(R.string.male), getString(R.string.palestine));
+            viewModel.insertProfile(profile);
+
         }
 
         if (Sherdpreferanses.getInstance().isFirstTimeOther()) {
@@ -98,6 +112,11 @@ public class SplashScreenApp extends AppCompatActivity {
             Sherdpreferanses.getInstance().SetSoundOther(true);
             Sherdpreferanses.getInstance().SetSoundBackGrand(true);
             Sherdpreferanses.getInstance().SetCheckBox(true);
+
+            if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES)
+                Sherdpreferanses.getInstance().SetTheme(true);
+            else
+                Sherdpreferanses.getInstance().SetTheme(false);
 
         }
     }
@@ -122,6 +141,11 @@ public class SplashScreenApp extends AppCompatActivity {
                         Intent intent = new Intent(new Intent(getApplicationContext(), MainActivity.class));
                         startActivity(intent);
                         CHECKSERVES();
+                        if (Sherdpreferanses.getInstance().GetTheme() == true)
+                            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                        else
+                            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
                     }
 
                     try {
@@ -231,5 +255,11 @@ public class SplashScreenApp extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+    }
+    @Override
+    public void recreate() {
+        finish();
+        startActivity(getIntent());
+        finish();
     }
 }

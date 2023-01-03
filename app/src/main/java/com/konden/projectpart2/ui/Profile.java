@@ -6,12 +6,11 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
-
 import com.konden.projectpart2.R;
 import com.konden.projectpart2.animations.AnimationAll;
 import com.konden.projectpart2.databinding.ActivityProfileBinding;
 import com.konden.projectpart2.fragments.fragment_profile.DialogFragmentProfile;
-import com.konden.projectpart2.interfases.CallProfileData;
+import com.konden.projectpart2.interfases.settings.CallProfileData;
 import com.konden.projectpart2.room.profile.ProfileEntity;
 import com.konden.projectpart2.room.ViewModelGame;
 import com.konden.projectpart2.sherdpreferanses.Sherdpreferanses;
@@ -92,10 +91,10 @@ public class Profile extends AppCompatActivity implements CallProfileData {
     }
 
     private void INSERT_USER() {
-        if (Sherdpreferanses.getInstance().isFirstTime()) {
-            profile = new ProfileEntity(getString(R.string.player), getString(R.string.example), getString(R.string.birth), getString(R.string.male), getString(R.string.palestine));
-            model.insertProfile(profile);
-        }
+//        if (Sherdpreferanses.getInstance().isFirstTime()) {
+//            profile = new ProfileEntity(getString(R.string.player), getString(R.string.example), getString(R.string.birth), getString(R.string.male), getString(R.string.palestine));
+//            model.insertProfile(profile);
+//        }
     }
 
     private void GET_USER() {

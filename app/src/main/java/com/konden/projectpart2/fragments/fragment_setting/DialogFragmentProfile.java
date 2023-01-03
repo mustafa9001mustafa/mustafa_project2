@@ -13,7 +13,7 @@ import android.view.WindowManager;
 
 import com.konden.projectpart2.R;
 import com.konden.projectpart2.databinding.FragmentDialogBackBinding;
-import com.konden.projectpart2.interfases.CallFragment;
+import com.konden.projectpart2.interfases.settings.CallFragment;
 
 import java.util.Objects;
 

@@ -219,7 +219,7 @@
                     android:layout_height="wrap_content">
 
                     <androidx.appcompat.widget.SwitchCompat
-                        android:id="@+id/switch3"
+                        android:id="@+id/switch_dark"
                         style="@style/TextShadowStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -227,6 +227,7 @@
                         android:fontFamily="@font/we"
                         android:textOff="@string/o"
                         android:textOn="@string/i"
+                        android:textColor="@color/card_background_color"
                         android:thumb="@drawable/themped"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -250,7 +251,6 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
-
             </androidx.cardview.widget.CardView>
 
 

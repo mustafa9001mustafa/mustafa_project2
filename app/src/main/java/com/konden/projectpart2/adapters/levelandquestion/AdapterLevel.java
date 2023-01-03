@@ -26,6 +26,9 @@ public class AdapterLevel extends RecyclerView.Adapter<AdapterLevel.LevelsHolder
     Context context;
     CallLevel callLevel;
 
+    public AdapterLevel() {
+    }
+
     public AdapterLevel(List<LevelEntity> list, Context context, CallLevel callLevel) {
         this.list = list;
         this.context = context;

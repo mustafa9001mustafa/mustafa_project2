@@ -9,15 +9,11 @@ public class ProfileEntity {
 
     @PrimaryKey(autoGenerate = true)
     private int id;
-
     private String username;
     private String email;
     private String birthday;
     private String gender;
     private String country;
-
-    public ProfileEntity() {
-    }
 
     public ProfileEntity(String username, String email, String birthday, String gender, String country) {
         this.username = username;

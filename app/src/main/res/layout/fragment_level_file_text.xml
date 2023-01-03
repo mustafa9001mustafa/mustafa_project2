@@ -124,29 +124,55 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/edit_answer"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="@dimen/_15sdp"
-                android:layout_marginHorizontal="@dimen/_8sdp"
-                android:background="@drawable/shap_input"
-                android:hint="@string/set_text_answer"
-                app:endIconMode="clear_text"
-                app:helperTextEnabled="true"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_answer_file"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_100sdp"
+                android:layout_marginHorizontal="@dimen/_3sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:cardBackgroundColor="@color/card_background_color2"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardUseCompatPadding="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/card_question">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/input_answer"
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:textColor="@color/black"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/ds" />
+                    android:layout_height="match_parent">
 
-            </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/edit_answer"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/_15sdp"
+                        android:layout_marginHorizontal="@dimen/_8sdp"
+                        android:background="@drawable/shap_input"
+                        android:hint="@string/set_text_answer"
+                        android:textColorHint="@color/black"
+                        app:endIconMode="clear_text"
+                        app:helperTextEnabled="true"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintTop_toBottomOf="parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/input_answer"
+                            android:layout_width="match_parent"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/black"
+                            app:hintTextColor="@color/black"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/ds" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
 
 
             <info.hoang8f.widget.FButton
@@ -155,7 +181,6 @@
                 android:layout_width="@dimen/_100sdp"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/_25sdp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 android:backgroundTint="@color/greencros"
                 android:fontFamily="@font/we"
                 android:text="@string/save_data"
@@ -164,7 +189,7 @@
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/edit_answer" />
+                app:layout_constraintTop_toBottomOf="@id/card_answer_file" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_skip_file"

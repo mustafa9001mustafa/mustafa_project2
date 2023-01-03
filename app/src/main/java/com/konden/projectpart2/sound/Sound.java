@@ -36,6 +36,10 @@ public class Sound {
         mediaPlayer = MediaPlayer.create(AppControllers.getInstance(), R.raw.sound5);
         mediaPlayer.start();
     }
+    public void Win_end() {
+        mediaPlayer = MediaPlayer.create(AppControllers.getInstance(), R.raw.winer_end);
+        mediaPlayer.start();
+    }
 
 
     public void sound_stop() {

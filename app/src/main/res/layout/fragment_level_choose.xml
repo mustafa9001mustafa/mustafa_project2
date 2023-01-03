@@ -11,8 +11,8 @@
         app:cardBackgroundColor="@color/card_background_color"
         app:cardCornerRadius="@dimen/_8sdp"
         app:cardUseCompatPadding="true"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -29,7 +29,6 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:lottie_autoPlay="true"
                 app:lottie_loop="true"
-                android:layout_margin="@dimen/_5sdp"
                 app:lottie_rawRes="@raw/popup" />
 
 
@@ -55,11 +54,11 @@
 
                     <TextView
                         android:id="@+id/it_text_timer_choose"
+                        style="@style/TextShadowStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/ds"
                         android:gravity="center"
-                        style="@style/TextShadowStyle"
                         android:textColor="@color/card_background_color"
                         android:textSize="@dimen/_17ssp"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -74,12 +73,12 @@
 
             <TextView
                 android:id="@+id/it_title_text"
+                style="@style/TextShadowStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_13sdp"
                 android:gravity="center"
                 android:text="@string/question_choose"
-                style="@style/TextShadowStyle"
 
                 android:textColor="@color/black"
                 android:textSize="@dimen/_14ssp"
@@ -109,13 +108,13 @@
 
                     <TextView
                         android:id="@+id/it_text_question_choose"
+                        style="@style/TextShadowStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_5sdp"
                         android:fontFamily="@font/ds"
                         android:gravity="center"
-                        style="@style/TextShadowStyle"
                         android:textColor="@color/black"
-                        android:layout_marginHorizontal="@dimen/_5sdp"
                         android:textSize="@dimen/_20ssp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -134,7 +133,7 @@
                 android:layout_marginHorizontal="@dimen/_10sdp"
                 app:cardBackgroundColor="@color/card_background_color2"
                 app:cardCornerRadius="@dimen/_10sdp"
-                android:layout_marginVertical="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_15sdp"
                 app:layout_constraintBottom_toTopOf="@id/card_skip"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -142,7 +141,7 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content">
 
                     <TextView
                         android:id="@+id/it_choose_1"
@@ -150,15 +149,30 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="@dimen/_20sdp"
-                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_25sdp"
                         android:background="@drawable/sheap_choose"
                         android:gravity="center"
                         android:text="wefweg"
-
+                        app:layout_constraintEnd_toStartOf="@id/it_choose_2"
                         android:textColor="@color/white"
+
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
+
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:id="@+id/r1"
+                        android:layout_width="@dimen/_145sdp"
+                        android:layout_height="@dimen/_135sdp"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:rotation="90"
+                        app:layout_constraintBottom_toBottomOf="@+id/it_choose_1"
+                        app:layout_constraintEnd_toEndOf="@+id/it_choose_1"
+                        app:layout_constraintStart_toStartOf="@+id/it_choose_1"
+                        app:layout_constraintTop_toTopOf="@+id/it_choose_1"
+                        app:lottie_autoPlay="true"
+                        app:lottie_loop="false"
+                        app:lottie_rawRes="@raw/pulsar" />
 
                     <TextView
                         android:id="@+id/it_choose_2"
@@ -166,32 +180,59 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="@dimen/_20sdp"
-                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_25sdp"
                         android:background="@drawable/sheap_choose"
                         android:gravity="center"
+                        app:layout_constraintStart_toEndOf="@id/it_choose_1"
+
                         android:text="wefweg"
                         android:textColor="@color/white"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:id="@+id/r2"
+                        android:layout_width="@dimen/_145sdp"
+                        android:layout_height="@dimen/_135sdp"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:rotation="90"
+                        app:layout_constraintBottom_toBottomOf="@+id/it_choose_2"
+                        app:layout_constraintEnd_toEndOf="@+id/it_choose_2"
+                        app:layout_constraintStart_toStartOf="@+id/it_choose_2"
+                        app:layout_constraintTop_toTopOf="@+id/it_choose_2"
+                        app:lottie_autoPlay="true"
+                        app:lottie_loop="false"
+                        app:lottie_rawRes="@raw/pulsar" />
+
 
                     <TextView
                         android:id="@+id/it_choose_3"
+                        style="@style/TextShadowStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="@dimen/_20sdp"
-                        android:layout_marginTop="@dimen/_15sdp"
-                        android:layout_marginBottom="@dimen/_15sdp"
                         android:background="@drawable/sheap_choose"
                         android:gravity="center"
-                        style="@style/TextShadowStyle"
-
                         android:text="wefweg"
-
                         android:textColor="@color/white"
                         app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/it_choose_4"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/it_choose_1" />
+
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:id="@+id/r3"
+                        android:layout_width="@dimen/_145sdp"
+                        android:layout_height="@dimen/_135sdp"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:rotation="90"
+                        app:layout_constraintBottom_toBottomOf="@+id/it_choose_3"
+                        app:layout_constraintEnd_toEndOf="@+id/it_choose_3"
+                        app:layout_constraintStart_toStartOf="@+id/it_choose_3"
+                        app:layout_constraintTop_toTopOf="@+id/it_choose_3"
+                        app:lottie_autoPlay="true"
+                        app:lottie_loop="false"
+                        app:lottie_rawRes="@raw/pulsar" />
 
 
                     <TextView
@@ -199,17 +240,30 @@
                         style="@style/TextShadowStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         android:layout_marginHorizontal="@dimen/_20sdp"
-                        android:layout_marginTop="@dimen/_15sdp"
-                        android:layout_marginBottom="@dimen/_15sdp"
                         android:background="@drawable/sheap_choose"
                         android:gravity="center"
+                        app:layout_constraintStart_toEndOf="@id/it_choose_3"
                         android:text="wefweg"
-
                         android:textColor="@color/white"
-                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/it_choose_2" />
+
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:id="@+id/r4"
+                        android:layout_width="@dimen/_145sdp"
+                        android:layout_height="@dimen/_135sdp"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:rotation="90"
+                        app:layout_constraintBottom_toBottomOf="@+id/it_choose_4"
+                        app:layout_constraintEnd_toEndOf="@+id/it_choose_4"
+                        app:layout_constraintStart_toStartOf="@+id/it_choose_4"
+                        app:layout_constraintTop_toTopOf="@+id/it_choose_4"
+                        app:lottie_autoPlay="true"
+                        app:lottie_loop="false"
+                        app:lottie_rawRes="@raw/pulsar" />
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
@@ -225,8 +279,7 @@
                 app:cardUseCompatPadding="true"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/card_choose"
-                >
+                app:layout_constraintTop_toBottomOf="@id/card_choose">
 
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -236,12 +289,12 @@
 
                     <TextView
                         android:id="@+id/item_text"
+                        style="@style/TextShadowStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/_15sdp"
                         android:text="@string/skip"
                         android:textColor="@color/white"
-                        style="@style/TextShadowStyle"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />

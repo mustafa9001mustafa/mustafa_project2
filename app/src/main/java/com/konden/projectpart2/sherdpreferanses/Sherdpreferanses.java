@@ -240,6 +240,7 @@ public class Sherdpreferanses {
         return SwitchCompat_on_off_s;
     }
 
+
     public void clear() {
         editor = sharedPreferences.edit();
         editor.remove("KD ");

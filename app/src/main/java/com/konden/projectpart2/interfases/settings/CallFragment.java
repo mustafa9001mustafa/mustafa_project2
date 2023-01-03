@@ -1,4 +1,4 @@
-package com.konden.projectpart2.interfases;
+package com.konden.projectpart2.interfases.settings;
 
 public interface CallFragment {
      void call(boolean x);

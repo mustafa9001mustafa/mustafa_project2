@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 
 import com.konden.projectpart2.databinding.FragmentDialogEndBinding;
-import com.konden.projectpart2.interfases.ListenerCallEnd;
+import com.konden.projectpart2.interfases.call_fragment_quastion.ListenerCallEnd;
 
 import java.util.Objects;
 

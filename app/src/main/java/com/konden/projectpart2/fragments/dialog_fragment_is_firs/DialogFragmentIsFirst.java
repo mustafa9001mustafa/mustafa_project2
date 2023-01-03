@@ -5,17 +5,14 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.CompoundButton;
 
-import com.konden.projectpart2.R;
 import com.konden.projectpart2.databinding.FragmentDialogIsFirstBinding;
-import com.konden.projectpart2.interfases.ListenerIsFirst;
+import com.konden.projectpart2.interfases.settings.ListenerIsFirst;
 
 import java.util.Objects;
 
@@ -64,16 +61,6 @@ public class DialogFragmentIsFirst extends DialogFragment {
                              Bundle savedInstanceState) {
         FragmentDialogIsFirstBinding binding = FragmentDialogIsFirstBinding.inflate(inflater, container, false);
         binding.itTimeFirstText.setText(mParam1);
-//        binding.checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-//                if (b == true) {
-//                    listenerIsFirst.not_now();
-//                }
-//
-//            }
-//        });
-
         binding.okFirst.setOnClickListener(view -> {
             if (binding.checkbox.isChecked())
                 listenerIsFirst.not_now();

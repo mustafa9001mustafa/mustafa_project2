@@ -23,8 +23,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/guideline_splash"
         app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        app:lottie_rawRes="@raw/gamelogo" />
+        app:lottie_loop="false"
+        app:lottie_rawRes="@raw/game_logo" />
 
 
 

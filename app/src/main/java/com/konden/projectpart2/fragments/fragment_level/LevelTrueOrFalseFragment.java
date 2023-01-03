@@ -11,13 +11,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.konden.projectpart2.databinding.FragmentLevelTrueOrFalseBinding;
-import com.konden.projectpart2.interfases.ListenerCallAnswerFragmentTrueOrFalse;
-import com.konden.projectpart2.interfases.ListenerCallId;
-import com.konden.projectpart2.interfases.ListenerCallOnFinchesTimer;
-import com.konden.projectpart2.interfases.ListenerCallSkip;
+import com.konden.projectpart2.interfases.call_fragment_quastion.ListenerCallAnswerFragmentTrueOrFalse;
+import com.konden.projectpart2.interfases.call_fragment_quastion.ListenerCallId;
+import com.konden.projectpart2.interfases.call_fragment_quastion.ListenerCallOnFinchesTimer;
+import com.konden.projectpart2.interfases.call_fragment_quastion.ListenerCallSkip;
+import com.konden.projectpart2.interfases.call_fragment_quastion.ListenerCallToast;
 import com.konden.projectpart2.sherdpreferanses.Sherdpreferanses;
 
 import java.util.Locale;
@@ -45,6 +45,8 @@ public class LevelTrueOrFalseFragment extends Fragment {
     private ListenerCallOnFinchesTimer listenerCallOnFinchesTimer;
     private ListenerCallSkip callSkip;
     private ListenerCallId listenerCallId;
+    private ListenerCallToast listenerCallToast;
+
 
 
     public LevelTrueOrFalseFragment() {
@@ -58,6 +60,7 @@ public class LevelTrueOrFalseFragment extends Fragment {
         listenerCallOnFinchesTimer = (ListenerCallOnFinchesTimer) context;
         callSkip = (ListenerCallSkip) context;
         listenerCallId = (ListenerCallId) context;
+        listenerCallToast = (ListenerCallToast) context;
     }
 
     @Override
@@ -67,6 +70,7 @@ public class LevelTrueOrFalseFragment extends Fragment {
         listenerCallOnFinchesTimer = null;
         callSkip = null;
         listenerCallId = null;
+        listenerCallToast = null;
     }
 
     public static LevelTrueOrFalseFragment newInstance(
@@ -124,7 +128,7 @@ public class LevelTrueOrFalseFragment extends Fragment {
 
 
         binding.hintIconTrue.setOnClickListener(view -> {
-            Toast.makeText(getActivity(), hint, Toast.LENGTH_SHORT).show();
+            listenerCallToast.call_toast(hint);
         });
 
 

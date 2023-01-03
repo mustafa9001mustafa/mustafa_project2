@@ -5,17 +5,14 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
-import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 
-import com.konden.projectpart2.R;
 import com.konden.projectpart2.databinding.FragmentDialogAnswerFalseBinding;
-import com.konden.projectpart2.databinding.FragmentDialogeAnswerBinding;
-import com.konden.projectpart2.interfases.ListenerCallDialogOk;
+import com.konden.projectpart2.interfases.call_fragment_quastion.ListenerCallDialogOk;
 
 import java.util.Objects;
 

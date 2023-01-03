@@ -17,16 +17,16 @@ import com.konden.projectpart2.fragments.fragment_answer.DialogFragmentAnswerFal
 import com.konden.projectpart2.fragments.fragment_answer.DialogFragmentAnswerTrue;
 import com.konden.projectpart2.fragments.fragment_end_time_out.DialogFragmentEnd;
 import com.konden.projectpart2.fragments.fragment_end_time_out.DialogFragmentTimeOut;
-import com.konden.projectpart2.interfases.ListenerCallAnswerFragmentChoose;
-import com.konden.projectpart2.interfases.ListenerCallAnswerFragmentFile;
-import com.konden.projectpart2.interfases.ListenerCallAnswerFragmentTrueOrFalse;
-import com.konden.projectpart2.interfases.ListenerCallDialogOk;
-import com.konden.projectpart2.interfases.ListenerCallEnd;
-import com.konden.projectpart2.interfases.ListenerCallId;
-import com.konden.projectpart2.interfases.ListenerCallOnFinchesTimer;
-import com.konden.projectpart2.interfases.ListenerCallSkip;
-import com.konden.projectpart2.interfases.ListenerTimeOut;
-import com.konden.projectpart2.interfases.TimerListener;
+import com.konden.projectpart2.interfases.call_fragment_quastion.ListenerCallAnswerFragmentChoose;
+import com.konden.projectpart2.interfases.call_fragment_quastion.ListenerCallAnswerFragmentFile;
+import com.konden.projectpart2.interfases.call_fragment_quastion.ListenerCallAnswerFragmentTrueOrFalse;
+import com.konden.projectpart2.interfases.call_fragment_quastion.ListenerCallDialogOk;
+import com.konden.projectpart2.interfases.call_fragment_quastion.ListenerCallEnd;
+import com.konden.projectpart2.interfases.call_fragment_quastion.ListenerCallId;
+import com.konden.projectpart2.interfases.call_fragment_quastion.ListenerCallOnFinchesTimer;
+import com.konden.projectpart2.interfases.call_fragment_quastion.ListenerCallSkip;
+import com.konden.projectpart2.interfases.call_fragment_quastion.ListenerCallToast;
+import com.konden.projectpart2.interfases.call_fragment_quastion.ListenerTimeOut;
 import com.konden.projectpart2.room.ViewModelGame;
 import com.konden.projectpart2.room.game.questios.QuestionsEntity;
 import com.konden.projectpart2.sherdpreferanses.Sherdpreferanses;
@@ -35,9 +35,9 @@ import com.konden.projectpart2.sound.Sound;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PuzzleViewPageActivity extends AppCompatActivity implements TimerListener, ListenerCallAnswerFragmentFile
+public class PuzzleViewPageActivity extends AppCompatActivity implements ListenerCallAnswerFragmentFile
         , ListenerCallAnswerFragmentTrueOrFalse, ListenerCallAnswerFragmentChoose, ListenerCallDialogOk
-        , ListenerCallOnFinchesTimer, ListenerCallSkip, ListenerCallEnd, ListenerCallId , ListenerTimeOut {
+        , ListenerCallOnFinchesTimer, ListenerCallSkip, ListenerCallEnd, ListenerCallId, ListenerTimeOut, ListenerCallToast {
     ActivityPuzzleViewPageActivtyBinding binding;
     ArrayList<QuestionsEntity> questionsEntityArrayList = new ArrayList<>();
     ViewModelGame viewModel;
@@ -64,7 +64,7 @@ public class PuzzleViewPageActivity extends AppCompatActivity implements TimerLi
 
     }
 
-    private void GetAllQuestion(){
+    private void GetAllQuestion() {
         viewModel.getAllQuestions(id).observe(this, new Observer<List<QuestionsEntity>>() {
             @Override
             public void onChanged(List<QuestionsEntity> questionsEntities) {
@@ -139,11 +139,6 @@ public class PuzzleViewPageActivity extends AppCompatActivity implements TimerLi
     }
 
     @Override
-    public void onTimeOut() {
-        moveViewPager();
-    }
-
-    @Override
     public void TrieOrFalseSkip() {
         SkipFragment();
     }
@@ -161,7 +156,7 @@ public class PuzzleViewPageActivity extends AppCompatActivity implements TimerLi
     private void SkipFragment() {
         int x = Sherdpreferanses.getInstance().getScore();
         if (x <= 4) {
-            Snackbar.make(binding.getRoot(), "لا يوجد لديك عدد نقاط كافية للتخطي", Snackbar.LENGTH_SHORT).show();
+            Snackbar.make(binding.getRoot(), R.string.toast_coin, Snackbar.LENGTH_SHORT).show();
             if (Sherdpreferanses.getInstance().GetSoundOther() == true)
                 sound.S1();
 
@@ -182,7 +177,8 @@ public class PuzzleViewPageActivity extends AppCompatActivity implements TimerLi
             fragmentEnd.setCancelable(false);
             int finished = Sherdpreferanses.getInstance().getFinished();
             Sherdpreferanses.getInstance().SetFinished(finished + 1);
-
+            if (Sherdpreferanses.getInstance().GetSoundOther() == true)
+                sound.Win_end();
         } else {
             binding.viewpagerFragment.setCurrentItem(currentItem + 1, false);
         }
@@ -252,5 +248,16 @@ public class PuzzleViewPageActivity extends AppCompatActivity implements TimerLi
     public void time_out() {
         fragmentTimeOut.dismiss();
         moveViewPager();
+    }
+
+    @Override
+    public void call_toast(String hint) {
+        if (Sherdpreferanses.getInstance().getScore() > 3) {
+            Toast.makeText(this, "" + hint, Toast.LENGTH_SHORT).show();
+            Score(-2);
+
+
+        } else
+            Toast.makeText(this, R.string.hint_dount, Toast.LENGTH_SHORT).show();
     }
 }

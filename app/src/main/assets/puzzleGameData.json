@@ -3,90 +3,90 @@
 		"unlock_points": 0,
 		"questions": [{
 				"id": 1,
-				"title": "عدد أحرف اللغة الانجليزية 28 حرف",
+				"title": "يصل إرتفاع برج خليفة إلى 821 متر",
 				"answer_1": "",
 				"answer_2": "",
 				"answer_3": "",
 				"answer_4": "",
 				"true_answer": "false",
 				"points": 3,
-				"duration": 5000,
+				"duration": 7000,
 
 				"pattern": {
 					"pattern_id": 1,
 					"pattern_name": "True of False"
 				},
-				"hint": "عدد أحرف اللغة الانجليزية 26 حرف فقط"
+				"hint": "يصل إرتفاع برج خليفة إلى 828 متر"
 			},
 
 			{
 				"id": 2,
-				"title": "عاصمة أثيوبيا هي",
-				"answer_1": "أديس أبابا",
-				"answer_2": "جامايكا",
-				"answer_3": "كوالالمبور",
-				"answer_4": "دبلن",
-				"true_answer": "أديس أبابا",
+				"title": "كم يبلغ طول فقرة الزرافة",
+				"answer_1": "19.5 سم",
+				"answer_2": "25 سم",
+				"answer_3": "22.5 سم",
+				"answer_4": "15 سم",
+				"true_answer": "22.5 سم",
 				"points": 2,
-				"duration": 5000,
+				"duration": 8000,
 				"pattern": {
 					"pattern_id": 2,
 					"pattern_name": "Choose the correct answer"
 				},
-				"hint": "عاصمة أثيوبيا هي أديس أبابا"
+				"hint": "يبلغ طول فقرة الزرافة 22.5 سم"
 			}
 			,{
 				"id": 3,
-				"title": "الكوكب الأحمر هو كوكب",
+				"title": "لغز : ما هو الشيئ الذي كلما أخذنا منه زاد",
 				"answer_1": "",
 				"answer_2": "",
 				"answer_3": "",
 				"answer_4": "",
-				"true_answer": "المريخ",
+				"true_answer": "الحفرة",
 				"points": 5,
-				"duration": 10000,
+				"duration": 13000,
 				"pattern": {
 					"pattern_id": 3,
 					"pattern_name": "Fill the answer"
 				},
-				"hint": "الكوكب الأحمر هو كوكب المريخ"
+				"hint": "إنها الحفرة"
 			},
 			{
 				"id": 4,
-				"title": "عدد كواكب المجموعة الشمسية",
-				"answer_1": "10 كواكب",
-				"answer_2": "3 كواكب",
-				"answer_3": "8 كواكب",
-				"answer_4": "12 كوكب",
-				"true_answer": "8 كواكب",
+				"title": "من هو صاحب النظرية النسبية",
+				"answer_1": "نيوتن",
+				"answer_2": "أينشتاين",
+				"answer_3": "نوبل",
+				"answer_4": "أديسون",
+				"true_answer": "أينشتاين",
 				"points": 2,
-				"duration": 5000,
+				"duration": 8000,
 				"pattern": {
 					"pattern_id": 2,
 					"pattern_name": "Choose the correct answer"
 				},
-				"hint": "عدد كواكب المجموعة الشمسية هو 8 كواكب فقط"
+				"hint": "إنه أينشتاين"
 			}
 		]
 	},
 	{
 		"level_no": 2,
-		"unlock_points": 6,
+		"unlock_points": 8,
 		"questions": [{
 				"id": 1,
-				"title": "شكل مجرة درب التبانة هو حلزوني",
+				"title": "تقوم النحلة بالرفرفة بجناحيها 350 مرة بالثانية",
 				"answer_1": "",
 				"answer_2": "",
 				"answer_3": "",
 				"answer_4": "",
 				"true_answer": "true",
 				"points": 3,
-				"duration": 5000,
+				"duration": 7000,
 				"pattern": {
 					"pattern_id": 1,
 					"pattern_name": "True of False"
 				},
-				"hint": "شكل مجرة درب التبانة هو حلزوني"
+				"hint": "النحلة تقوم بالرفرفة 350 مرة في الثانية"
 			},
 			{
 				"id": 2,
@@ -97,7 +97,7 @@
 				"answer_4": "كوالا",
 				"true_answer": "شرغوف",
 				"points": 2,
-				"duration": 5000,
+				"duration": 8000,
 				"pattern": {
 					"pattern_id": 2,
 					"pattern_name": "Choose the correct answer"
@@ -106,42 +106,42 @@
 			}
 			,{
 				"id": 3,
-				"title": "تعتبر ال....... هي أسرع المخلوقات البحرية",
+				"title": "كم عدد الأسنان التي يمتلكها القط",
 				"answer_1": "",
 				"answer_2": "",
 				"answer_3": "",
 				"answer_4": "",
-				"true_answer": "التونة",
+				"true_answer": "42 سن",
 				"points": 5,
-				"duration": 10000,
+				"duration": 13000,
 				"pattern": {
 					"pattern_id": 3,
 					"pattern_name": "Fill the answer"
 				},
-				"hint": "التونة تعتبر اسرع المخلوقات البحرية، حيث يعتبر الحوت أكبرها"
+				"hint": "يمتلك القط 42 سن"
 			}
 			,
 			{
 				"id": 4,
-				"title": "كم عضلة يستخدم الإنسان عندما يغضب",
-				"answer_1": "12 عضلة",
-				"answer_2": "5 عضلات",
-				"answer_3": "11 عضلة",
-				"answer_4": "13 عضلة",
-				"true_answer": "13 عضلة",
+				"title": "من هي أكثر دول العالم إنتاجا للخشب",
+				"answer_1": "الصين",
+				"answer_2": "البرازيل",
+				"answer_3": "كندا",
+				"answer_4": "روسيا",
+				"true_answer": "كندا",
 				"points": 2,
-				"duration": 5000,
+				"duration": 8000,
 				"pattern": {
 					"pattern_id": 2,
 					"pattern_name": "Choose the correct answer"
 				},
-				"hint": "عندما يغضب الإنسان يستخدم 13 عضلة"
+				"hint": "تعتبر كندا من أكثر دول العالم غنتاجا للخشب"
 			}
 		]
 	},
 	{
 		"level_no": 3,
-		"unlock_points": 10,
+		"unlock_points": 15,
 		"questions": [{
 				"id": 1,
 				"title": "ما هي الدولة التي لديها أقل نسبة سكان في العالم",
@@ -151,7 +151,7 @@
 				"answer_4": "منغوليا",
 				"true_answer": "منغوليا",
 				"points": 2,
-				"duration": 5000,
+				"duration": 8000,
 				"pattern": {
 					"pattern_id": 2,
 					"pattern_name": "Choose the correct answer"
@@ -167,7 +167,7 @@
 				"answer_4": "",
 				"true_answer": "الهند",
 				"points": 5,
-				"duration": 10000,
+				"duration": 13000,
 				"pattern": {
 					"pattern_id": 3,
 					"pattern_name": "Fill the answer"
@@ -182,14 +182,14 @@
 				"answer_2": "",
 				"answer_3": "",
 				"answer_4": "",
-				"true_answer": "مصارع الثيؤان",
+				"true_answer": "مصارعة الثيران",
 				"points": 5,
-				"duration": 10000,
+				"duration": 13000,
 				"pattern": {
 					"pattern_id": 3,
 					"pattern_name": "Fill the answer"
 				},
-				"hint": "مصارع الثيؤان"
+				"hint": "مصارعة الثيران"
 			}
 			,
 			
@@ -202,7 +202,7 @@
 				"answer_4": "AB فصيلة دم ",
 				"true_answer": "O فصيلة دم ",
 				"points": 5,
-				"duration": 10000,
+				"duration": 13000,
 				"pattern": {
 					"pattern_id": 3,
 					"pattern_name": "Fill the answer"
@@ -213,7 +213,7 @@
 	}
 	,{
 		"level_no": 4,
-		"unlock_points": 15,
+		"unlock_points": 24,
 		"questions": [{
 				"id": 1,
 				"title": "لغز : ما هو الشيئ الذي تحمله و يحملك",
@@ -223,7 +223,7 @@
 				"answer_4": "",
 				"true_answer": "الحذاء",
 				"points": 5,
-				"duration": 10000,
+				"duration": 13000,
 				"pattern": {
 					"pattern_id": 3,
 					"pattern_name": "Fill the answer"
@@ -239,7 +239,7 @@
 				"answer_4": "",
 				"true_answer": "الساعة",
 				"points": 5,
-				"duration": 10000,
+				"duration": 13000,
 				"pattern": {
 					"pattern_id": 3,
 					"pattern_name": "Fill the answer"
@@ -255,7 +255,7 @@
 				"answer_4": "",
 				"true_answer": "36 ضلع",
 				"points": 5,
-				"duration": 10000,
+				"duration": 13000,
 				"pattern": {
 					"pattern_id": 3,
 					"pattern_name": "Fill the answer"
@@ -266,22 +266,22 @@
 	}
 	,{
 		"level_no": 5,
-		"unlock_points": 20,
+		"unlock_points": 32,
 		"questions": [{
 				"id": 1,
-				"title": "لغز : ما هو الشيئ الذي كلما أخذنا منه زاد",
+				"title": "كم عام استمر حكم الخلافة العثمانية",
 				"answer_1": "",
 				"answer_2": "",
 				"answer_3": "",
 				"answer_4": "",
-				"true_answer": "الحفرة",
+				"true_answer": "400 عام",
 				"points": 5,
-				"duration": 10000,
+				"duration": 13000,
 				"pattern": {
 					"pattern_id": 3,
 					"pattern_name": "Fill the answer"
 				},
-				"hint": "إنها الحفرة"
+				"hint": "إستمرت الخلافة العثمانية قرابة 400 عام"
 			},
 			{
 				"id": 2,
@@ -292,7 +292,7 @@
 				"answer_4": "706",
 				"true_answer": "706",
 				"points": 2,
-				"duration": 5000,
+				"duration": 8000,
 				"pattern": {
 					"pattern_id": 2,
 					"pattern_name": "Choose the correct answer"
@@ -308,7 +308,7 @@
 				"answer_4": "",
 				"true_answer": "الضوء",
 				"points": 5,
-				"duration": 10000,
+				"duration": 13000,
 				"pattern": {
 					"pattern_id": 3,
 					"pattern_name": "Fill the answer"
@@ -319,7 +319,7 @@
 	}
 	,{
 		"level_no": 6,
-		"unlock_points": 25,
+		"unlock_points": 42,
 		"questions": [{
 				"id": 1,
 				"title": "من هو أبطأ حيوان في العالم",
@@ -329,7 +329,7 @@
 				"answer_4": "الحلزون",
 				"true_answer": "الكسلان",
 				"points": 2,
-				"duration": 5000,
+				"duration": 8000,
 				"pattern": {
 					"pattern_id": 2,
 					"pattern_name": "Choose the correct answer"
@@ -345,7 +345,7 @@
 				"answer_4": "المعدة",
 				"true_answer": "الرقبة",
 				"points": 2,
-				"duration": 5000,
+				"duration": 8000,
 				"pattern": {
 					"pattern_id": 2,
 					"pattern_name": "Choose the correct answer"
@@ -361,7 +361,7 @@
 				"answer_4": "",
 				"true_answer": "الثعبان",
 				"points": 5,
-				"duration": 10000,
+				"duration": 13000,
 				"pattern": {
 					"pattern_id": 3,
 					"pattern_name": "Fill the answer"
@@ -373,7 +373,7 @@
 
 	,{
 		"level_no": 7,
-		"unlock_points": 30,
+		"unlock_points": 51,
 		"questions": [{
 				"id": 1,
 				"title": "وحدة قياس المقاومة هي الآوم",
@@ -383,7 +383,7 @@
 				"answer_4": "",
 				"true_answer": "true",
 				"points": 3,
-				"duration": 5000,
+				"duration": 7000,
 				"pattern": {
 					"pattern_id": 1,
 					"pattern_name": "True of False"
@@ -399,7 +399,7 @@
 				"answer_4": "",
 				"true_answer": "false",
 				"points": 3,
-				"duration": 5000,
+				"duration": 7000,
 				"pattern": {
 					"pattern_id": 1,
 					"pattern_name": "True of False"
@@ -415,7 +415,7 @@
 				"answer_4": "",
 				"true_answer": "false",
 				"points": 3,
-				"duration": 5000,
+				"duration": 7000,
 				"pattern": {
 					"pattern_id": 1,
 					"pattern_name": "True of False"
@@ -423,5 +423,112 @@
 				"hint": "الدولفين أذكى الحيوانات البحرية"
 			}
 		]
+	},
+	{
+		"level_no": 8,
+		"unlock_points": 57,
+		"questions": [{
+			"id": 1,
+			"title": "هل الذهب هو المعدن الأعلى سعرا",
+			"answer_1": "",
+			"answer_2": "",
+			"answer_3": "",
+			"answer_4": "",
+			"true_answer": "false",
+			"points": 3,
+			"duration": 7000,
+			"pattern": {
+				"pattern_id": 1,
+				"pattern_name": "True of False"
+			},
+			"hint":"يعتبر الراديوم هو المعدن الأعلى سعرا"
+		},
+			{
+				"id": 2,
+				"title": "أكبر شبه جزيرة في العالم هي شبه الجزيرة العربية",
+				"answer_1": "",
+				"answer_2": "",
+				"answer_3": "",
+				"answer_4": "",
+				"true_answer": "true",
+				"points": 3,
+				"duration": 7000,
+				"pattern": {
+					"pattern_id": 1,
+					"pattern_name": "True of False"
+				},
+				"hint": "تعتبر شبه الجزيرة العربية أكبر شبه جزيرة في العالم"
+			}
+		,{
+				"id": 3,
+				"title": "وظيفة فيتامين A هي علاج الجروح",
+				"answer_1": "",
+				"answer_2": "",
+				"answer_3": "",
+				"answer_4": "",
+				"true_answer": "false",
+				"points": 3,
+				"duration": 7000,
+				"pattern": {
+					"pattern_id": 1,
+					"pattern_name": "True of False"
+				},
+				"hint": "وظيفة فيتامين A هي تقوية النظر"
+			}
+		]
+	},
+	{
+		"level_no": 9,
+		"unlock_points": 63,
+		"questions": [{
+			"id": 1,
+			"title": "مدينة الضباب هي الإسم الثاني لمدينة لندن",
+			"answer_1": "",
+			"answer_2": "",
+			"answer_3": "",
+			"answer_4": "",
+			"true_answer": "true",
+			"points": 3,
+			"duration": 7000,
+			"pattern": {
+				"pattern_id": 1,
+				"pattern_name": "True of False"
+			},
+			"hint":"إسم مدينة الضباب هي لندن"
+		},
+			{
+				"id": 2,
+				"title": "يعتبر الكربون هو الذهب الأسود",
+				"answer_1": "",
+				"answer_2": "",
+				"answer_3": "",
+				"answer_4": "",
+				"true_answer": "false",
+				"points": 3,
+				"duration": 7000,
+				"pattern": {
+					"pattern_id": 1,
+					"pattern_name": "True of False"
+				},
+				"hint": "النفط هو الذهب الأسود"
+			}
+		,{
+				"id": 3,
+				"title": "سورة الكهف هي السورة التي تقع في نصف القرآن الكريم",
+				"answer_1": "",
+				"answer_2": "",
+				"answer_3": "",
+				"answer_4": "",
+				"true_answer": "true",
+				"points": 3,
+				"duration": 7000,
+				"pattern": {
+					"pattern_id": 1,
+					"pattern_name": "True of False"
+				},
+				"hint": "سورة الكهف تقع في نصف القرآن الكريم"
+			}
+		]
 	}
+
 ]

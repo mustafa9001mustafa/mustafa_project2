@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">أسئلة العقول الثقافية</string>
     <string name="user_name">إسم الاعب : </string>
     <string name="email">الإيميل : </string>
     <string name="birthday">تاريخ الميلاد : </string>
@@ -35,7 +36,6 @@
     <string name="Oman">عمان</string>
     <string name="Jordan">الأردن</string>
     <string name="UAS">الإمارت العربية المتحدة</string>
-    <string name="app_name">المشروع الثاني</string>
     <string name="start">إبدأ</string>
     <string name="Exit">خروج</string>
     <string name="Setting">الإعدادات</string>
@@ -79,6 +79,10 @@
     <string name="win_at_loser">عدد الفوز بالنسبة للخسارة</string>
     <string name="ok">فهمت</string>
     <string name="dountshow">عدم الظهور في المرة القادمة</string>
-
-
+    <string name="reed_moor">" قراءة المزيد  .. "</string>
+    <string name="toast_coin">لا يوجد لديك عدد نقاط كافي</string>
+    <string name="hint_dount">لا يوجد لديك عدد نقاط كافية لإظهار التلميح</string>
+    <string name="choose_text_game">نمط إختر : في هذا النمط يتم وضع 4 خيارات للإجاب على سؤال محدد وعند الإجابة عليه بالجواب الصحيح ينم إضافة نقطتين للفوز وعند الخسارة لا يتم خصم أي نقاط</string>
+    <string name="true_text_game">نمط الصح أو الخطأ : في هذا النمط يتم وضع خيارين للإجابة على سؤال محدد وعند الإجباة على السؤال إجابة صحيحة يتم إضافة 3 نقاط وعند الإجابة الخاطئة لا يتم خصم أي نقاط</string>
+    <string name="file_text_game">نمط أكمل : في هذا النمط يتم الإجابة عن السؤال المحدد عن طريق كتابة الجواب الصحيح في المكان المحدد لديه وعند الإجابة الصحيحة يتم إضافة 5 نقاط وعند الإجابة الخاطئة لا يتم خصم أي نقاط</string>
 </resources>

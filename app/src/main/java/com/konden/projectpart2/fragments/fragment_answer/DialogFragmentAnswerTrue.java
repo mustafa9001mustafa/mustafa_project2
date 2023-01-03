@@ -11,10 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 
-import com.konden.projectpart2.R;
-import com.konden.projectpart2.databinding.FragmentDialogAnswerFalseBinding;
 import com.konden.projectpart2.databinding.FragmentDialogeAnswerBinding;
-import com.konden.projectpart2.interfases.ListenerCallDialogOk;
+import com.konden.projectpart2.interfases.call_fragment_quastion.ListenerCallDialogOk;
 
 import java.util.Objects;
 

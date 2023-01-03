@@ -15,11 +15,11 @@ import android.widget.Toast;
 
 import com.konden.projectpart2.R;
 import com.konden.projectpart2.databinding.FragmentLevelFileTextBinding;
-import com.konden.projectpart2.interfases.ListenerCallAnswerFragmentFile;
-import com.konden.projectpart2.interfases.ListenerCallAnswerFragmentTrueOrFalse;
-import com.konden.projectpart2.interfases.ListenerCallId;
-import com.konden.projectpart2.interfases.ListenerCallOnFinchesTimer;
-import com.konden.projectpart2.interfases.ListenerCallSkip;
+import com.konden.projectpart2.interfases.call_fragment_quastion.ListenerCallAnswerFragmentFile;
+import com.konden.projectpart2.interfases.call_fragment_quastion.ListenerCallId;
+import com.konden.projectpart2.interfases.call_fragment_quastion.ListenerCallOnFinchesTimer;
+import com.konden.projectpart2.interfases.call_fragment_quastion.ListenerCallSkip;
+import com.konden.projectpart2.interfases.call_fragment_quastion.ListenerCallToast;
 import com.konden.projectpart2.sherdpreferanses.Sherdpreferanses;
 
 import java.util.Locale;
@@ -47,6 +47,7 @@ public class LevelFileTextFragment extends Fragment {
     private ListenerCallOnFinchesTimer listenerCallOnFinchesTimer;
     private ListenerCallSkip callSkip;
     private ListenerCallId listenerCallId;
+    private ListenerCallToast listenerCallToast;
 
 
     public LevelFileTextFragment() {
@@ -60,6 +61,7 @@ public class LevelFileTextFragment extends Fragment {
         listenerCallOnFinchesTimer = (ListenerCallOnFinchesTimer) context;
         callSkip = (ListenerCallSkip) context;
         listenerCallId = (ListenerCallId) context;
+        listenerCallToast = (ListenerCallToast) context;
     }
 
     @Override
@@ -69,6 +71,7 @@ public class LevelFileTextFragment extends Fragment {
         listenerCallOnFinchesTimer = null;
         callSkip = null;
         listenerCallId = null;
+        listenerCallToast = null;
     }
 
     public static LevelFileTextFragment newInstance(
@@ -103,7 +106,7 @@ public class LevelFileTextFragment extends Fragment {
                              Bundle savedInstanceState) {
         FragmentLevelFileTextBinding binding = FragmentLevelFileTextBinding.inflate(inflater, container, false);
 
-        Log.e("TAG", "onCreateView: "+id );
+        Log.e("TAG", "onCreateView: " + id);
         listenerCallId.id(id);
 
         binding.cardSkipFile.setOnClickListener(view -> {
@@ -115,7 +118,7 @@ public class LevelFileTextFragment extends Fragment {
         binding.itTextTimer.setText(String.valueOf(duration));
 
         binding.hintIconFile.setOnClickListener(view -> {
-            Toast.makeText(getActivity(), hint, Toast.LENGTH_SHORT).show();
+            listenerCallToast.call_toast(hint);
         });
 
         countDownTimer = new CountDownTimer(duration, 1000) {
@@ -130,7 +133,7 @@ public class LevelFileTextFragment extends Fragment {
 
             @Override
             public void onFinish() {
-                    listenerCallOnFinchesTimer.OnFinchesTimer();
+                listenerCallOnFinchesTimer.OnFinchesTimer();
             }
         }.start();
 
@@ -146,6 +149,7 @@ public class LevelFileTextFragment extends Fragment {
         });
         return binding.getRoot();
     }
+
     private void getTrueAnswer(String sab) {
         countDownTimer.cancel();
 

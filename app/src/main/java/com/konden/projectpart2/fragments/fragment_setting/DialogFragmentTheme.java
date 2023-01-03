@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.konden.projectpart2.databinding.FragmentDialogThemeBinding;
-import com.konden.projectpart2.interfases.CallBoolTheme;
+import com.konden.projectpart2.interfases.settings.CallBoolTheme;
 
 public class DialogFragmentTheme extends DialogFragment {
 

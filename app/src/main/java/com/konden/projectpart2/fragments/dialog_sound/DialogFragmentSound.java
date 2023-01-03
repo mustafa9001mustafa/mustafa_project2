@@ -1,7 +1,6 @@
 package com.konden.projectpart2.fragments.dialog_sound;
 
 import android.content.Context;
-import android.media.AudioManager;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,12 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.CompoundButton;
-import android.widget.SeekBar;
 
 import com.konden.projectpart2.databinding.FragmentBlankBinding;
-import com.konden.projectpart2.interfases.ListenerCallSounds;
+import com.konden.projectpart2.interfases.settings.ListenerCallSounds;
 import com.konden.projectpart2.sherdpreferanses.Sherdpreferanses;
-import com.konden.projectpart2.sound.Sound;
 
 import java.util.Objects;
 

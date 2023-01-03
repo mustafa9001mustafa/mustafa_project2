@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Project part2</string>
+    <string name="app_name">Cultural Minds Questions</string>
     <string name="start">start</string>
     <string name="Setting">Setting</string>
     <string name="Exit">Exit</string>
@@ -79,7 +79,13 @@
     <string name="end_level">Finished Level</string>
     <string name="point">Point</string>
     <string name="win_at_loser">K / D</string>
-    <string name="ok">ok</string>
+    <string name="ok">OK</string>
     <string name="dountshow">don,t show never</string>
+    <string name="reed_moor">" reed more …"</string>
+    <string name="toast_coin">لا يوجد لديك عدد نقاط كافي</string>
+    <string name="hint_dount">لإظهار التلميح</string>
+    <string name="choose_text_game">Choose mode: In this mode, 4 options are placed to answer a specific question. When answering it with the correct answer, two points are added for winning, and when losing, no points are deducted.</string>
+    <string name="true_text_game">True or False Mode: In this mode, two options are given to answer a specific question. When answering a question correctly, 3 points are added, and when answering incorrectly, no points are deducted.</string>
+    <string name="file_text_game">Completed pattern: The specific question is answered by writing the correct answer in the specified place and in the correct answer 5 answer points are added</string>
 
 </resources>

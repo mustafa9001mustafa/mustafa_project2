@@ -26,7 +26,7 @@ import android.widget.Toast;
 import com.konden.projectpart2.R;
 import com.konden.projectpart2.animations.AnimationAll;
 import com.konden.projectpart2.databinding.FragmentDialogeBinding;
-import com.konden.projectpart2.interfases.CallProfileData;
+import com.konden.projectpart2.interfases.settings.CallProfileData;
 
 import java.text.DateFormat;
 import java.text.ParseException;
