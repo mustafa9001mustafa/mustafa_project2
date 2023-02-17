@@ -12,9 +12,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
-
-
+            
             <View
                 android:id="@+id/v1"
                 android:layout_width="0dp"
@@ -69,236 +67,236 @@
                 app:lottie_rawRes="@raw/back" />
 
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card_profile"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/card_background_color"
-                app:cardCornerRadius="10dp"
-                app:cardElevation="10dp"
-                app:cardUseCompatPadding="true"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/profile_info">
+<!--            <androidx.cardview.widget.CardView-->
+<!--                android:id="@+id/card_profile"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:cardBackgroundColor="@color/card_background_color"-->
+<!--                app:cardCornerRadius="10dp"-->
+<!--                app:cardElevation="10dp"-->
+<!--                app:cardUseCompatPadding="true"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/profile_info">-->
 
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+<!--                <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content">-->
 
-                    <com.airbnb.lottie.LottieAnimationView
-                        android:id="@+id/edit_icon"
-                        android:layout_width="@dimen/_25sdp"
-                        android:layout_height="@dimen/_25sdp"
-                        android:layout_margin="@dimen/_12sdp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:lottie_autoPlay="true"
-                        app:lottie_loop="true"
-                        app:lottie_rawRes="@raw/edit" />
-
-
-                    <TextView
-                        android:id="@+id/username"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="@dimen/_5sdp"
-                        android:layout_marginTop="@dimen/_15sdp"
-                        android:fontFamily="@font/ds"
-                        android:text="@string/user_name"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_15ssp"
-                        app:layout_constraintEnd_toStartOf="@id/username_text"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+<!--                    <com.airbnb.lottie.LottieAnimationView-->
+<!--                        android:id="@+id/edit_icon"-->
+<!--                        android:layout_width="@dimen/_25sdp"-->
+<!--                        android:layout_height="@dimen/_25sdp"-->
+<!--                        android:layout_margin="@dimen/_12sdp"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintTop_toTopOf="parent"-->
+<!--                        app:lottie_autoPlay="true"-->
+<!--                        app:lottie_loop="true"-->
+<!--                        app:lottie_rawRes="@raw/edit" />-->
 
 
-                    <TextView
-                        android:id="@+id/username_text"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="@dimen/_5sdp"
-                        android:layout_marginTop="@dimen/_15sdp"
-
-                        android:fontFamily="@font/ds"
-                        android:gravity="start"
-                        android:textColor="@color/red"
-                        android:textSize="@dimen/_15ssp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/username"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-
-                    <TextView
-                        android:id="@+id/email"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="@dimen/_5sdp"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:fontFamily="@font/ds"
-                        android:text="@string/email"
-
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_15ssp"
-                        app:layout_constraintEnd_toStartOf="@id/email_text"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/username" />
+<!--                    <TextView-->
+<!--                        android:id="@+id/username"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginHorizontal="@dimen/_5sdp"-->
+<!--                        android:layout_marginTop="@dimen/_15sdp"-->
+<!--                        android:fontFamily="@font/ds"-->
+<!--                        android:text="@string/user_name"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textSize="@dimen/_15ssp"-->
+<!--                        app:layout_constraintEnd_toStartOf="@id/username_text"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toTopOf="parent" />-->
 
 
-                    <TextView
-                        android:id="@+id/email_text"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="@dimen/_5sdp"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:fontFamily="@font/ds"
-                        android:gravity="start"
-                        android:textColor="@color/red"
-                        android:textSize="@dimen/_15ssp"
+<!--                    <TextView-->
+<!--                        android:id="@+id/username_text"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginHorizontal="@dimen/_5sdp"-->
+<!--                        android:layout_marginTop="@dimen/_15sdp"-->
 
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/email"
-                        app:layout_constraintTop_toBottomOf="@id/username" />
-
-
-                    <TextView
-                        android:id="@+id/birthday"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="@dimen/_5sdp"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:fontFamily="@font/ds"
-                        android:text="@string/birthday"
-                        android:textColor="@color/black"
-
-                        android:textSize="@dimen/_15ssp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/email" />
+<!--                        android:fontFamily="@font/ds"-->
+<!--                        android:gravity="start"-->
+<!--                        android:textColor="@color/red"-->
+<!--                        android:textSize="@dimen/_15ssp"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toEndOf="@+id/username"-->
+<!--                        app:layout_constraintTop_toTopOf="parent" />-->
 
 
-                    <TextView
-                        android:id="@+id/birthday_text"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="@dimen/_5sdp"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:fontFamily="@font/ds"
-                        android:gravity="start"
-                        android:textColor="@color/red"
-                        android:textSize="@dimen/_15ssp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/birthday"
-                        app:layout_constraintTop_toBottomOf="@id/email" />
+<!--                    <TextView-->
+<!--                        android:id="@+id/email"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginHorizontal="@dimen/_5sdp"-->
+<!--                        android:layout_marginTop="@dimen/_5sdp"-->
+<!--                        android:fontFamily="@font/ds"-->
+<!--                        android:text="@string/email"-->
+
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textSize="@dimen/_15ssp"-->
+<!--                        app:layout_constraintEnd_toStartOf="@id/email_text"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toBottomOf="@id/username" />-->
 
 
-                    <TextView
-                        android:id="@+id/gender"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="@dimen/_5sdp"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:fontFamily="@font/ds"
-                        android:text="@string/gender"
-                        android:textColor="@color/black"
+<!--                    <TextView-->
+<!--                        android:id="@+id/email_text"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginHorizontal="@dimen/_5sdp"-->
+<!--                        android:layout_marginTop="@dimen/_5sdp"-->
+<!--                        android:fontFamily="@font/ds"-->
+<!--                        android:gravity="start"-->
+<!--                        android:textColor="@color/red"-->
+<!--                        android:textSize="@dimen/_15ssp"-->
 
-                        android:textSize="@dimen/_15ssp"
-                        app:layout_constraintEnd_toStartOf="@id/gender_text"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/birthday" />
-
-
-                    <TextView
-                        android:id="@+id/gender_text"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="@dimen/_5sdp"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:fontFamily="@font/ds"
-                        android:gravity="start"
-                        android:textColor="@color/red"
-                        android:textSize="@dimen/_15ssp"
-
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/gender"
-                        app:layout_constraintTop_toBottomOf="@id/birthday" />
-
-                    <TextView
-                        android:id="@+id/country"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="@dimen/_5sdp"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:layout_marginBottom="@dimen/_5sdp"
-                        android:fontFamily="@font/ds"
-                        android:text="@string/country"
-                        android:textColor="@color/black"
-
-                        android:textSize="@dimen/_15ssp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@id/country_text"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/gender" />
-
-                    <TextView
-                        android:id="@+id/country_text"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="@dimen/_5sdp"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:layout_marginBottom="@dimen/_5sdp"
-                        android:fontFamily="@font/ds"
-                        android:gravity="start"
-                        android:textColor="@color/red"
-                        android:textSize="@dimen/_15ssp"
-
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/country"
-                        app:layout_constraintTop_toBottomOf="@id/gender" />
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toEndOf="@+id/email"-->
+<!--                        app:layout_constraintTop_toBottomOf="@id/username" />-->
 
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+<!--                    <TextView-->
+<!--                        android:id="@+id/birthday"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginHorizontal="@dimen/_5sdp"-->
+<!--                        android:layout_marginTop="@dimen/_5sdp"-->
+<!--                        android:fontFamily="@font/ds"-->
+<!--                        android:text="@string/birthday"-->
+<!--                        android:textColor="@color/black"-->
 
-            </androidx.cardview.widget.CardView>
-
-            <View
-                android:id="@+id/v3"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/_1sdp"
-                android:layout_marginHorizontal="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_15sdp"
-                android:background="@color/white"
-                app:layout_constraintBottom_toBottomOf="@+id/game_info"
-                app:layout_constraintEnd_toStartOf="@id/game_info"
-                app:layout_constraintStart_toStartOf="parent"
-
-                app:layout_constraintTop_toBottomOf="@id/card_profile" />
+<!--                        android:textSize="@dimen/_15ssp"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toBottomOf="@id/email" />-->
 
 
-            <TextView
-                android:id="@+id/game_info"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_15sdp"
-                android:fontFamily="@font/ds"
-                android:text="@string/game_information"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_15ssp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/card_profile" />
+<!--                    <TextView-->
+<!--                        android:id="@+id/birthday_text"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginHorizontal="@dimen/_5sdp"-->
+<!--                        android:layout_marginTop="@dimen/_5sdp"-->
+<!--                        android:fontFamily="@font/ds"-->
+<!--                        android:gravity="start"-->
+<!--                        android:textColor="@color/red"-->
+<!--                        android:textSize="@dimen/_15ssp"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toEndOf="@+id/birthday"-->
+<!--                        app:layout_constraintTop_toBottomOf="@id/email" />-->
 
-            <View
-                android:id="@+id/v4"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/_1sdp"
-                android:layout_marginHorizontal="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_15sdp"
-                android:background="@color/white"
-                app:layout_constraintBottom_toBottomOf="@+id/game_info"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/game_info"
-                app:layout_constraintTop_toBottomOf="@id/card_profile" />
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/gender"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginHorizontal="@dimen/_5sdp"-->
+<!--                        android:layout_marginTop="@dimen/_5sdp"-->
+<!--                        android:fontFamily="@font/ds"-->
+<!--                        android:text="@string/gender"-->
+<!--                        android:textColor="@color/black"-->
+
+<!--                        android:textSize="@dimen/_15ssp"-->
+<!--                        app:layout_constraintEnd_toStartOf="@id/gender_text"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toBottomOf="@id/birthday" />-->
+
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/gender_text"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginHorizontal="@dimen/_5sdp"-->
+<!--                        android:layout_marginTop="@dimen/_5sdp"-->
+<!--                        android:fontFamily="@font/ds"-->
+<!--                        android:gravity="start"-->
+<!--                        android:textColor="@color/red"-->
+<!--                        android:textSize="@dimen/_15ssp"-->
+
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toEndOf="@+id/gender"-->
+<!--                        app:layout_constraintTop_toBottomOf="@id/birthday" />-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/country"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginHorizontal="@dimen/_5sdp"-->
+<!--                        android:layout_marginTop="@dimen/_5sdp"-->
+<!--                        android:layout_marginBottom="@dimen/_5sdp"-->
+<!--                        android:fontFamily="@font/ds"-->
+<!--                        android:text="@string/country"-->
+<!--                        android:textColor="@color/black"-->
+
+<!--                        android:textSize="@dimen/_15ssp"-->
+<!--                        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                        app:layout_constraintEnd_toStartOf="@id/country_text"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toBottomOf="@id/gender" />-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/country_text"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginHorizontal="@dimen/_5sdp"-->
+<!--                        android:layout_marginTop="@dimen/_5sdp"-->
+<!--                        android:layout_marginBottom="@dimen/_5sdp"-->
+<!--                        android:fontFamily="@font/ds"-->
+<!--                        android:gravity="start"-->
+<!--                        android:textColor="@color/red"-->
+<!--                        android:textSize="@dimen/_15ssp"-->
+
+<!--                        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toEndOf="@+id/country"-->
+<!--                        app:layout_constraintTop_toBottomOf="@id/gender" />-->
+
+
+<!--                </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+<!--            </androidx.cardview.widget.CardView>-->
+
+<!--            <View-->
+<!--                android:id="@+id/v3"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="@dimen/_1sdp"-->
+<!--                android:layout_marginHorizontal="@dimen/_10sdp"-->
+<!--                android:layout_marginTop="@dimen/_15sdp"-->
+<!--                android:background="@color/white"-->
+<!--                app:layout_constraintBottom_toBottomOf="@+id/game_info"-->
+<!--                app:layout_constraintEnd_toStartOf="@id/game_info"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+
+<!--                app:layout_constraintTop_toBottomOf="@id/card_profile" />-->
+
+
+<!--            <TextView-->
+<!--                android:id="@+id/game_info"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="@dimen/_15sdp"-->
+<!--                android:fontFamily="@font/ds"-->
+<!--                android:text="@string/game_information"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="@dimen/_15ssp"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/card_profile" />-->
+
+<!--            <View-->
+<!--                android:id="@+id/v4"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="@dimen/_1sdp"-->
+<!--                android:layout_marginHorizontal="@dimen/_10sdp"-->
+<!--                android:layout_marginTop="@dimen/_15sdp"-->
+<!--                android:background="@color/white"-->
+<!--                app:layout_constraintBottom_toBottomOf="@+id/game_info"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toEndOf="@id/game_info"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/card_profile" />-->
 
 
             <androidx.cardview.widget.CardView
@@ -311,7 +309,7 @@
                 app:cardUseCompatPadding="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/game_info">
+                app:layout_constraintTop_toBottomOf="@id/profile_info">
 
 
                 <androidx.constraintlayout.widget.ConstraintLayout

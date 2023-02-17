@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.CompoundButton;
 
+import com.konden.projectpart2.R;
 import com.konden.projectpart2.databinding.FragmentBlankBinding;
 import com.konden.projectpart2.interfases.settings.ListenerCallSounds;
 import com.konden.projectpart2.sherdpreferanses.Sherdpreferanses;
@@ -24,6 +25,8 @@ public class DialogFragmentSound extends DialogFragment {
     private static final String ARG_PARAM1 = "param1";
     private String mParam1;
     ListenerCallSounds callSounds;
+    private int style = DialogFragment.STYLE_NO_TITLE, theme = R.style.MyDialog;
+
 
 
     public DialogFragmentSound() {
@@ -56,6 +59,7 @@ public class DialogFragmentSound extends DialogFragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
+            setStyle(style, theme);
         }
     }
 
@@ -68,7 +72,7 @@ public class DialogFragmentSound extends DialogFragment {
         if (Sherdpreferanses.getInstance().GetSoundOther() == false)
             binding.switch2Sound.setChecked(false);
 
-        if (Sherdpreferanses.getInstance().GetSoundBackGrand() == false)
+        if (Sherdpreferanses.getInstance().GetTimerEnd() == false)
             binding.switch1Sound.setChecked(false);
 
 
@@ -107,7 +111,5 @@ public class DialogFragmentSound extends DialogFragment {
         params.width = ViewGroup.LayoutParams.MATCH_PARENT;
         params.height = ViewGroup.LayoutParams.WRAP_CONTENT;
         getDialog().getWindow().setAttributes(params);
-
-
     }
 }

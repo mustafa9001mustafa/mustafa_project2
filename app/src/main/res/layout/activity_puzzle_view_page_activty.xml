@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/app_color"
+    android:background="@drawable/back_game_3"
     tools:context=".ui.PuzzleViewPageActivity">
+
 
     <ScrollView
         android:layout_width="match_parent"
@@ -15,46 +16,54 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/con_coin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:padding="@dimen/_5sdp"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:background="@drawable/shap_input">
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card_top_view_pager"
-                android:layout_width="match_parent"
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/view_point_icon"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/coin" />
+
+
+            <TextView
+                android:id="@+id/view_point"
+                style="@style/TextShadowStyle"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_5sdp"
-                app:cardBackgroundColor="@color/card_background_color"
-                app:cardCornerRadius="10dp"
-                app:cardUseCompatPadding="true"
-                app:layout_constraintTop_toTopOf="parent">
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_17ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/view_point_icon"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-
-                    <com.airbnb.lottie.LottieAnimationView
-                        android:id="@+id/view_point_icon"
-                        android:layout_width="@dimen/_40sdp"
-                        android:layout_height="@dimen/_40sdp"
-                        android:layout_margin="@dimen/_5sdp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:lottie_autoPlay="true"
-
-                        app:lottie_loop="true"
-                        app:lottie_rawRes="@raw/coin" />
-
-
-                    <TextView
-                        android:id="@+id/view_point"
-                        style="@style/TextShadowStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_17ssp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/view_point_icon"
-                        app:layout_constraintTop_toTopOf="parent" />
+                    android:id="@+id/con_level"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:padding="@dimen/_5sdp"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/con_coin"
+                    app:layout_constraintEnd_toStartOf="@id/view_level_now"
+                    android:background="@drawable/shap_input">
 
 
                     <TextView
@@ -64,8 +73,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="@dimen/_1sdp"
                         android:gravity="center"
-                        android:textColor="@color/black"
                         android:textSize="@dimen/_17ssp"
+                        android:textColor="@color/black"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@id/slash"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -75,6 +84,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/slash"
+                        android:textSize="@dimen/_17ssp"
                         android:textColor="@color/black"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -94,23 +104,61 @@
                         app:layout_constraintEnd_toStartOf="@id/slash"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
-                        android:id="@+id/view_level_now"
-                        style="@style/TextShadowStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="@dimen/_5sdp"
-                        android:gravity="center"
-                        android:text="@string/level"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_17ssp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
+
+
+            <TextView
+                android:id="@+id/view_level_now"
+                style="@style/TextShadowStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:background="@drawable/shap_input"
+                android:gravity="center"
+                android:padding="@dimen/_5sdp"
+                android:text="@string/level"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_17ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_1sdp"
+                android:background="@drawable/shep_tab_bar"
+                android:layout_marginTop="@dimen/_28sdp"
+                app:layout_constraintBottom_toBottomOf="@id/view_level_now"
+                app:layout_constraintEnd_toEndOf="@+id/view_level_now"
+                app:layout_constraintStart_toStartOf="@+id/view_level_now"
+                app:layout_constraintTop_toTopOf="@+id/view_level_now" />
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_1sdp"
+                android:background="@drawable/shep_tab_bar"
+                android:layout_marginTop="@dimen/_28sdp"
+                app:layout_constraintBottom_toBottomOf="@id/con_coin"
+                app:layout_constraintEnd_toEndOf="@+id/con_coin"
+                app:layout_constraintStart_toStartOf="@+id/con_coin"
+                app:layout_constraintTop_toTopOf="@+id/con_coin" />
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_1sdp"
+                android:background="@drawable/shep_tab_bar"
+                android:layout_marginTop="@dimen/_28sdp"
+                app:layout_constraintBottom_toBottomOf="@id/con_level"
+                app:layout_constraintEnd_toEndOf="@+id/con_level"
+                app:layout_constraintStart_toStartOf="@+id/con_level"
+                app:layout_constraintTop_toTopOf="@+id/con_level" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline"
@@ -123,9 +171,9 @@
                 android:id="@+id/viewpager_fragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/guideline"
+                android:layout_marginHorizontal="@dimen/_5sdp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                />
+                app:layout_constraintTop_toBottomOf="@id/guideline" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

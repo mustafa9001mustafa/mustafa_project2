@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 
+import com.konden.projectpart2.R;
 import com.konden.projectpart2.databinding.FragmentDialogEndBinding;
 import com.konden.projectpart2.interfases.call_fragment_quastion.ListenerCallEnd;
 
@@ -22,6 +23,8 @@ public class DialogFragmentEnd extends DialogFragment {
     private static final String ARG_PARAM1 = "param1";
     private String mParam1;
     private ListenerCallEnd callEnd;
+    private int style = DialogFragment.STYLE_NO_TITLE, theme = R.style.MyDialog;
+
 
     public DialogFragmentEnd() {
 
@@ -52,6 +55,7 @@ public class DialogFragmentEnd extends DialogFragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
+            setStyle(style, theme);
         }
     }
 

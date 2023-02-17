@@ -2,15 +2,14 @@ package com.konden.projectpart2.fragments.fragment_level;
 
 import android.content.Context;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-
 import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 
 import com.konden.projectpart2.databinding.FragmentLevelChooseBinding;
 import com.konden.projectpart2.interfases.call_fragment_quastion.ListenerCallAnswerFragmentChoose;
@@ -19,6 +18,7 @@ import com.konden.projectpart2.interfases.call_fragment_quastion.ListenerCallOnF
 import com.konden.projectpart2.interfases.call_fragment_quastion.ListenerCallSkip;
 import com.konden.projectpart2.interfases.call_fragment_quastion.ListenerCallToast;
 import com.konden.projectpart2.sherdpreferanses.Sherdpreferanses;
+import com.konden.projectpart2.sound.Sound;
 
 import java.util.Locale;
 
@@ -58,6 +58,25 @@ public class LevelChooseFragment extends Fragment {
 
     }
 
+    public static LevelChooseFragment newInstance(
+            int id, String title, String answer_1, String answer_2, String answer_3, String answer_4
+            , String true_answer, String hint, int point, int duration
+    ) {
+        LevelChooseFragment fragment = new LevelChooseFragment();
+        Bundle args = new Bundle();
+        args.putInt(ARG_ID, id);
+        args.putString(ARG_TITLE, title);
+        args.putString(ARG_ANSWER1, answer_1);
+        args.putString(ARG_ANSWER2, answer_2);
+        args.putString(ARG_ANSWER3, answer_3);
+        args.putString(ARG_ANSWER4, answer_4);
+        args.putString(ARG_TRUE_ANSWER, true_answer);
+        args.putString(ARG_HINT, hint);
+        args.putInt(ARG_POINT, point);
+        args.putInt(ARG_DURATION, duration);
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -78,26 +97,6 @@ public class LevelChooseFragment extends Fragment {
         callSkip = null;
         listenerCallId = null;
         listenerCallToast = null;
-    }
-
-    public static LevelChooseFragment newInstance(
-            int id, String title, String answer_1, String answer_2, String answer_3, String answer_4
-            , String true_answer, String hint, int point, int duration
-    ) {
-        LevelChooseFragment fragment = new LevelChooseFragment();
-        Bundle args = new Bundle();
-        args.putInt(ARG_ID, id);
-        args.putString(ARG_TITLE, title);
-        args.putString(ARG_ANSWER1, answer_1);
-        args.putString(ARG_ANSWER2, answer_2);
-        args.putString(ARG_ANSWER3, answer_3);
-        args.putString(ARG_ANSWER4, answer_4);
-        args.putString(ARG_TRUE_ANSWER, true_answer);
-        args.putString(ARG_HINT, hint);
-        args.putInt(ARG_POINT, point);
-        args.putInt(ARG_DURATION, duration);
-        fragment.setArguments(args);
-        return fragment;
     }
 
     @Override
@@ -122,7 +121,7 @@ public class LevelChooseFragment extends Fragment {
                              Bundle savedInstanceState) {
         FragmentLevelChooseBinding binding = FragmentLevelChooseBinding.inflate(inflater, container, false);
 
-        Log.e("TAG", "onCreateView: "+id );
+        Log.e("TAG", "onCreateView: " + id);
 
         listenerCallId.id(id);
         binding.cardSkip.setOnClickListener(view -> {
@@ -136,27 +135,27 @@ public class LevelChooseFragment extends Fragment {
         });
         binding.itChoose1.setOnClickListener(view -> {
             String s = binding.itChoose1.getText().toString();
-            Log.e("TAG", "onCreateView: "+s );
+            Log.e("TAG", "onCreateView: " + s);
             getTrueAnswer(s);
         });
 
         binding.itChoose2.setOnClickListener(view -> {
             String s = binding.itChoose2.getText().toString();
-            Log.e("TAG", "onCreateView: "+s );
+            Log.e("TAG", "onCreateView: " + s);
 
             getTrueAnswer(s);
         });
 
         binding.itChoose3.setOnClickListener(view -> {
             String s = binding.itChoose3.getText().toString();
-            Log.e("TAG", "onCreateView: "+s );
+            Log.e("TAG", "onCreateView: " + s);
 
             getTrueAnswer(s);
         });
 
         binding.itChoose4.setOnClickListener(view -> {
             String s = binding.itChoose4.getText().toString();
-            Log.e("TAG", "onCreateView: "+s );
+            Log.e("TAG", "onCreateView: " + s);
 
             getTrueAnswer(s);
         });
@@ -175,12 +174,19 @@ public class LevelChooseFragment extends Fragment {
                 long sec = (l / 1000) % 60;
                 final String x = String.format(Locale.getDefault(), "%02d:%02d:%02d", hour, min, sec);
                 binding.itTextTimerChoose.setText(x);
+
+                if (Sherdpreferanses.getInstance().GetTimerEnd()) {
+                    if (sec == 5)
+                        Sound.getInstance().Final_game_Timer();
+                }
             }
 
             @Override
             public void onFinish() {
-                // TODO: 1/1/2023  
+                // TODO: 1/1/2023
                 listenerCallOnFinchesTimer.OnFinchesTimer();
+                countDownTimer.cancel();
+
             }
         }.start();
 
@@ -189,6 +195,8 @@ public class LevelChooseFragment extends Fragment {
 
     private void getTrueAnswer(String sab) {
         countDownTimer.cancel();
+        Sound.getInstance().sound_stop();
+
         if (true_answer.equals(sab))
             listenerCallAnswerFragmentChoose.CallChoose(true, hint);
         else {

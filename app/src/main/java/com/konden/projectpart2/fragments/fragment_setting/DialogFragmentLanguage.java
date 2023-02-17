@@ -33,6 +33,9 @@ public class DialogFragmentLanguage extends DialogFragment {
     private String mParam2;
     private String mParam3;
 
+    private int style = DialogFragment.STYLE_NO_TITLE, theme = R.style.MyDialog;
+
+
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
@@ -59,6 +62,7 @@ public class DialogFragmentLanguage extends DialogFragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
             mParam3 = getArguments().getString(ARG_PARAM3);
+            setStyle(style, theme);
         }
     }
 

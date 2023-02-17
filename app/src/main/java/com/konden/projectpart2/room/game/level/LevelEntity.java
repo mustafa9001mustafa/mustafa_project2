@@ -10,9 +10,14 @@ public class LevelEntity {
     private int unlock_points;
     private boolean level_status;
 
+    private double level_evolution = 0 ;
+
     public LevelEntity(int level_no, int unlock_points) {
         this.level_no = level_no;
         this.unlock_points = unlock_points;
+    }
+
+    public LevelEntity() {
     }
 
     public boolean isLevel_status() {
@@ -37,5 +42,15 @@ public class LevelEntity {
 
     public void setUnlock_points(int unlock_points) {
         this.unlock_points = unlock_points;
+    }
+
+    //setter and getter  level_evolution
+
+    public double getLevel_evolution() {
+        return level_evolution;
+    }
+
+    public void setLevel_evolution(double level_evolution) {
+        this.level_evolution = level_evolution;
     }
 }

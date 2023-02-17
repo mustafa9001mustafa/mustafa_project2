@@ -1,26 +1,24 @@
 package com.konden.projectpart2.ui;
 
+import android.content.Intent;
+import android.media.AudioManager;
+import android.os.Bundle;
+import android.view.WindowManager;
+import android.widget.CompoundButton;
+import android.widget.SeekBar;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.lifecycle.ViewModelProvider;
 
-
-import android.content.Intent;
-import android.media.AudioManager;
-import android.os.Bundle;
-import android.widget.CompoundButton;
-import android.widget.SeekBar;
-import com.konden.projectpart2.animations.AnimationAll;
 import com.konden.projectpart2.R;
+import com.konden.projectpart2.animations.AnimationAll;
 import com.konden.projectpart2.databinding.ActivitySettingsAppBinding;
 import com.konden.projectpart2.fragments.dialog_sound.DialogFragmentSound;
-import com.konden.projectpart2.fragments.fragment_setting.DialogFragmentProfile;
+import com.konden.projectpart2.fragments.fragment_setting.DialogFragmentBackOrReset;
 import com.konden.projectpart2.fragments.fragment_setting.DialogFragmentLanguage;
 import com.konden.projectpart2.interfases.settings.CallFragment;
 import com.konden.projectpart2.interfases.settings.ListenerCallSounds;
-import com.konden.projectpart2.jopservies.ServiceSoundOnApp;
-import com.konden.projectpart2.room.ViewModelGame;
-import com.konden.projectpart2.room.profile.ProfileEntity;
 import com.konden.projectpart2.sherdpreferanses.Sherdpreferanses;
 import com.konden.projectpart2.sound.Sound;
 import com.yariksoffice.lingver.Lingver;
@@ -29,17 +27,17 @@ import java.util.Locale;
 
 public class SettingsApp extends AppCompatActivity implements CallFragment, ListenerCallSounds {
     private ActivitySettingsAppBinding binding;
-    private DialogFragmentProfile back;
+    private DialogFragmentBackOrReset back;
     private DialogFragmentLanguage language;
     private AudioManager audioManager;
-    private Sound sound = new Sound();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        fullScreen();
+
         super.onCreate(savedInstanceState);
         binding = ActivitySettingsAppBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
     }
 
 
@@ -49,14 +47,18 @@ public class SettingsApp extends AppCompatActivity implements CallFragment, List
         ALL_METHOD();
     }
 
+    private void fullScreen() {
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+    }
+
     private void ALL_METHOD() {
         PROFILE_BUTTON();
         ANIMATIONS();
         ON_BACK_CLICK();
-        F_BUTTON();
         BUTTON_RESET();
         LANGUAGES();
-        JobServes();
+//        JobServes();
         VOLUME();
         all();
     }
@@ -71,11 +73,14 @@ public class SettingsApp extends AppCompatActivity implements CallFragment, List
         if (Locale.getDefault().getLanguage().equals("en"))
             binding.backIconS.setRotation(90);
 
-
-        if (Sherdpreferanses.getInstance().GetTheme() == true)
+        if (Sherdpreferanses.getInstance().GetTheme()) {
             binding.switchDark.setChecked(true);
-        else
+            binding.handelColor.setAlpha(0.05f);
+        } else {
             binding.switchDark.setChecked(false);
+            binding.handelColor.setAlpha(0.0f);
+        }
+        binding.reset.setButtonColor(getColor(R.color.red));
 
 
         binding.switchDark.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -110,6 +115,7 @@ public class SettingsApp extends AppCompatActivity implements CallFragment, List
         binding.seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+
                 audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, i, 0);
             }
 
@@ -124,42 +130,36 @@ public class SettingsApp extends AppCompatActivity implements CallFragment, List
     }
 
 
-    private void JobServes() {
-
-        if (Sherdpreferanses.getInstance().GetNotify() == true) {
-            binding.switch2.setChecked(true);
-        } else {
-            binding.switch2.setChecked(false);
-        }
-
-        binding.switch2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (b) {
-                    binding.switch2.setChecked(true);
-                    Sherdpreferanses.getInstance().SetNotify(true);
-                } else {
-                    binding.switch2.setChecked(false);
-                    Sherdpreferanses.getInstance().SetNotify(false);
-                }
-            }
-        });
-    }
+//    private void JobServes() {
+//
+////        if (Sherdpreferanses.getInstance().GetNotify() == true) {
+////            binding.switch2.setChecked(true);
+////        } else {
+////            binding.switch2.setChecked(false);
+////        }
+//
+//        binding.switch2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+//                if (b) {
+//                    binding.switch2.setChecked(true);
+//                    Sherdpreferanses.getInstance().SetNotify(true);
+//                } else {
+//                    binding.switch2.setChecked(false);
+//                    Sherdpreferanses.getInstance().SetNotify(false);
+//                }
+//            }
+//        });
+//    }
 
 
     private void BUTTON_RESET() {
         binding.reset.setOnClickListener(view -> {
-            back = DialogFragmentProfile.newInstance(getString(R.string.doyoudelete), getString(R.string.reset), getString(R.string.close));
+            back = DialogFragmentBackOrReset.newInstance(getString(R.string.doyoudelete), getString(R.string.reset), getString(R.string.close));
             back.show(getSupportFragmentManager(), "reset");
-            if (Sherdpreferanses.getInstance().GetSoundOther() == true)
-                sound.S3();
+            if (Sherdpreferanses.getInstance().GetSoundOther())
+                Sound.getInstance().S3();
         });
-    }
-
-    private void F_BUTTON() {
-        binding.reset.setButtonColor(getColor(R.color.red));
-        binding.profile.setButtonColor(getColor(R.color.green));
-
     }
 
     private void LANGUAGES() {
@@ -168,7 +168,6 @@ public class SettingsApp extends AppCompatActivity implements CallFragment, List
             language = DialogFragmentLanguage.newInstance(getString(R.string.choosethelanguage), getString(R.string.Arabic), getString(R.string.English));
             language.show(getSupportFragmentManager(), "lan");
         });
-
     }
 
     private void ON_BACK_CLICK() {
@@ -179,11 +178,9 @@ public class SettingsApp extends AppCompatActivity implements CallFragment, List
         });
     }
 
-
     private void ANIMATIONS() {
         AnimationAll all = new AnimationAll();
         binding.card1.setAnimation(all.a4_FromTheBottom(SettingsApp.this));
-        binding.card2.setAnimation(all.a4_FromTheBottom(SettingsApp.this));
         binding.card3.setAnimation(all.a4_FromTheBottom(SettingsApp.this));
         binding.card4.setAnimation(all.a4_FromTheBottom(SettingsApp.this));
         binding.card5.setAnimation(all.a4_FromTheBottom(SettingsApp.this));
@@ -198,30 +195,29 @@ public class SettingsApp extends AppCompatActivity implements CallFragment, List
         binding.profile.setOnClickListener(view -> {
             startActivity(new Intent(SettingsApp.this, Profile.class));
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-            if (Sherdpreferanses.getInstance().GetSoundOther() == true)
-                sound.S3();
+            if (Sherdpreferanses.getInstance().GetSoundOther())
+                Sound.getInstance().S3();
         });
     }
 
-
     @Override
     public void call(boolean x) {
-        if (x == true) {
-            ViewModelGame model = new ViewModelProvider(this).get(ViewModelGame.class);
-            Sherdpreferanses.getInstance().clear();
-            startActivity(new Intent(SettingsApp.this, SplashScreenApp.class));
-            ProfileEntity profile = new ProfileEntity(getString(R.string.player), getString(R.string.example), getString(R.string.birth), getString(R.string.male), getString(R.string.palestine));
-            profile.setId(1);
-            model.UpdateProfile(profile);
-
-        } else {
-            back.dismiss();
-        }
+//        if (x == true) {
+//            ViewModelGame model = new ViewModelProvider(this).get(ViewModelGame.class);
+//            Sherdpreferanses.getInstance().clear();
+//            startActivity(new Intent(SettingsApp.this, SplashScreenApp.class));
+//            ProfileEntity profile = new ProfileEntity(getString(R.string.player), getString(R.string.example), getString(R.string.birth), getString(R.string.male), getString(R.string.palestine));
+//            profile.setId(1);
+//            model.UpdateProfile(profile);
+//
+//        } else {
+//            back.dismiss();
+//        }
     }
 
     @Override
     public void callLanguage(boolean b) {
-        if (b == true) {
+        if (b) {
             Lingver.getInstance().setLocale(getApplicationContext(), "ar");
         } else {
             Lingver.getInstance().setLocale(getApplicationContext(), "en");
@@ -233,10 +229,9 @@ public class SettingsApp extends AppCompatActivity implements CallFragment, List
 
     @Override
     public void callLanguageClose(boolean b) {
-        if (b == true)
+        if (b)
             language.dismiss();
     }
-
 
     @Override
     public void onBackPressed() {
@@ -246,26 +241,19 @@ public class SettingsApp extends AppCompatActivity implements CallFragment, List
     }
 
     @Override
-    protected void onStop() {
-        super.onStop();
-        finish();
-
-    }
-
-    @Override
     public void sound1(boolean b) {
-        if (b == true) {
-            Sherdpreferanses.getInstance().SetSoundBackGrand(true);
-            startService(new Intent(getApplicationContext(), ServiceSoundOnApp.class));
+        if (b) {
+            Sherdpreferanses.getInstance().SetTimerEnd(true);
+//            startService(new Intent(getApplicationContext(), ServiceSoundOnApp.class));
         } else {
-            Sherdpreferanses.getInstance().SetSoundBackGrand(false);
-            stopService(new Intent(getApplicationContext(), ServiceSoundOnApp.class));
+            Sherdpreferanses.getInstance().SetTimerEnd(false);
+//            stopService(new Intent(getApplicationContext(), ServiceSoundOnApp.class));
         }
     }
 
     @Override
     public void sound2(boolean b) {
-        if (b == true) {
+        if (b) {
             Sherdpreferanses.getInstance().SetSoundOther(true);
         } else {
             Sherdpreferanses.getInstance().SetSoundOther(false);
@@ -278,5 +266,11 @@ public class SettingsApp extends AppCompatActivity implements CallFragment, List
         overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         startActivity(getIntent());
         overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        finish();
     }
 }

@@ -21,6 +21,7 @@ import com.konden.projectpart2.interfases.call_fragment_quastion.ListenerCallOnF
 import com.konden.projectpart2.interfases.call_fragment_quastion.ListenerCallSkip;
 import com.konden.projectpart2.interfases.call_fragment_quastion.ListenerCallToast;
 import com.konden.projectpart2.sherdpreferanses.Sherdpreferanses;
+import com.konden.projectpart2.sound.Sound;
 
 import java.util.Locale;
 
@@ -129,11 +130,16 @@ public class LevelFileTextFragment extends Fragment {
                 long sec = (l / 1000) % 60;
                 final String x = String.format(Locale.getDefault(), "%02d:%02d:%02d", hour, min, sec);
                 binding.itTextTimer.setText(x);
+                if (Sherdpreferanses.getInstance().GetTimerEnd()) {
+                    if (sec == 5)
+                        Sound.getInstance().Final_game_Timer();
+                }
             }
 
             @Override
             public void onFinish() {
                 listenerCallOnFinchesTimer.OnFinchesTimer();
+
             }
         }.start();
 
@@ -152,6 +158,7 @@ public class LevelFileTextFragment extends Fragment {
 
     private void getTrueAnswer(String sab) {
         countDownTimer.cancel();
+        Sound.getInstance().sound_stop();
 
         if (true_answer.equals(sab))
             listenerCallAnswerFragmentFile.CallFile(true, hint);

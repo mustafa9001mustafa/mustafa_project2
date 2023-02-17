@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 
+import com.konden.projectpart2.R;
 import com.konden.projectpart2.databinding.FragmentDialogIsFirstBinding;
 import com.konden.projectpart2.interfases.settings.ListenerIsFirst;
 
@@ -23,6 +24,8 @@ public class DialogFragmentIsFirst extends DialogFragment {
     private static final String ARG_PARAM1 = "param1";
     private String mParam1;
     private ListenerIsFirst listenerIsFirst;
+    private int style = DialogFragment.STYLE_NO_TITLE, theme = R.style.MyDialog;
+
 
     public DialogFragmentIsFirst() {
         // Required empty public constructor
@@ -53,6 +56,7 @@ public class DialogFragmentIsFirst extends DialogFragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
+            setStyle(style, theme);
         }
     }
 
@@ -61,11 +65,9 @@ public class DialogFragmentIsFirst extends DialogFragment {
                              Bundle savedInstanceState) {
         FragmentDialogIsFirstBinding binding = FragmentDialogIsFirstBinding.inflate(inflater, container, false);
         binding.itTimeFirstText.setText(mParam1);
+
         binding.okFirst.setOnClickListener(view -> {
-            if (binding.checkbox.isChecked())
-                listenerIsFirst.not_now();
-            else
-                listenerIsFirst.ok();
+            listenerIsFirst.ok();
         });
         return binding.getRoot();
 

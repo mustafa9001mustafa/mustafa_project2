@@ -1,13 +1,13 @@
 package com.konden.projectpart2.ui;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.konden.projectpart2.R;
@@ -38,19 +38,22 @@ import java.util.List;
 public class PuzzleViewPageActivity extends AppCompatActivity implements ListenerCallAnswerFragmentFile
         , ListenerCallAnswerFragmentTrueOrFalse, ListenerCallAnswerFragmentChoose, ListenerCallDialogOk
         , ListenerCallOnFinchesTimer, ListenerCallSkip, ListenerCallEnd, ListenerCallId, ListenerTimeOut, ListenerCallToast {
+
+
     ActivityPuzzleViewPageActivtyBinding binding;
     ArrayList<QuestionsEntity> questionsEntityArrayList = new ArrayList<>();
     ViewModelGame viewModel;
-    int id, id_Questions;
     AdapterViewPager adapterViewPager;
     DialogFragmentAnswerFalse answerFalse;
     DialogFragmentAnswerTrue answerTrue;
     DialogFragmentTimeOut fragmentTimeOut;
     DialogFragmentEnd fragmentEnd;
-    Sound sound = new Sound();
+    private double userCollected = 0, allQuestionPoints = 0;
+    private int id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         binding = ActivityPuzzleViewPageActivtyBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -59,9 +62,23 @@ public class PuzzleViewPageActivity extends AppCompatActivity implements Listene
         binding.viewPoint.setText(String.valueOf(Sherdpreferanses.getInstance().getScore()));
         Intent intent = getIntent();
         id = intent.getIntExtra("id_level", 0);
-        binding.viewLevelNow.setText(binding.viewLevelNow.getText().toString() + " " + String.valueOf(id));
-        GetAllQuestion();
+        String text_level = binding.viewLevelNow.getText().toString() + " " + id;
+        binding.viewLevelNow.setText(text_level);
+        binding.viewLevelNow.bringToFront();
+        binding.conLevel.bringToFront();
+        binding.conCoin.bringToFront();
 
+        GetAllQuestion();
+        BACK_GROUND_ACTIVITY();
+    }
+
+    private void BACK_GROUND_ACTIVITY() {
+        if (Sherdpreferanses.getInstance().GetGameImageNumber() == 1)
+            binding.getRoot().setBackgroundResource(R.drawable.game_q);
+        else if (Sherdpreferanses.getInstance().GetGameImageNumber() == 2)
+            binding.getRoot().setBackgroundResource(R.drawable.back_geme_2);
+        else if (Sherdpreferanses.getInstance().GetGameImageNumber() == 3)
+            binding.getRoot().setBackgroundResource(R.drawable.back_game_3);
     }
 
     private void GetAllQuestion() {
@@ -71,8 +88,8 @@ public class PuzzleViewPageActivity extends AppCompatActivity implements Listene
                 questionsEntityArrayList.addAll(questionsEntities);
                 adapterViewPager = new AdapterViewPager(PuzzleViewPageActivity.this, questionsEntityArrayList);
                 binding.viewpagerFragment.setAdapter(adapterViewPager);
-                //
                 binding.viewQuestionAll.setText(String.valueOf(questionsEntities.size()));
+                allQuestionPoints += questionsEntities.size();
             }
         });
         binding.viewpagerFragment.setUserInputEnabled(false);
@@ -80,56 +97,51 @@ public class PuzzleViewPageActivity extends AppCompatActivity implements Listene
 
     @Override
     public void CallFile(boolean x, String s) {
-        if (x == true) {
-            answerTrue = DialogFragmentAnswerTrue.newInstance(s);
-            answerTrue.show(getSupportFragmentManager(), "s1");
-            answerTrue.setCancelable(false);
-            Score(5);
-            win();
-        } else if (x == false) {
-            Log.e("TAG", "CallFile: false");
-            answerFalse = DialogFragmentAnswerFalse.newInstance(s);
-            answerFalse.show(getSupportFragmentManager(), "s1");
-            answerFalse.setCancelable(false);
-            loser();
+        if (x) {
+            ShowAllFragment_true(s, "s1", 5);
+
+        } else if (!x) {
+            ShowAllFragment_false(s, "s1");
         }
     }
 
     @Override
     public void CallTrueOrFalse(boolean x, String s) {
-        if (x == true) {
-            answerTrue = DialogFragmentAnswerTrue.newInstance(s);
-            answerTrue.show(getSupportFragmentManager(), "s2");
-            answerTrue.setCancelable(false);
-            Score(3);
-            win();
-        } else if (x == false) {
-            answerFalse = DialogFragmentAnswerFalse.newInstance(s);
-            answerFalse.show(getSupportFragmentManager(), "s2");
-            answerFalse.setCancelable(false);
-            loser();
+        if (x) {
+            ShowAllFragment_true(s, "s2", 3);
+
+        } else if (!x) {
+            ShowAllFragment_false(s, "s2");
         }
     }
 
     @Override
     public void CallChoose(boolean x, String s) {
-        if (x == true) {
-            answerTrue = DialogFragmentAnswerTrue.newInstance(s);
-            answerTrue.show(getSupportFragmentManager(), "s3");
-            answerTrue.setCancelable(false);
-            Score(2);
-            win();
-        } else if (x == false) {
-            answerFalse = DialogFragmentAnswerFalse.newInstance(s);
-            answerFalse.show(getSupportFragmentManager(), "s3");
-            answerFalse.setCancelable(false);
-            loser();
+        if (x) {
+            ShowAllFragment_true(s, "s3", 2);
+        } else if (!x) {
+            ShowAllFragment_false(s, "s3");
         }
+    }
+
+    private void ShowAllFragment_true(String s, String tag, int score) {
+        answerTrue = DialogFragmentAnswerTrue.newInstance(s);
+        answerTrue.show(getSupportFragmentManager(), tag);
+        answerTrue.setCancelable(false);
+        Score(score);
+        win();
+    }
+
+    private void ShowAllFragment_false(String s, String tag) {
+        answerFalse = DialogFragmentAnswerFalse.newInstance(s);
+        answerFalse.show(getSupportFragmentManager(), tag);
+        answerFalse.setCancelable(false);
+        loser();
     }
 
     @Override
     public void onFragment(boolean b) {
-        if (b == true) {
+        if (b) {
             answerTrue.dismiss();
             moveViewPager();
         } else {
@@ -157,9 +169,8 @@ public class PuzzleViewPageActivity extends AppCompatActivity implements Listene
         int x = Sherdpreferanses.getInstance().getScore();
         if (x <= 4) {
             Snackbar.make(binding.getRoot(), R.string.toast_coin, Snackbar.LENGTH_SHORT).show();
-            if (Sherdpreferanses.getInstance().GetSoundOther() == true)
-                sound.S1();
-
+            if (Sherdpreferanses.getInstance().GetSoundOther())
+                Sound.getInstance().S1();
         } else {
             moveViewPager();
             Score(-3);
@@ -175,10 +186,12 @@ public class PuzzleViewPageActivity extends AppCompatActivity implements Listene
             fragmentEnd = DialogFragmentEnd.newInstance(getResources().getString(R.string.end_level));
             fragmentEnd.show(getSupportFragmentManager(), "s5");
             fragmentEnd.setCancelable(false);
+            updateLevelEvolution();
             int finished = Sherdpreferanses.getInstance().getFinished();
             Sherdpreferanses.getInstance().SetFinished(finished + 1);
-            if (Sherdpreferanses.getInstance().GetSoundOther() == true)
-                sound.Win_end();
+            if (Sherdpreferanses.getInstance().GetSoundOther())
+                Sound.getInstance().Win_end();
+
         } else {
             binding.viewpagerFragment.setCurrentItem(currentItem + 1, false);
         }
@@ -192,11 +205,14 @@ public class PuzzleViewPageActivity extends AppCompatActivity implements Listene
 
     }
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////
     @Override
     public void callEnd() {
+        Sound.getInstance().sound_stop();
         startActivity(new Intent(PuzzleViewPageActivity.this, StartPlaying.class));
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
     private void Score(int n) {
@@ -206,24 +222,24 @@ public class PuzzleViewPageActivity extends AppCompatActivity implements Listene
     }
 
     private void win() {
+        userCollected += 1.0;
         int Win = Sherdpreferanses.getInstance().getWin();
         Sherdpreferanses.getInstance().SetWin(Win + 1);
-        if (Sherdpreferanses.getInstance().GetSoundOther() == true)
-            sound.S4();
+        if (Sherdpreferanses.getInstance().GetSoundOther())
+            Sound.getInstance().S4();
     }
 
     private void loser() {
-
         int Loser = Sherdpreferanses.getInstance().getLoser();
         Sherdpreferanses.getInstance().SetLoser(Loser + 1);
-        if (Sherdpreferanses.getInstance().GetSoundOther() == true)
-            sound.S5();
+        if (Sherdpreferanses.getInstance().GetSoundOther())
+            Sound.getInstance().S5();
+        Score(-1);
     }
 
     @Override
     public void id(int i) {
         binding.viewQuestionNow.setText(String.valueOf(i));
-        id_Questions = i;
         Sherdpreferanses.getInstance().Set_Id_Questions(i, id);
     }
 
@@ -238,15 +254,18 @@ public class PuzzleViewPageActivity extends AppCompatActivity implements Listene
         finish();
     }
 
+    private boolean updateLevelEvolution() {
+        double result = userCollected / allQuestionPoints;
+        viewModel.updateLevel_evolution(result, id);
+        Log.e("TAG", "result: " + result);
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
+        return true;
     }
 
     @Override
     public void time_out() {
         fragmentTimeOut.dismiss();
+        Score(-1);
         moveViewPager();
     }
 
@@ -255,8 +274,6 @@ public class PuzzleViewPageActivity extends AppCompatActivity implements Listene
         if (Sherdpreferanses.getInstance().getScore() > 3) {
             Toast.makeText(this, "" + hint, Toast.LENGTH_SHORT).show();
             Score(-2);
-
-
         } else
             Toast.makeText(this, R.string.hint_dount, Toast.LENGTH_SHORT).show();
     }

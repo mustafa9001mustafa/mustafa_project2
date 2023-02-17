@@ -24,5 +24,12 @@
     <color name="item_color_close">#F31100</color>
     <color name="color_card_true">#00FF90</color>
     <color name="black_just">#000000</color>
+    <color name="back_shape">#D6D6D6</color>
+    <color name="back_wrong">#191919</color>
+    <color name="close">#66CDC9C9</color>
+    <color name="color_setting">#000000</color>
+    <color name="part_white">#333232</color>
+
+
 
 </resources>

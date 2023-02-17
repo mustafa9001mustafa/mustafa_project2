@@ -4,90 +4,169 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/app_color"
+    android:background="@drawable/back_game_3"
     tools:context=".ui.MainActivity">
 
-
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/logo_main"
-        android:layout_width="@dimen/_200sdp"
-        android:layout_height="@dimen/_200sdp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline_main"
+    <TextView
+        style="@style/TextShadowStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shap_input"
+        android:fontFamily="@font/ds"
+        android:padding="@dimen/_5sdp"
+        android:text="@string/app_name"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_20ssp"
+        app:layout_constraintBottom_toTopOf="@id/spin_layot"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        app:lottie_rawRes="@raw/game_logo" />
 
+        app:layout_constraintTop_toTopOf="@+id/guideline_main" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/con_setting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_25sdp"
+        android:background="@color/white"
+        android:backgroundTint="@color/white"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottie_setting"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/settings" />
+
+        <TextView
+            style="@style/TextShadowStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ds"
+            android:text="@string/Setting"
+            android:textColor="@color/black_just"
+            android:textSize="@dimen/_9ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lottie_setting"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/spin_layot"
+
+        android:layout_width="@dimen/_181sdp"
+        android:layout_height="@dimen/_181sdp"
+        android:layout_marginTop="@dimen/_77sdp"
+        android:background="@drawable/shep_sercale"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/start"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guideline_main">
+
+
+        <com.skydoves.androidribbon.ShimmerRibbonView
+            android:id="@+id/spin"
+            android:layout_width="@dimen/_174sdp"
+            android:layout_height="@dimen/_174sdp"
+            android:alpha="0.9"
+            android:textColor="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shimmer_base_alpha="1.0"
+            app:shimmer_highlight_alpha="0.5"
+            app:shimmer_ribbon_background_color="@color/red"
+            app:shimmer_ribbon_drawable="@drawable/sercal_image"
+            app:shimmer_ribbon_padding_left="@dimen/_3sdp"
+            app:shimmer_ribbon_padding_right="@dimen/_3sdp"
+            app:shimmer_ribbon_textColor="@color/white"
+            app:shimmer_ribbon_textStyle="bold">
+
+        </com.skydoves.androidribbon.ShimmerRibbonView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="358dp" />
+        app:layout_constraintGuide_begin="136dp" />
 
     <info.hoang8f.widget.FButton
         android:id="@+id/start"
-        android:layout_width="0dp"
+        android:layout_width="185dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_18sdp"
-        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_margin="@dimen/_18sdp"
+        android:backgroundTint="@color/item_color_open"
         android:fontFamily="@font/ds"
         android:text="@string/start"
         android:textColor="@color/white"
-        android:textSize="@dimen/_21ssp"
+        android:textSize="26sp"
+        app:layout_constraintBottom_toTopOf="@+id/adView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/guideline_main"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/spin_layot" />
 
 
-    <info.hoang8f.widget.FButton
-        android:id="@+id/setting"
-        android:layout_width="0dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/con_shop"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_18sdp"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:fontFamily="@font/ds"
-        android:text="@string/Setting"
-        android:textColor="@color/white"
-        android:textSize="@dimen/_21ssp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/start"
+        android:layout_marginTop="@dimen/_25sdp"
+        android:background="@color/white"
+        android:backgroundTint="@color/white"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottie_shop"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/shop" />
 
 
-        />
+        <TextView
+            style="@style/TextShadowStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ds"
+            android:text="@string/shop"
+            android:textColor="@color/black_just"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lottie_shop"
+            />
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <info.hoang8f.widget.FButton
-        android:id="@+id/exit"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_18sdp"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:fontFamily="@font/ds"
-        android:text="@string/Exit"
-        android:textColor="@color/white"
-        android:textSize="@dimen/_21ssp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/setting"
-
-        />
-
-    <com.google.android.gms.ads.AdView
-        xmlns:ads="http://schemas.android.com/apk/res-auto"
+    <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
         android:id="@+id/adView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-3940256099942544~3347511713"
         ads:layout_constraintBottom_toBottomOf="parent"
-        ads:layout_constraintStart_toStartOf="parent"
         ads:layout_constraintEnd_toEndOf="parent"
-        ads:adUnitId="ca-app-pub-3940256099942544~3347511713">
-    </com.google.android.gms.ads.AdView>
+        ads:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

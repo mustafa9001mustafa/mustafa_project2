@@ -7,26 +7,6 @@
     android:background="@color/app_color"
     tools:context=".ui.SplashScreenApp">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_splash"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="@dimen/_120sdp" />
-
-
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/sp"
-        android:layout_width="@dimen/_200sdp"
-        android:layout_height="@dimen/_200sdp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/guideline_splash"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="false"
-        app:lottie_rawRes="@raw/game_logo" />
-
-
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -36,13 +16,13 @@
         android:layout_marginTop="20dp"
         android:indeterminate="false"
         android:max="100"
-        android:minWidth="200dp"
+        android:minWidth="290dp"
         android:minHeight="50dp"
         android:progress="1"
         android:progressTint="#FF0000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/sp" />
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 
     <TextView
@@ -53,9 +33,10 @@
         android:text="@string/app_name"
         android:textColor="@color/white"
         android:textSize="@dimen/_17sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/progressBar" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 
+import com.konden.projectpart2.R;
 import com.konden.projectpart2.databinding.FragmentDialogTimeOutBinding;
 import com.konden.projectpart2.interfases.call_fragment_quastion.ListenerTimeOut;
 
@@ -23,6 +24,7 @@ public class DialogFragmentTimeOut extends DialogFragment {
     private static final String ARG_PARAM1 = "param1";
     private String mParam1;
     private ListenerTimeOut listenerTimeOut;
+    private int style = DialogFragment.STYLE_NO_TITLE, theme = R.style.MyDialog;
 
     public DialogFragmentTimeOut() {
 
@@ -54,6 +56,7 @@ public class DialogFragmentTimeOut extends DialogFragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
+            setStyle(style, theme);
         }
     }
 

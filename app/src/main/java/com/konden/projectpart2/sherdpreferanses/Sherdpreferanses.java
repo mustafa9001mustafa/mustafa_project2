@@ -6,11 +6,13 @@ import android.content.SharedPreferences;
 import com.konden.projectpart2.appcontroller.AppControllers;
 
 public class Sherdpreferanses {
+    private static Sherdpreferanses instance;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
 
-
-    private static Sherdpreferanses instance;
+    private Sherdpreferanses() {
+        sharedPreferences = AppControllers.getInstance().getSharedPreferences("mode", Context.MODE_PRIVATE);
+    }
 
     public static Sherdpreferanses getInstance() {
         if (instance == null) {
@@ -18,11 +20,6 @@ public class Sherdpreferanses {
         }
         return instance;
     }
-
-    private Sherdpreferanses() {
-        sharedPreferences = AppControllers.getInstance().getSharedPreferences("mode", Context.MODE_PRIVATE);
-    }
-
 
     public boolean SetTheme(boolean b) {
         editor = sharedPreferences.edit();
@@ -38,22 +35,22 @@ public class Sherdpreferanses {
         editor.apply();
         return SwitchCompat_on_off;
     }
-
-
-    public boolean SetNotify(boolean b) {
-        editor = sharedPreferences.edit();
-        editor.putBoolean("Notify", b);
-        editor.apply();
-        return b;
-    }
-
-
-    public boolean GetNotify() {
-        editor = sharedPreferences.edit();
-        boolean SwitchCompat_on_off = sharedPreferences.getBoolean("Notify", false);
-        editor.apply();
-        return SwitchCompat_on_off;
-    }
+//
+//
+//    public boolean SetNotify(boolean b) {
+//        editor = sharedPreferences.edit();
+//        editor.putBoolean("Notify", b);
+//        editor.apply();
+//        return b;
+//    }
+//
+//
+//    public boolean GetNotify() {
+//        editor = sharedPreferences.edit();
+//        boolean SwitchCompat_on_off = sharedPreferences.getBoolean("Notify", false);
+//        editor.apply();
+//        return SwitchCompat_on_off;
+//    }
 
 
     public boolean isFirstTime() {
@@ -77,6 +74,8 @@ public class Sherdpreferanses {
     }
 
 
+
+
     public boolean isFirstTimeGame() {
         boolean ranBeforeGame = sharedPreferences.getBoolean("RanBeforeGame", false);
         if (!ranBeforeGame) {
@@ -86,6 +85,17 @@ public class Sherdpreferanses {
         }
         return !ranBeforeGame;
     }
+
+    public boolean isFirstTimeRGame2() {
+        boolean ranBeforeGame = sharedPreferences.getBoolean("RBeforeGame2", false);
+        if (!ranBeforeGame) {
+            editor = sharedPreferences.edit();
+            editor.putBoolean("RBeforeGame2", true);
+            editor.apply();
+        }
+        return !ranBeforeGame;
+    }
+
 
     public int SetScore(int x) {
         editor = sharedPreferences.edit();
@@ -101,7 +111,7 @@ public class Sherdpreferanses {
         return getScore;
     }
 
-    public boolean isNotFirstMainGame2() {
+    public boolean isNotFirstGameCheck() {
         boolean ranBeforeGame = sharedPreferences.getBoolean("isFirstMainGame2", false);
         if (!ranBeforeGame) {
             editor = sharedPreferences.edit();
@@ -143,8 +153,8 @@ public class Sherdpreferanses {
     public void SetFinished(int x) {
         editor = sharedPreferences.edit();
 
-        for (int i = 0; i <x; i++) {
-            editor.putInt("finished"+x, x);
+        for (int i = 0; i < x; i++) {
+            editor.putInt("finished" + x, x);
         }
         editor.putInt("finished", x);
         editor.apply();
@@ -165,27 +175,13 @@ public class Sherdpreferanses {
         editor.apply();
     }
 
-    public int get_Id_Questions(int x) {
-        editor = sharedPreferences.edit();
-        int getFinished = sharedPreferences.getInt("id_questions", 0);
-        editor.apply();
-        return getFinished;
-    }
-
-    public int get_Id_Level() {
-        editor = sharedPreferences.edit();
-        int getFinished = sharedPreferences.getInt("id_level", 0);
-        editor.apply();
-        return getFinished;
-    }
-
-    public void SetSoundBackGrand(boolean b) {
+    public void SetTimerEnd(boolean b) {
         editor = sharedPreferences.edit();
         editor.putBoolean("SoundBack", b);
         editor.apply();
     }
 
-    public boolean GetSoundBackGrand() {
+    public boolean GetTimerEnd() {
         editor = sharedPreferences.edit();
         boolean SwitchCompat_on_off_s = sharedPreferences.getBoolean("SoundBack", false);
         editor.apply();
@@ -227,18 +223,109 @@ public class Sherdpreferanses {
         return getScore;
     }
 
-    public void SetCheckBox(boolean b) {
+    public int SetCoinShop(int x) {
         editor = sharedPreferences.edit();
-        editor.putBoolean("CheckBox", b);
+        editor.putInt("CoinShop", x);
+        editor.apply();
+        return x;
+    }
+
+    public int GetCoinShop() {
+        editor = sharedPreferences.edit();
+        int getScore = sharedPreferences.getInt("CoinShop", 0);
+        editor.apply();
+        return getScore;
+    }
+
+
+    public void SetImageLevel2(boolean b) {
+        editor = sharedPreferences.edit();
+        editor.putBoolean("SetImageLevel2", b);
         editor.apply();
     }
 
-    public boolean GetCheckBox() {
+    public boolean GetImageLevel2() {
         editor = sharedPreferences.edit();
-        boolean SwitchCompat_on_off_s = sharedPreferences.getBoolean("CheckBox", false);
+        boolean SwitchCompat_on_off_s = sharedPreferences.getBoolean("SetImageLevel2", false);
         editor.apply();
         return SwitchCompat_on_off_s;
     }
+
+
+    public void SetImageLevel3(boolean b) {
+        editor = sharedPreferences.edit();
+        editor.putBoolean("SetImageLevel3", b);
+        editor.apply();
+    }
+
+    public boolean GetImageLevel3() {
+        editor = sharedPreferences.edit();
+        boolean SwitchCompat_on_off_s = sharedPreferences.getBoolean("SetImageLevel3", false);
+        editor.apply();
+        return SwitchCompat_on_off_s;
+    }
+
+
+    public void SetImageGame2(boolean b) {
+        editor = sharedPreferences.edit();
+        editor.putBoolean("ImageGame2", b);
+        editor.apply();
+    }
+
+    public boolean GetImageGame2() {
+        editor = sharedPreferences.edit();
+        boolean SwitchCompat_on_off_s = sharedPreferences.getBoolean("ImageGame2", false);
+        editor.apply();
+        return SwitchCompat_on_off_s;
+    }
+
+
+    public void SetImageGame3(boolean b) {
+        editor = sharedPreferences.edit();
+        editor.putBoolean("ImageGame3", b);
+        editor.apply();
+    }
+
+    public boolean GetImageGame3() {
+        editor = sharedPreferences.edit();
+        boolean SwitchCompat_on_off_s = sharedPreferences.getBoolean("ImageGame3", false);
+        editor.apply();
+        return SwitchCompat_on_off_s;
+    }
+
+
+
+    public int SetLevelImageNumber(int x) {
+        editor = sharedPreferences.edit();
+        editor.putInt("LevelImageNumber", x);
+        editor.apply();
+        return x;
+    }
+
+    public int GetLevelImageNumber() {
+        editor = sharedPreferences.edit();
+        int getScore = sharedPreferences.getInt("LevelImageNumber", 0);
+        editor.apply();
+        return getScore;
+    }
+
+
+
+
+    public int SetGameImageNumber(int x) {
+        editor = sharedPreferences.edit();
+        editor.putInt("GameImageNumber", x);
+        editor.apply();
+        return x;
+    }
+
+    public int GetGameImageNumber() {
+        editor = sharedPreferences.edit();
+        int getScore = sharedPreferences.getInt("GameImageNumber", 0);
+        editor.apply();
+        return getScore;
+    }
+
 
 
     public void clear() {
@@ -256,5 +343,4 @@ public class Sherdpreferanses {
         editor.remove("CheckBox");
         editor.apply();
     }
-
 }

@@ -52,8 +52,9 @@
         <item name="android:colorBackground">@color/white</item>
 
     </style>
-
-
+    <style name="MyDialog" parent="Base.Theme.AppCompat.Light.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
 
     <!--    style-->
     <!--    CardView عشان نقدر نستخدمه لازك نروح على ال-->
@@ -69,6 +70,13 @@
     <style name="ThemeOverlay.ProjectPart2.FullscreenContainer" parent="">
         <item name="fullscreenBackgroundColor">@color/light_blue_600</item>
         <item name="fullscreenTextColor">@color/light_blue_A200</item>
+    </style>
+
+    <!-- RatingBar -->
+    <style name="CustomRatingBar" parent="@android:style/Widget.RatingBar" >
+        <item name="android:paddingBottom">44dp</item>
+        <item name="android:layout_marginLeft">4dp</item>
+        <item name="android:layout_marginTop">4dp</item>
     </style>
 
 <!--    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">-->

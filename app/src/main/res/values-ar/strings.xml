@@ -85,4 +85,16 @@
     <string name="choose_text_game">نمط إختر : في هذا النمط يتم وضع 4 خيارات للإجاب على سؤال محدد وعند الإجابة عليه بالجواب الصحيح ينم إضافة نقطتين للفوز وعند الخسارة لا يتم خصم أي نقاط</string>
     <string name="true_text_game">نمط الصح أو الخطأ : في هذا النمط يتم وضع خيارين للإجابة على سؤال محدد وعند الإجباة على السؤال إجابة صحيحة يتم إضافة 3 نقاط وعند الإجابة الخاطئة لا يتم خصم أي نقاط</string>
     <string name="file_text_game">نمط أكمل : في هذا النمط يتم الإجابة عن السؤال المحدد عن طريق كتابة الجواب الصحيح في المكان المحدد لديه وعند الإجابة الصحيحة يتم إضافة 5 نقاط وعند الإجابة الخاطئة لا يتم خصم أي نقاط</string>
+    <string name="shop">المتجر</string>
+    <string name="spine">لعب</string>
+    <string name="back_ground_level">خلفيات المراحل</string>
+    <string name="select">تحديد</string>
+    <string name="coin">نقاط</string>
+    <string name="get_5">شراء ب 5 نقاط</string>
+    <string name="get_10">شراء ب 10 نقاط</string>
+    <string name="back_ground_game">خلفيات اللعب</string>
+    <string name="sound_before_time_out">الصوت قبل نهاية الوقت</string>
+    <string name="other_sound">الأصوات الأخرى</string>
+    <string name="view">شاهد الإعلانات لتكسب نقاط إضافية في المراحل ونقاط في المتجر للشراء</string>
+    <string name="details_shop">يمكن شراء أحد الخلفيات التالية من خلال مشاهدة الإعلانات لربح النقاط من خلالها</string>
 </resources>

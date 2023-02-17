@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 
+import com.konden.projectpart2.R;
 import com.konden.projectpart2.databinding.FragmentDialogeAnswerBinding;
 import com.konden.projectpart2.interfases.call_fragment_quastion.ListenerCallDialogOk;
 
@@ -23,6 +24,8 @@ public class DialogFragmentAnswerTrue extends DialogFragment {
     private static final String ARG_PARAM1 = "param1";
     private String Hit;
     private ListenerCallDialogOk callDialogOk;
+    private int style = DialogFragment.STYLE_NO_TITLE, theme = R.style.MyDialog;
+
 
 
     public DialogFragmentAnswerTrue() {
@@ -54,6 +57,7 @@ public class DialogFragmentAnswerTrue extends DialogFragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             Hit = getArguments().getString(ARG_PARAM1);
+            setStyle(style, theme);
         }
     }
 

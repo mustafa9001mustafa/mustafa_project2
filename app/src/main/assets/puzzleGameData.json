@@ -529,6 +529,1067 @@
 				"hint": "سورة الكهف تقع في نصف القرآن الكريم"
 			}
 		]
+	},
+
+	{
+		"level_no": 10,
+		"unlock_points": 69,
+		"questions": [{
+			"id": 1,
+			"title": "العملة الرسمية لجمهورية النمسا هي الفرانك",
+			"answer_1": "",
+			"answer_2": "",
+			"answer_3": "",
+			"answer_4": "",
+			"true_answer": "false",
+			"points": 3,
+			"duration": 7000,
+			"pattern": {
+				"pattern_id": 1,
+				"pattern_name": "True of False"
+			},
+			"hint":"العملة الرسمية لجمهورية النمسا هو اليورو"
+		},
+			{
+				"id": 2,
+				"title": "كم عدد دول حوض نهر النيل",
+				"answer_1": "7 دول",
+				"answer_2": "8 دول",
+				"answer_3": "9 دول",
+				"answer_4": "10 دول",
+				"true_answer": "10 دول",
+				"points": 2,
+				"duration": 8000,
+				"pattern": {
+					"pattern_id": 2,
+					"pattern_name": "Choose the correct answer"
+				},
+				"hint": "عدد الدول التي يمر منها نهر النيل هي 10"
+			}
+		,{
+				"id": 3,
+				"title": "كم عدد الدول التي شارك في اول كأس عالم لكرة القدم",
+				"answer_1": "10 دول",
+				"answer_2": "9 دول",
+				"answer_3": "11 دولة",
+				"answer_4": "13 دولة",
+				"true_answer": "13 دولة",
+				"points": 2,
+				"duration": 8000,
+				"pattern": {
+					"pattern_id": 2,
+					"pattern_name": "Choose the correct answer"
+				},
+				"hint": "عدد الدول التي شاركت في أول كأس العالم 13 دولة"
+			}
+		]
+	},
+	{
+		"level_no": 11,
+		"unlock_points": 76,
+		"questions": [{
+			"id": 1,
+			"title": "العملة الرسمية لجمهورية النمسا هي الفرانك",
+			"answer_1": "",
+			"answer_2": "",
+			"answer_3": "",
+			"answer_4": "",
+			"true_answer": "false",
+			"points": 3,
+			"duration": 7000,
+			"pattern": {
+				"pattern_id": 1,
+				"pattern_name": "True of False"
+			},
+			"hint":"العملة الرسمية لجمهورية النمسا هو اليورو"
+		},
+			{
+				"id": 2,
+				"title": "كم عدد العضلات في جسم الإنسان",
+				"answer_1": "620 عضلة",
+				"answer_2": "650 عضلة",
+				"answer_3": "640 عضلة",
+				"answer_4": "610 عضلة",
+				"true_answer": "620 عضلة",
+				"points": 2,
+				"duration": 8000,
+				"pattern": {
+					"pattern_id": 2,
+					"pattern_name": "Choose the correct answer"
+				},
+				"hint": "عدد العضلات في جسم الإنسان هي 620 عضلة"
+			}
+		,{
+				"id": 3,
+				"title": "كم قمر يدور حول كوكب المشتري",
+				"answer_1": "10 أقمار",
+				"answer_2": "16 قمر",
+				"answer_3": "6 أقمار",
+				"answer_4": "7 أقمار",
+				"true_answer": "16 قمر",
+				"points": 2,
+				"duration": 8000,
+				"pattern": {
+					"pattern_id": 2,
+					"pattern_name": "Choose the correct answer"
+				},
+				"hint": "يدور حول كوكب المشتري 16 قمر"
+			}
+		]
+	},
+	{
+		"level_no": 12,
+		"unlock_points": 84,
+		"questions": [{
+			"id": 1,
+			"title": "ما هو الحيوان الذي يستخرج منه المسك",
+			"answer_1": "",
+			"answer_2": "",
+			"answer_3": "",
+			"answer_4": "",
+			"true_answer": "الغزال",
+			"points": 5,
+			"duration": 13000,
+			"pattern": {
+				"pattern_id": 3,
+				"pattern_name": "Fill the answer"
+			},
+			"hint":"يتم إستخراج المسك من الغزالة"
+		},
+			{
+				"id": 2,
+				"title": "ما هو الشكل الذي يبدو عليه شكل مجرة درب التبانة",
+				"answer_1": "",
+				"answer_2": "",
+				"answer_3": "",
+				"answer_4": "",
+				"true_answer": "الحلزوني",
+				"points": 5,
+				"duration": 13000,
+				"pattern": {
+					"pattern_id": 3,
+					"pattern_name": "Fill the answer"
+				},
+				"hint": "شكل مجرة درب التبانة هي الحلزوني"
+			}
+		,{
+				"id": 3,
+				"title": "ما هو الحيوان الذي يمتلك 3 قلوب",
+				"answer_1": "",
+				"answer_2": "",
+				"answer_3": "",
+				"answer_4": "",
+				"true_answer": "الأخطبوط",
+				"points": 5,
+				"duration": 13000,
+				"pattern": {
+					"pattern_id": 3,
+					"pattern_name": "Fill the answer"
+				},
+				"hint": "يمتلك الأخطبوب 3 قلوب"
+			}
+		]
+	},
+	{
+		"level_no": 13,
+		"unlock_points": 95,
+		"questions": [{
+			"id": 1,
+			"title": "ما هي آخر سورة في القرآن الكريم نزلت في مكة",
+			"answer_1": "",
+			"answer_2": "",
+			"answer_3": "",
+			"answer_4": "",
+			"true_answer": "الروم",
+			"points": 5,
+			"duration": 13000,
+			"pattern": {
+				"pattern_id": 3,
+				"pattern_name": "Fill the answer"
+			},
+			"hint":"سورة الروم"
+		},
+			{
+				"id": 2,
+				"title": "من هو العالم المصري الذي حصل على جائزة نوبل",
+				"answer_1": "",
+				"answer_2": "",
+				"answer_3": "",
+				"answer_4": "",
+				"true_answer": "أحمد زويل",
+				"points": 5,
+				"duration": 13000,
+				"pattern": {
+					"pattern_id": 3,
+					"pattern_name": "Fill the answer"
+				},
+				"hint": "إنه أحمد زويل"
+			}
+		,{
+				"id": 3,
+				"title": "ما هي أكبر قمة في العالم",
+				"answer_1": "",
+				"answer_2": "",
+				"answer_3": "",
+				"answer_4": "",
+				"true_answer": "افريست",
+				"points": 5,
+				"duration": 13000,
+				"pattern": {
+					"pattern_id": 3,
+					"pattern_name": "Fill the answer"
+				},
+				"hint": "أعلى قمة في العالم هي قمة إفريست"
+			}
+		]
+	},
+	{
+		"level_no": 14,
+		"unlock_points": 110,
+		"questions": [{
+			"id": 1,
+			"title": "الزئبق هو المعدن الوحيد الموجود في حالة السائل",
+			"answer_1": "",
+			"answer_2": "",
+			"answer_3": "",
+			"answer_4": "",
+			"true_answer": "true",
+			"points": 3,
+			"duration": 7000,
+			"pattern": {
+				"pattern_id": 1,
+				"pattern_name": "True of False"
+			},
+			"hint":"الزئبق هو اعنصر الوحيد المعدني الموجود في حالته السائلة"
+		},
+			{
+				"id": 2,
+				"title": "ما هي الدولة التي يطلق عليها أرض الشمس المشرقة",
+				"answer_1": "",
+				"answer_2": "",
+				"answer_3": "",
+				"answer_4": "",
+				"true_answer": "اليابان",
+				"points": 3,
+				"duration": 7000,
+				"pattern": {
+					"pattern_id": 1,
+					"pattern_name": "True of False"
+				},
+				"hint": "إنها اليابان"
+			}
+		,{
+				"id": 3,
+				"title": "ما هو الإسم الذي يطلق على الجزر العديدة المتقابلة",
+				"answer_1": "",
+				"answer_2": "",
+				"answer_3": "",
+				"answer_4": "",
+				"true_answer": "الأرخبيل",
+				"points": 3,
+				"duration": 7000,
+				"pattern": {
+					"pattern_id": 1,
+					"pattern_name": "True of False"
+				},
+				"hint": "الأرخبيل هو الإسم الذي يطلق على الجزر المتقابلة"
+			}
+		]
+	},
+	{
+		"level_no": 15,
+		"unlock_points": 120,
+		"questions": [{
+			"id": 1,
+			"title": "من هو الحيوان الذي يطلق عليه إسم ( اطلس )",
+			"answer_1": "الثعلب",
+			"answer_2": "الذئب",
+			"answer_3": "الأسد",
+			"answer_4": "العقرب",
+			"true_answer": "الذئب",
+			"points": 2,
+			"duration": 8000,
+			"pattern": {
+				"pattern_id": 2,
+				"pattern_name": "Choose the correct answer"
+			},
+			"hint":"إنه الذئب"
+		},
+			{
+				"id": 2,
+				"title": "ما هو الحيوان الذي لا ينام",
+				"answer_1": "الذبابة",
+				"answer_2": "العقرب",
+				"answer_3": "الضفدع",
+				"answer_4": "الدودة",
+				"true_answer": "الضفدع",
+				"points": 2,
+				"duration": 8000,
+				"pattern": {
+					"pattern_id": 2,
+					"pattern_name": "Choose the correct answer"
+				},
+				"hint": "إنه الضفدع"
+			}
+		,{
+				"id": 3,
+				"title": "السلمندر هو الحيوان الذي لا يحترق في النار",
+				"answer_1": "",
+				"answer_2": "",
+				"answer_3": "",
+				"answer_4": "",
+				"true_answer": "true",
+				"points": 3,
+				"duration": 7000,
+				"pattern": {
+					"pattern_id": 1,
+					"pattern_name": "True of False"
+				},
+				"hint": "السلمندر هو الحيوان الذي لا يحترق بالنار"
+			}
+		]
+	},
+	{
+		"level_no": 16,
+		"unlock_points": 126,
+		"questions": [{
+			"id": 1,
+			"title": "ما هو اسم بيت الدجاج",
+			"answer_1": "القن",
+			"answer_2": "الحاف",
+			"answer_3": "السام",
+			"answer_4": "العل",
+			"true_answer": "القن",
+			"points": 2,
+			"duration": 8000,
+			"pattern": {
+				"pattern_id": 2,
+				"pattern_name": "Choose the correct answer"
+			},
+			"hint":"إنه القن"
+		},
+			{
+				"id": 2,
+				"title": "ما اسم الحيوان صاحب أقوى ذاكرة",
+				"answer_1": "الدولفين",
+				"answer_2": "الكلب",
+				"answer_3": "القرش",
+				"answer_4": "الجمل",
+				"true_answer": "الجمل",
+				"points": 2,
+				"duration": 8000,
+				"pattern": {
+					"pattern_id": 2,
+					"pattern_name": "Choose the correct answer"
+				},
+				"hint": "إنه الجمل"
+			}
+		,{
+				"id": 3,
+				"title": "أثيوبيا هي الدولة التي ينبع منها نهر النيل",
+				"answer_1": "",
+				"answer_2": "",
+				"answer_3": "",
+				"answer_4": "",
+				"true_answer": "false",
+				"points": 3,
+				"duration": 7000,
+				"pattern": {
+					"pattern_id": 1,
+					"pattern_name": "True of False"
+				},
+				"hint": "السلمندر هو الحيوان الذي لا يحترق بالنار"
+			}
+		]
+	},
+	{
+		"level_no": 17,
+		"unlock_points": 133,
+		"questions": [{
+			"id": 1,
+			"title": "كم عدد أسماء الأسد في اللغة العربية",
+			"answer_1": "235",
+			"answer_2": "837",
+			"answer_3": "1500",
+			"answer_4": "938",
+			"true_answer": "1500",
+			"points": 2,
+			"duration": 8000,
+			"pattern": {
+				"pattern_id": 2,
+				"pattern_name": "Choose the correct answer"
+			},
+			"hint":"عدد الأسماء 1500 إسم"
+		},
+			{
+				"id": 2,
+				"title": "في أي عام صنعت البطاقتان الصفراء والحمراء في كرة القدم",
+				"answer_1": "1924",
+				"answer_2": "1965",
+				"answer_3": "1946",
+				"answer_4": "1997",
+				"true_answer": "1997",
+				"points": 2,
+				"duration": 8000,
+				"pattern": {
+					"pattern_id": 2,
+					"pattern_name": "Choose the correct answer"
+				},
+				"hint": "1997 هو العام الذي صنعت فيه البطاقتان"
+			}
+		,{
+				"id": 3,
+				"title": "الجزائر هي أول دولة عربية شاركت في الألومبيات",
+				"answer_1": "",
+				"answer_2": "",
+				"answer_3": "",
+				"answer_4": "",
+				"true_answer": "false",
+				"points": 3,
+				"duration": 7000,
+				"pattern": {
+					"pattern_id": 1,
+					"pattern_name": "True of False"
+				},
+				"hint": "مصر هي أول دولة عربية شاركت في الألومبيات"
+			}
+		]
+	},
+	{
+		"level_no": 18,
+		"unlock_points": 139,
+		"questions": [{
+			"id": 1,
+			"title": "ما هي السورة التي تسمى بالطامة",
+			"answer_1": "القارعة",
+			"answer_2": "الواقعة",
+			"answer_3": "النازعات",
+			"answer_4": "الأنفال",
+			"true_answer": "النازعات",
+			"points": 2,
+			"duration": 8000,
+			"pattern": {
+				"pattern_id": 2,
+				"pattern_name": "Choose the correct answer"
+			},
+			"hint":"سورة النازعات"
+		},
+			{
+				"id": 2,
+				"title": "ما هي وظيفة المخيخ",
+				"answer_1": "زيادة التركيز",
+				"answer_2": "ضبط التوازن",
+				"answer_3": "مركز للأعصاب",
+				"answer_4": "مركز التفكير",
+				"true_answer": "ضبط التوازن",
+				"points": 2,
+				"duration": 8000,
+				"pattern": {
+					"pattern_id": 2,
+					"pattern_name": "Choose the correct answer"
+				},
+				"hint": "وظيفته هي ضبط التوازن"
+			}
+		,{
+				"id": 3,
+				"title": "المحيط الهادي هو أكبر محيط في العالم",
+				"answer_1": "",
+				"answer_2": "",
+				"answer_3": "",
+				"answer_4": "",
+				"true_answer": "true",
+				"points": 3,
+				"duration": 7000,
+				"pattern": {
+					"pattern_id": 1,
+					"pattern_name": "True of False"
+				},
+				"hint": "المحيط الهادي هو أكبر محيط في العالم"
+			}
+		]
+	},
+	{
+		"level_no": 19,
+		"unlock_points": 145,
+		"questions": [{
+			"id": 1,
+			"title": "من هي الدولة الأكبر في قارة أفريقا ؟",
+			"answer_1": "الجزائر",
+			"answer_2": "مصر",
+			"answer_3": "المجر",
+			"answer_4": "البرازيل",
+			"true_answer": "الجزائر",
+			"points": 2,
+			"duration": 8000,
+			"pattern": {
+				"pattern_id": 2,
+				"pattern_name": "Choose the correct answer"
+			},
+			"hint":"إنها الجزائر"
+		},
+			{
+				"id": 2,
+				"title": "ما هو اكثر الكواكب خطورة",
+				"answer_1": "المشتري",
+				"answer_2": "المريخ",
+				"answer_3": "عطارد",
+				"answer_4": "بلوتو",
+				"true_answer": "المشتري",
+				"points": 2,
+				"duration": 8000,
+				"pattern": {
+					"pattern_id": 2,
+					"pattern_name": "Choose the correct answer"
+				},
+				"hint": "إنه المشتري"
+			}
+		,{
+				"id": 3,
+				"title": "هل الزرافه تتحمل العطش أكثر من الجمل",
+				"answer_1": "",
+				"answer_2": "",
+				"answer_3": "",
+				"answer_4": "",
+				"true_answer": "false",
+				"points": 3,
+				"duration": 7000,
+				"pattern": {
+					"pattern_id": 1,
+					"pattern_name": "True of False"
+				},
+				"hint": "على الرغم من أن الجمل يتحمل الجوع والعطش الشديد إلا أن الزرافه تتحمل العطش أكثر من الجمل"
+			}
+		]
+	},
+	{
+		"level_no": 20,
+		"unlock_points": 152,
+		"questions": [{
+			"id": 1,
+			"title": "ماهو العنصر الذي لو وجد في الحليب لأصبح الحليب غذاء كامل ؟",
+			"answer_1": "",
+			"answer_2": "",
+			"answer_3": "",
+			"answer_4": "",
+			"true_answer": "الحديد",
+			"points": 5,
+			"duration": 13000,
+			"pattern": {
+				"pattern_id": 3,
+				"pattern_name": "Fill the answer"
+			},
+			"hint":"إنه الحديد"
+		},
+			{
+				"id": 2,
+				"title": "ماأسم المضيق الذي يربط البحر الاسود ببحر مرمره ؟",
+				"answer_1": "",
+				"answer_2": "",
+				"answer_3": "",
+				"answer_4": "",
+				"true_answer": "مضيق البسفور",
+				"points": 5,
+				"duration": 13000,
+				"pattern": {
+					"pattern_id": 3,
+					"pattern_name": "Fill the answer"
+				},
+				"hint": "إنه مضيق البسفور"
+			}
+		,{
+				"id": 3,
+				"title": "ماأسم الغدد التي تقوم بتنقيه الدم وتطهيره",
+				"answer_1": "",
+				"answer_2": "",
+				"answer_3": "",
+				"answer_4": "",
+				"true_answer": "الغدد اللمفاويه",
+				"points": 5,
+				"duration": 13000,
+				"pattern": {
+					"pattern_id": 3,
+					"pattern_name": "Fill the answer"
+				},
+				"hint": " إنها الغدد اللمفاويه"
+			}
+		]
+	},
+	{
+		"level_no": 21,
+		"unlock_points": 165,
+		"questions": [{
+			"id": 1,
+			"title": "ماهو العنصر الذي لو وجد في الحليب لأصبح الحليب غذاء كامل ؟",
+			"answer_1": "",
+			"answer_2": "",
+			"answer_3": "",
+			"answer_4": "",
+			"true_answer": "الحديد",
+			"points": 5,
+			"duration": 13000,
+			"pattern": {
+				"pattern_id": 3,
+				"pattern_name": "Fill the answer"
+			},
+			"hint":"إنه الحديد"
+		},
+			{
+				"id": 2,
+				"title": "ماأسم المضيق الذي يربط البحر الاسود ببحر مرمره ؟",
+				"answer_1": "",
+				"answer_2": "",
+				"answer_3": "",
+				"answer_4": "",
+				"true_answer": "مضيق البسفور",
+				"points": 5,
+				"duration": 13000,
+				"pattern": {
+					"pattern_id": 3,
+					"pattern_name": "Fill the answer"
+				},
+				"hint": "إنه مضيق البسفور"
+			}
+		,{
+				"id": 3,
+				"title": "ماأسم الغدد التي تقوم بتنقيه الدم وتطهيره",
+				"answer_1": "",
+				"answer_2": "",
+				"answer_3": "",
+				"answer_4": "",
+				"true_answer": "الغدد اللمفاويه",
+				"points": 5,
+				"duration": 13000,
+				"pattern": {
+					"pattern_id": 3,
+					"pattern_name": "Fill the answer"
+				},
+				"hint": " إنها الغدد اللمفاويه"
+			}
+		]
+	},
+	{
+		"level_no": 22,
+		"unlock_points": 172,
+		"questions": [{
+			"id": 1,
+			"title": "مااسم الديانه الاكثر شيوعا في الهند",
+			"answer_1": "",
+			"answer_2": "",
+			"answer_3": "",
+			"answer_4": "",
+			"true_answer": "الهندوسيه",
+			"points": 5,
+			"duration": 13000,
+			"pattern": {
+				"pattern_id": 3,
+				"pattern_name": "Fill the answer"
+			},
+			"hint":"إنها الهندوسيه"
+		},
+			{
+				"id": 2,
+				"title": "كم خلية دم حمراء يستطيع أنتاجها الجسم في اليوم الواحد",
+				"answer_1": "",
+				"answer_2": "",
+				"answer_3": "",
+				"answer_4": "",
+				"true_answer": "200 مليون خلية",
+				"points": 5,
+				"duration": 13000,
+				"pattern": {
+					"pattern_id": 3,
+					"pattern_name": "Fill the answer"
+				},
+				"hint": "200 مليون خلية"
+			}
+		,{
+				"id": 3,
+				"title": "ما هو العضو في جسم الإنسان الذي يستهلك 40% من أوكسجين الدم",
+				"answer_1": "",
+				"answer_2": "",
+				"answer_3": "",
+				"answer_4": "",
+				"true_answer": "المخ",
+				"points": 5,
+				"duration": 13000,
+				"pattern": {
+					"pattern_id": 3,
+					"pattern_name": "Fill the answer"
+				},
+				"hint": " إنه المخ"
+			}
+		]
+	},
+	{
+		"level_no": 23,
+		"unlock_points": 190,
+		"questions": [{
+			"id": 1,
+			"title": "تعتبر اللغة الإنجليزية هي اللغة الرسمية للارجنتين",
+			"answer_1": "",
+			"answer_2": "",
+			"answer_3": "",
+			"answer_4": "",
+			"true_answer": "false",
+			"points": 3,
+			"duration": 7000,
+			"pattern": {
+				"pattern_id": 1,
+				"pattern_name": "True of False"
+			},
+			"hint":"اللغة الرسمية للارجنتين هي الإسبانية"
+		},
+			{
+				"id": 2,
+				"title": "أين أفتتح اول متحف في العالم",
+				"answer_1": "بريطانيا",
+				"answer_2": "ألمانيا",
+				"answer_3": "مصر",
+				"answer_4": "الصين",
+				"true_answer": "مصر",
+				"points": 2,
+				"duration": 8000,
+				"pattern": {
+					"pattern_id": 2,
+					"pattern_name": "Choose the correct answer"
+				},
+				"hint": " أول متحف في العالم في مصر"
+			}
+		,{
+				"id": 3,
+				"title": "كم تبلغ درجه حراره الشمس",
+				"answer_1": "2 مليون درجة مئوية",
+				"answer_2": "5 مليون درجة مئوية",
+				"answer_3": "10 مليون درجة مئوية",
+				"answer_4": "15 مليون درجة مئوية",
+				"true_answer": "15 مليون درجة مئوية",
+				"points": 2,
+				"duration": 8000,
+				"pattern": {
+					"pattern_id": 2,
+					"pattern_name": "Choose the correct answer"
+				},
+				"hint": "تبلغ درجة حرارة الشمس 15 مليون درجة مئوية"
+			}
+		]
+	},
+	{
+		"level_no": 24,
+		"unlock_points": 197,
+		"questions": [{
+			"id": 1,
+			"title": "ما هي عاصمه استراليا",
+			"answer_1": "",
+			"answer_2": "",
+			"answer_3": "",
+			"answer_4": "",
+			"true_answer": "كانبير",
+			"points": 5,
+			"duration": 13000,
+			"pattern": {
+				"pattern_id": 3,
+				"pattern_name": "Fill the answer"
+			},
+			"hint":"عاصمة أستراليا هي كانبير"
+		},
+			{
+				"id": 2,
+				"title": "متى حفر اول بئر بترولي في العالم",
+				"answer_1": "عام 1923",
+				"answer_2": "عام 1953",
+				"answer_3": "عام 1985",
+				"answer_4": "عام 1959",
+				"true_answer": "عام 1959",
+				"points": 2,
+				"duration": 8000,
+				"pattern": {
+					"pattern_id": 2,
+					"pattern_name": "Choose the correct answer"
+				},
+				"hint": "حفر اول بئر بترولي في العالم في عام 1959"
+			}
+		,{
+				"id": 3,
+				"title": "من هي أكبر مدينة أفريقية",
+				"answer_1": "الدار البيضاء",
+				"answer_2": "القاهرة",
+				"answer_3": "الجزائر",
+				"answer_4": "الخرطوم",
+				"true_answer": "القاهرة",
+				"points": 2,
+				"duration": 8000,
+				"pattern": {
+					"pattern_id": 2,
+					"pattern_name": "Choose the correct answer"
+				},
+				"hint": "تعتبر مدينة القاهرة هي أكبر مدينة إفريقية"
+			}
+		]
+	},
+	{
+		"level_no": 25,
+		"unlock_points": 207,
+		"questions": [{
+			"id": 1,
+			"title": "ما هي عاصمه استراليا",
+			"answer_1": "",
+			"answer_2": "",
+			"answer_3": "",
+			"answer_4": "",
+			"true_answer": "كانبير",
+			"points": 5,
+			"duration": 13000,
+			"pattern": {
+				"pattern_id": 3,
+				"pattern_name": "Fill the answer"
+			},
+			"hint":"عاصمة أستراليا هي كانبير"
+		},
+			{
+				"id": 2,
+				"title": "متى حفر اول بئر بترولي في العالم",
+				"answer_1": "عام 1923",
+				"answer_2": "عام 1953",
+				"answer_3": "عام 1985",
+				"answer_4": "عام 1959",
+				"true_answer": "عام 1959",
+				"points": 2,
+				"duration": 8000,
+				"pattern": {
+					"pattern_id": 2,
+					"pattern_name": "Choose the correct answer"
+				},
+				"hint": "حفر اول بئر بترولي في العالم في عام 1959"
+			}
+		,{
+				"id": 3,
+				"title": "من هي أكبر مدينة أفريقية",
+				"answer_1": "الدار البيضاء",
+				"answer_2": "القاهرة",
+				"answer_3": "الجزائر",
+				"answer_4": "الخرطوم",
+				"true_answer": "القاهرة",
+				"points": 2,
+				"duration": 8000,
+				"pattern": {
+					"pattern_id": 2,
+					"pattern_name": "Choose the correct answer"
+				},
+				"hint": "تعتبر مدينة القاهرة هي أكبر مدينة إفريقية"
+			}
+		]
+	},
+	{
+		"level_no": 26,
+		"unlock_points": 217,
+		"questions": [{
+			"id": 1,
+			"title": "ما هي عاصمه استراليا",
+			"answer_1": "",
+			"answer_2": "",
+			"answer_3": "",
+			"answer_4": "",
+			"true_answer": "كانبير",
+			"points": 5,
+			"duration": 13000,
+			"pattern": {
+				"pattern_id": 3,
+				"pattern_name": "Fill the answer"
+			},
+			"hint":"عاصمة أستراليا هي كانبير"
+		},
+			{
+				"id": 2,
+				"title": "متى حفر اول بئر بترولي في العالم",
+				"answer_1": "عام 1923",
+				"answer_2": "عام 1953",
+				"answer_3": "عام 1985",
+				"answer_4": "عام 1959",
+				"true_answer": "عام 1959",
+				"points": 2,
+				"duration": 8000,
+				"pattern": {
+					"pattern_id": 2,
+					"pattern_name": "Choose the correct answer"
+				},
+				"hint": "حفر اول بئر بترولي في العالم في عام 1959"
+			}
+		,{
+				"id": 3,
+				"title": "من هي أكبر مدينة أفريقية",
+				"answer_1": "الدار البيضاء",
+				"answer_2": "القاهرة",
+				"answer_3": "الجزائر",
+				"answer_4": "الخرطوم",
+				"true_answer": "القاهرة",
+				"points": 2,
+				"duration": 8000,
+				"pattern": {
+					"pattern_id": 2,
+					"pattern_name": "Choose the correct answer"
+				},
+				"hint": "تعتبر مدينة القاهرة هي أكبر مدينة إفريقية"
+			}
+		]
+	},
+	{
+		"level_no": 27,
+		"unlock_points": 227,
+		"questions": [{
+			"id": 1,
+			"title": "ما هي عاصمه استراليا",
+			"answer_1": "",
+			"answer_2": "",
+			"answer_3": "",
+			"answer_4": "",
+			"true_answer": "كانبير",
+			"points": 5,
+			"duration": 13000,
+			"pattern": {
+				"pattern_id": 3,
+				"pattern_name": "Fill the answer"
+			},
+			"hint":"عاصمة أستراليا هي كانبير"
+		},
+			{
+				"id": 2,
+				"title": "متى حفر اول بئر بترولي في العالم",
+				"answer_1": "عام 1923",
+				"answer_2": "عام 1953",
+				"answer_3": "عام 1985",
+				"answer_4": "عام 1959",
+				"true_answer": "عام 1959",
+				"points": 2,
+				"duration": 8000,
+				"pattern": {
+					"pattern_id": 2,
+					"pattern_name": "Choose the correct answer"
+				},
+				"hint": "حفر اول بئر بترولي في العالم في عام 1959"
+			}
+		,{
+				"id": 3,
+				"title": "من هي أكبر مدينة أفريقية",
+				"answer_1": "الدار البيضاء",
+				"answer_2": "القاهرة",
+				"answer_3": "الجزائر",
+				"answer_4": "الخرطوم",
+				"true_answer": "القاهرة",
+				"points": 2,
+				"duration": 8000,
+				"pattern": {
+					"pattern_id": 2,
+					"pattern_name": "Choose the correct answer"
+				},
+				"hint": "تعتبر مدينة القاهرة هي أكبر مدينة إفريقية"
+			}
+		]
+	},
+	{
+		"level_no": 28,
+		"unlock_points": 237,
+		"questions": [{
+			"id": 1,
+			"title": "ما هي عاصمه استراليا",
+			"answer_1": "",
+			"answer_2": "",
+			"answer_3": "",
+			"answer_4": "",
+			"true_answer": "كانبير",
+			"points": 5,
+			"duration": 13000,
+			"pattern": {
+				"pattern_id": 3,
+				"pattern_name": "Fill the answer"
+			},
+			"hint":"عاصمة أستراليا هي كانبير"
+		},
+			{
+				"id": 2,
+				"title": "متى حفر اول بئر بترولي في العالم",
+				"answer_1": "عام 1923",
+				"answer_2": "عام 1953",
+				"answer_3": "عام 1985",
+				"answer_4": "عام 1959",
+				"true_answer": "عام 1959",
+				"points": 2,
+				"duration": 8000,
+				"pattern": {
+					"pattern_id": 2,
+					"pattern_name": "Choose the correct answer"
+				},
+				"hint": "حفر اول بئر بترولي في العالم في عام 1959"
+			}
+		,{
+				"id": 3,
+				"title": "من هي أكبر مدينة أفريقية",
+				"answer_1": "الدار البيضاء",
+				"answer_2": "القاهرة",
+				"answer_3": "الجزائر",
+				"answer_4": "الخرطوم",
+				"true_answer": "القاهرة",
+				"points": 2,
+				"duration": 8000,
+				"pattern": {
+					"pattern_id": 2,
+					"pattern_name": "Choose the correct answer"
+				},
+				"hint": "تعتبر مدينة القاهرة هي أكبر مدينة إفريقية"
+			}
+		]
+	},
+	{
+		"level_no": 29,
+		"unlock_points": 247,
+		"questions": [{
+			"id": 1,
+			"title": "ما هي عاصمه استراليا",
+			"answer_1": "",
+			"answer_2": "",
+			"answer_3": "",
+			"answer_4": "",
+			"true_answer": "كانبير",
+			"points": 5,
+			"duration": 13000,
+			"pattern": {
+				"pattern_id": 3,
+				"pattern_name": "Fill the answer"
+			},
+			"hint":"عاصمة أستراليا هي كانبير"
+		},
+			{
+				"id": 2,
+				"title": "متى حفر اول بئر بترولي في العالم",
+				"answer_1": "عام 1923",
+				"answer_2": "عام 1953",
+				"answer_3": "عام 1985",
+				"answer_4": "عام 1959",
+				"true_answer": "عام 1959",
+				"points": 2,
+				"duration": 8000,
+				"pattern": {
+					"pattern_id": 2,
+					"pattern_name": "Choose the correct answer"
+				},
+				"hint": "حفر اول بئر بترولي في العالم في عام 1959"
+			}
+		,{
+				"id": 3,
+				"title": "من هي أكبر مدينة أفريقية",
+				"answer_1": "الدار البيضاء",
+				"answer_2": "القاهرة",
+				"answer_3": "الجزائر",
+				"answer_4": "الخرطوم",
+				"true_answer": "القاهرة",
+				"points": 2,
+				"duration": 8000,
+				"pattern": {
+					"pattern_id": 2,
+					"pattern_name": "Choose the correct answer"
+				},
+				"hint": "تعتبر مدينة القاهرة هي أكبر مدينة إفريقية"
+			}
+		]
 	}
 
 ]

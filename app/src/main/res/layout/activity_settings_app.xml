@@ -4,18 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/app_color"
     tools:context=".ui.SettingsApp"
     android:configChanges="uiMode">
 
-
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/game_q"
+        >
+        <TextView
+            android:id="@+id/handel_color"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:alpha="0.07"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
 
             <View
                 android:id="@+id/v1"
@@ -37,6 +47,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_15sdp"
                 android:fontFamily="@font/ds"
+                style="@style/TextShadowStyle"
                 android:text="@string/Setting"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_15ssp"
@@ -74,7 +85,7 @@
                 android:id="@+id/card1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/card_background_color"
+                app:cardBackgroundColor="@color/color_setting"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="10dp"
                 app:cardUseCompatPadding="true"
@@ -143,61 +154,61 @@
             </androidx.cardview.widget.CardView>
 
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card2"
+<!--            <androidx.cardview.widget.CardView-->
+<!--                android:id="@+id/card2"-->
 
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/card_background_color"
-                app:cardCornerRadius="10dp"
-                app:cardElevation="10dp"
-                app:cardUseCompatPadding="true"
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:cardBackgroundColor="@color/color_setting"-->
+<!--                app:cardCornerRadius="10dp"-->
+<!--                app:cardElevation="10dp"-->
+<!--                app:cardUseCompatPadding="true"-->
 
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/card1">
-
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/card1">-->
 
 
-                    <androidx.appcompat.widget.SwitchCompat
-                        android:id="@+id/switch2"
-                        style="@style/TextShadowStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/_24sdp"
-                        android:checked="false"
-                        android:fontFamily="@font/we"
-                        android:textOff="@string/o"
-                        android:textOn="@string/i"
-                        android:thumb="@drawable/themped"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:showText="true"
-                        app:switchTextAppearance="@style/CustomSwitchCompat"
-                        app:track="@drawable/track" />
+<!--                <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content">-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/_24sdp"
-                        android:fontFamily="@font/we"
-                        android:text="@string/notification"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_18ssp"
-                        android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="parent"
 
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+<!--                    <androidx.appcompat.widget.SwitchCompat-->
+<!--                        android:id="@+id/switch2"-->
+<!--                        style="@style/TextShadowStyle"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_margin="@dimen/_24sdp"-->
+<!--                        android:checked="false"-->
+<!--                        android:fontFamily="@font/we"-->
+<!--                        android:textOff="@string/o"-->
+<!--                        android:textOn="@string/i"-->
+<!--                        android:thumb="@drawable/themped"-->
+<!--                        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintTop_toTopOf="parent"-->
+<!--                        app:showText="true"-->
+<!--                        app:switchTextAppearance="@style/CustomSwitchCompat"-->
+<!--                        app:track="@drawable/track" />-->
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_margin="@dimen/_24sdp"-->
+<!--                        android:fontFamily="@font/we"-->
+<!--                        android:text="@string/notification"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textSize="@dimen/_18ssp"-->
+<!--                        android:textStyle="bold"-->
+<!--                        app:layout_constraintBottom_toBottomOf="parent"-->
 
-            </androidx.cardview.widget.CardView>
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--                </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+<!--            </androidx.cardview.widget.CardView>-->
 
 
             <androidx.cardview.widget.CardView
@@ -205,13 +216,13 @@
 
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/card_background_color"
+                app:cardBackgroundColor="@color/color_setting"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="10dp"
                 app:cardUseCompatPadding="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/card2">
+                app:layout_constraintTop_toBottomOf="@+id/card1">
 
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -259,7 +270,7 @@
 
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/card_background_color"
+                app:cardBackgroundColor="@color/color_setting"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="10dp"
                 app:cardUseCompatPadding="true"
@@ -311,7 +322,7 @@
                 android:layout_width="0dp"
                 android:layout_height="@dimen/_1sdp"
                 android:layout_marginHorizontal="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:background="@color/white"
                 app:layout_constraintBottom_toBottomOf="@+id/additional"
                 app:layout_constraintEnd_toStartOf="@id/additional"
@@ -324,10 +335,11 @@
                 android:id="@+id/additional"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:fontFamily="@font/ds"
                 android:text="@string/additional_settings"
                 android:textColor="@color/white"
+                style="@style/TextShadowStyle"
                 android:textSize="@dimen/_15ssp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -338,8 +350,7 @@
                 android:layout_width="0dp"
                 android:layout_height="@dimen/_1sdp"
                 android:layout_marginHorizontal="@dimen/_10sdp"
-
-                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:background="@color/white"
                 app:layout_constraintBottom_toBottomOf="@+id/additional"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -351,7 +362,7 @@
                 android:id="@+id/card5"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="@color/card_background_color"
+                app:cardBackgroundColor="@color/color_setting"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="10dp"
                 app:cardUseCompatPadding="true"

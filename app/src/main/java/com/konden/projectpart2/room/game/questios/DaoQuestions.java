@@ -2,11 +2,9 @@ package com.konden.projectpart2.room.game.questios;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
-import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
-import androidx.room.Update;
 
 
 import java.util.List;
@@ -15,12 +13,6 @@ import java.util.List;
 public interface DaoQuestions {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void InsertQuestions(QuestionsEntity entity);
-
-    @Update
-    void UpdateQuestions(QuestionsEntity entity);
-
-    @Delete
-    void DeleteQuestions(QuestionsEntity entity);
 
     // للبحث
     @Query("select * from QuestionsEntity Where levelNoChild=:LevelNo" +

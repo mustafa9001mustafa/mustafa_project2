@@ -8,40 +8,39 @@ import androidx.lifecycle.LiveData;
 
 import com.konden.projectpart2.room.game.level.LevelEntity;
 import com.konden.projectpart2.room.game.questios.QuestionsEntity;
-import com.konden.projectpart2.room.profile.ProfileEntity;
 
 import java.util.List;
 
 public class ViewModelGame extends AndroidViewModel {
 
-    private RepositoryGame repository;
+    private final RepositoryGame repository;
 
     public ViewModelGame(@NonNull Application application) {
         super(application);
         repository = new RepositoryGame(application);
     }
 
-    public void insertProfile(ProfileEntity profile) {
-
-        repository.InsertProfiler(profile);
-    }
-
-
-    public void UpdateProfile(ProfileEntity profile) {
-
-        repository.UpdateProfile(profile);
-    }
-
-
-    public void DeleteProfile(ProfileEntity profile) {
-
-        repository.DeleteProfile(profile);
-    }
-
-    public LiveData<List<ProfileEntity>> getAllPlayer() {
-        return repository.getAllProfile();
-    }
-
+//    public void insertProfile(ProfileEntity profile) {
+//
+//        repository.InsertProfiler(profile);
+//    }
+//
+//
+//    public void UpdateProfile(ProfileEntity profile) {
+//
+//        repository.UpdateProfile(profile);
+//    }
+//
+//
+//    public void DeleteProfile(ProfileEntity profile) {
+//
+//        repository.DeleteProfile(profile);
+//    }
+//
+//    public LiveData<List<ProfileEntity>> getAllPlayer() {
+//        return repository.getAllProfile();
+//    }
+//
 
     public void InsertLevel(LevelEntity level) {
 
@@ -62,4 +61,9 @@ public class ViewModelGame extends AndroidViewModel {
     public LiveData<List<QuestionsEntity>> getAllQuestions(int id) {
         return repository.getAllQuestions(id);
     }
+
+    public void updateLevel_evolution(double level_evolution,int level_no) {
+        repository.updateLevel_evolution(level_evolution,level_no);
+    }
+
 }

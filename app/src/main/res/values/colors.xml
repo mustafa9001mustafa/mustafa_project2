@@ -19,11 +19,15 @@
     <color name="whiteshape">#F1F1F1</color>
     <color name="redandwight">#FF2818</color>
     <color name="color_card_false">#FF2818</color>
-    <color name="colorblue">#111111</color>
+    <color name="colorblue">#FFFFFF</color>
     <color name="greencros">#00E627</color>
 
     <color name="red_and_night">#F31100</color>
     <color name="white_and_red">#F31100</color>
+
+
+    <color name="color_setting">#FFFFFF</color>
+
 
     <color name="app_color">#313F85</color>
     <color name="item_color_open">#11E419</color>
@@ -35,5 +39,10 @@
     <color name="light_blue_A200">#FF40C4FF</color>
     <color name="light_blue_A400">#FF00B0FF</color>
     <color name="black_overlay">#66000000</color>
+    <color name="back_shape">#66090909</color>
+    <color name="back_wrong">#191919</color>
+    <color name="close">#66090909</color>
 
+    <color name="color_coin">#EA9931</color>
+    <color name="part_white">#EEEEEE</color>
 </resources>

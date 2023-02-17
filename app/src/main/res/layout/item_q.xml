@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="@dimen/_94sdp"
+    android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:layout_marginHorizontal="@dimen/_4sdp"
-    android:layout_width="@dimen/_100sdp"
-    android:layout_height="wrap_content">
+    android:layout_marginHorizontal="@dimen/_4sdp">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -21,8 +20,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
-            >
+            android:layout_gravity="center">
 
 
             <TextView
@@ -31,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/ds"
                 android:gravity="center"
-                android:text="1"
+                android:text="25"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_20ssp"
                 app:layout_constraintBottom_toTopOf="@id/view"
@@ -44,7 +42,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:cardBackgroundColor="@color/item_color_close"
-                app:cardCornerRadius="@dimen/_3sdp"
+                app:cardCornerRadius="@dimen/_4sdp"
                 app:cardUseCompatPadding="true"
                 app:layout_constraintBottom_toTopOf="@+id/stars"
                 app:layout_constraintRight_toRightOf="parent"
@@ -52,14 +50,14 @@
 
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
 
                     <com.airbnb.lottie.LottieAnimationView
                         android:id="@+id/item_lock"
-                        android:layout_width="@dimen/_16sdp"
-                        android:layout_height="@dimen/_16sdp"
+                        android:layout_width="@dimen/_14sdp"
+                        android:layout_height="@dimen/_14sdp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
@@ -72,11 +70,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/ds"
-                        android:text="10"
+                        android:text="250"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/_9ssp"
-                        app:layout_constraintLeft_toRightOf="@id/item_lock"
+                        android:textSize="@dimen/_7ssp"
                         app:layout_constraintBottom_toBottomOf="@id/item_lock"
+                        app:layout_constraintLeft_toRightOf="@id/item_lock"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toTopOf="@id/item_lock" />
 
@@ -87,23 +85,25 @@
                 android:id="@+id/view"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/_1sdp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/item_text_level"
-                android:background="@color/black"
                 android:layout_marginHorizontal="@dimen/_5sdp"
-                />
+                android:background="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/item_text_level" />
 
             <RatingBar
                 android:id="@+id/stars"
+                style="?android:attr/ratingBarStyleIndicator"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:isIndicator="false"
                 android:numStars="3"
-                android:scaleX=".7"
-                android:scaleY=".7"
-                android:stepSize="0.8"
-                android:layout_marginHorizontal="@dimen/_1sdp"
-                style="?android:attr/ratingBarStyleIndicator"
+                android:scaleX=".6"
+                android:rating="3"
+                android:scaleY=".6"
+                android:progressBackgroundTint="@color/red"
+                android:progressTint="@android:color/holo_orange_dark"
+                android:stepSize="1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

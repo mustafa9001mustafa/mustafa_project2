@@ -10,13 +10,12 @@ import com.konden.projectpart2.room.game.level.LevelEntity;
 
 @Entity(foreignKeys = {
         @ForeignKey(entity = LevelEntity.class, parentColumns = {"level_no"},
-        childColumns = {"levelNoChild"}, onDelete = CASCADE, onUpdate = CASCADE)})
+                childColumns = {"levelNoChild"}, onDelete = CASCADE, onUpdate = CASCADE)})
 
 
 public class QuestionsEntity {
     @PrimaryKey(autoGenerate = true)
     private int id_forDatabase;
-
     private int id_Question;
     private String title;
     private String answer_1;
@@ -33,12 +32,11 @@ public class QuestionsEntity {
     public QuestionsEntity() {
     }
 
-    public QuestionsEntity(int id_Question,String title, String answer_1, String answer_2, String answer_3, String answer_4, String true_answer, int points, int duration, String hint, int levelNoChild
+    public QuestionsEntity(int id_Question, String title, String answer_1, String answer_2, String answer_3, String answer_4, String true_answer, int points, int duration, String hint, int levelNoChild
             , int pattern_idChild) {
 
         this.id_Question = id_Question;
         this.title = title;
-
         this.answer_1 = answer_1;
         this.answer_2 = answer_2;
         this.answer_3 = answer_3;
